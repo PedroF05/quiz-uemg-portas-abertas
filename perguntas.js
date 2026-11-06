@@ -1,0 +1,31 @@
+// Banco de perguntas (gerado com ajuda de IA e revisado). Formato: [categoria, pergunta, resposta certa, [3 erradas]]
+// Para adicionar perguntas, copie uma linha e edite.
+const PERGUNTAS = [
+["Jogos","Qual é o encanador mais famoso da Nintendo?","Mario",["Wario","Sonic","Link"]],
+["Jogos","Qual material é usado para construir o portal do Nether no Minecraft?","Obsidiana",["Diamante","Ferro","Pedra"]],
+["Jogos","Em qual jogo você encontra a cidade de Los Santos?","GTA V",["Fortnite","FIFA","Free Fire"]],
+["Jogos","Em CS, qual item os terroristas plantam nos bomb sites?","C4",["Granada","Mina","Dinamite"]],
+["Jogos","Quem é o protagonista da série The Legend of Zelda?","Link",["Zelda","Ganon","Mario"]],
+["Jogos","Qual é o número do Pikachu na Pokédex?","25",["1","7","150"]],
+["Jogos","Qual jogo ficou famoso pelo modo Battle Royale com construção de estruturas?","Fortnite",["Tetris","The Sims","Minecraft"]],
+["Filmes","Qual é o nome da escola de magia de Harry Potter?","Hogwarts",["Beauxbatons","Durmstrang","Ilvermorny"]],
+["Filmes","Quem é o pai de Luke Skywalker?","Darth Vader",["Obi-Wan","Yoda","Han Solo"]],
+["Filmes","Qual é o nome do cowboy de Toy Story?","Woody",["Buzz","Rex","Slinky"]],
+["Filmes","Em Vingadores, quem usa o martelo Mjölnir?","Thor",["Hulk","Homem de Ferro","Loki"]],
+["Filmes","Qual filme da Pixar tem o peixe Marlin procurando o filho?","Procurando Nemo",["Moana","Shrek","Ratatouille"]],
+["Filmes","Em Matrix, que cor de pílula o Neo escolhe?","Vermelha",["Azul","Verde","Amarela"]],
+["Séries","Como se chama a dimensão paralela em Stranger Things?","Mundo Invertido",["Espelho Negro","Zona Fantasma","Outro Lado"]],
+["Séries","Qual é o primeiro jogo em Round 6 (Squid Game)?","Batatinha frita 1, 2, 3",["Cabo de guerra","Bolinhas de gude","Pular corda"]],
+["Séries","Qual a profissão de Walter White em Breaking Bad?","Professor de química",["Médico","Mecânico","Advogado"]],
+["Séries","Qual casa de Game of Thrones tem o lema \"O inverno está chegando\"?","Stark",["Lannister","Targaryen","Baratheon"]],
+["Séries","Qual é o nome do café onde os amigos de Friends se reúnem?","Central Perk",["Moe's","Starbucks","Cheers"]],
+["Séries","Qual o apelido do líder do plano em La Casa de Papel?","Professor",["Berlim","Tóquio","Denver"]],
+["Anime","Qual é a vila de origem do Naruto?","Folha (Konoha)",["Areia","Névoa","Pedra"]],
+["Anime","Quantas Esferas do Dragão existem em Dragon Ball?","7",["5","9","12"]],
+["Anime","Qual é o sonho do Luffy em One Piece?","Ser o Rei dos Piratas",["Ser Hokage","Ser Shinigami","Achar as Esferas"]],
+["Tecnologia","O que significa a sigla IA?","Inteligência Artificial",["Internet Avançada","Informação Automática","Interface de Aplicativo"]],
+["Tecnologia","Qual linguagem de programação tem uma cobra como símbolo?","Python",["Java","C++","Ruby"]],
+["Tecnologia","Quantos bits tem um byte?","8",["4","16","32"]],
+["Tecnologia","O que significa CPU?","Unidade Central de Processamento",["Central Pública de Usuários","Controle de Programas Úteis","Computador Pessoal Universal"]],
+["Tecnologia","Qual é o mascote do GitHub?","Octocat",["Tux","Duke","Gopher"]]
+];
