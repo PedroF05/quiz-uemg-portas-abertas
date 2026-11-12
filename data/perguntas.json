@@ -1,0 +1,164 @@
+[
+  {
+    "category": "Jogos",
+    "prompt": "Qual é o encanador mais famoso da Nintendo?",
+    "correct": "Mario",
+    "distractors": ["Wario", "Sonic", "Link"]
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual material é usado para construir o portal do Nether no Minecraft?",
+    "correct": "Obsidiana",
+    "distractors": ["Diamante", "Ferro", "Pedra"]
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em qual jogo você encontra a cidade de Los Santos?",
+    "correct": "GTA V",
+    "distractors": ["Fortnite", "FIFA", "Free Fire"]
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em CS, qual item os terroristas plantam nos bomb sites?",
+    "correct": "C4",
+    "distractors": ["Granada", "Mina", "Dinamite"]
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Quem é o protagonista da série The Legend of Zelda?",
+    "correct": "Link",
+    "distractors": ["Zelda", "Ganon", "Mario"]
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual é o número do Pikachu na Pokédex?",
+    "correct": "25",
+    "distractors": ["1", "7", "150"]
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual jogo ficou famoso pelo modo Battle Royale com construção de estruturas?",
+    "correct": "Fortnite",
+    "distractors": ["Tetris", "The Sims", "Minecraft"]
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual é o nome da escola de magia de Harry Potter?",
+    "correct": "Hogwarts",
+    "distractors": ["Beauxbatons", "Durmstrang", "Ilvermorny"]
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Quem é o pai de Luke Skywalker?",
+    "correct": "Darth Vader",
+    "distractors": ["Obi-Wan", "Yoda", "Han Solo"]
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual é o nome do cowboy de Toy Story?",
+    "correct": "Woody",
+    "distractors": ["Buzz", "Rex", "Slinky"]
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Vingadores, quem usa o martelo Mjölnir?",
+    "correct": "Thor",
+    "distractors": ["Hulk", "Homem de Ferro", "Loki"]
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual filme da Pixar tem o peixe Marlin procurando o filho?",
+    "correct": "Procurando Nemo",
+    "distractors": ["Moana", "Shrek", "Ratatouille"]
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Matrix, que cor de pílula o Neo escolhe?",
+    "correct": "Vermelha",
+    "distractors": ["Azul", "Verde", "Amarela"]
+  },
+  {
+    "category": "Séries",
+    "prompt": "Como se chama a dimensão paralela em Stranger Things?",
+    "correct": "Mundo Invertido",
+    "distractors": ["Espelho Negro", "Zona Fantasma", "Outro Lado"]
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o primeiro jogo em Round 6 (Squid Game)?",
+    "correct": "Batatinha frita 1, 2, 3",
+    "distractors": ["Cabo de guerra", "Bolinhas de gude", "Pular corda"]
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual a profissão de Walter White em Breaking Bad?",
+    "correct": "Professor de química",
+    "distractors": ["Médico", "Mecânico", "Advogado"]
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual casa de Game of Thrones tem o lema \"O inverno está chegando\"?",
+    "correct": "Stark",
+    "distractors": ["Lannister", "Targaryen", "Baratheon"]
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome do café onde os amigos de Friends se reúnem?",
+    "correct": "Central Perk",
+    "distractors": ["Moe's", "Starbucks", "Cheers"]
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual o apelido do líder do plano em La Casa de Papel?",
+    "correct": "Professor",
+    "distractors": ["Berlim", "Tóquio", "Denver"]
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é a vila de origem do Naruto?",
+    "correct": "Folha (Konoha)",
+    "distractors": ["Areia", "Névoa", "Pedra"]
+  },
+  {
+    "category": "Anime",
+    "prompt": "Quantas Esferas do Dragão existem em Dragon Ball?",
+    "correct": "7",
+    "distractors": ["5", "9", "12"]
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o sonho do Luffy em One Piece?",
+    "correct": "Ser o Rei dos Piratas",
+    "distractors": ["Ser Hokage", "Ser Shinigami", "Achar as Esferas"]
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "O que significa a sigla IA?",
+    "correct": "Inteligência Artificial",
+    "distractors": ["Internet Avançada", "Informação Automática", "Interface de Aplicativo"]
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual linguagem de programação tem uma cobra como símbolo?",
+    "correct": "Python",
+    "distractors": ["Java", "C++", "Ruby"]
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Quantos bits tem um byte?",
+    "correct": "8",
+    "distractors": ["4", "16", "32"]
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "O que significa CPU?",
+    "correct": "Unidade Central de Processamento",
+    "distractors": ["Central Pública de Usuários", "Controle de Programas Úteis", "Computador Pessoal Universal"]
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual é o mascote do GitHub?",
+    "correct": "Octocat",
+    "distractors": ["Tux", "Duke", "Gopher"]
+  }
+]

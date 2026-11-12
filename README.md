@@ -1,28 +1,120 @@
 # Quiz UEMG de Portas Abertas
 
-## Como usar
-1. Extraia o ZIP e abra o `index.html` no navegador (Chrome/Edge). Funciona 100% offline.
-2. Projete na tela e aperte **F** para tela cheia.
-3. As equipes falam a resposta; quem opera o notebook clica (ou aperta 1 a 4).
-4. Acertou em menos de 10s = 15 pontos; depois disso = 10. Errou ou acabou o tempo = 0.
-5. O ranking do dia fica salvo no navegador (use sempre o mesmo navegador).
+Quiz de perguntas e respostas para o evento de portas abertas da UEMG.
+Duas equipes de até 3 pessoas, perguntas de temas prontos ou geradas por IA.
 
-## Editando as perguntas
-Abra `perguntas.js` e copie/edite as linhas. Formato:
-["Categoria","Pergunta","Resposta certa",["errada 1","errada 2","errada 3"]]
+O servidor é a fonte de verdade da partida: relógio, pontuação e gabarito ficam nele.
 
-## Sugestão de roteiro para explicar o projeto
-- O banco de perguntas foi gerado com uma IA (LLM) e revisado pela equipe.
-- A página é HTML + CSS + JavaScript puro, sem internet.
-- Mostrar `perguntas.js`: "a IA gera, a gente valida, o sistema sorteia".
+## Rodando
 
-## Modo IA ao vivo (opcional, precisa de internet)
-1. **Versão gratuita:** crie uma chave em aistudio.google.com (Google AI Studio, plano free, sem cartão) e use a variável `GEMINI_API_KEY`. (Opcional/pago: `ANTHROPIC_API_KEY` com chave de console.anthropic.com.) Não coloque a chave no GitHub nem no HTML.
-   Se o modelo padrão não funcionar no seu plano free, defina `MODELO` com outro modelo liberado no AI Studio.
-2. No terminal, dentro da pasta:
-   - Windows: `set GEMINI_API_KEY=sua_chave` e depois `python server.py`
-   - Linux/Mac: `export GEMINI_API_KEY=sua_chave` e depois `python3 server.py`
-3. Abra http://localhost:8000 (no Chrome).
-4. Dê um nome para a IA, digite o tema (ou clique em 🎤 e diga, por exemplo, "Nina, tema jogos") e clique em Começar.
-5. Se o tema ficar vazio, ou se a internet/IA falhar, o quiz usa o banco offline automaticamente.
-Dica: antes do evento, teste vários temas e deixe o modo offline como plano B (abrindo o index.html direto).
+Requisitos: Python 3.11+ e [uv](https://docs.astral.sh/uv/).
+
+```bash
+./run.sh          # Linux/macOS
+run.bat           # Windows
+```
+
+Ou manualmente:
+
+```bash
+uv sync
+cp .env.example .env
+uv run uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+
+Abra <http://localhost:8000>. O modo local funciona sem internet e sem chave de API.
+
+## Como jogar
+
+1. Dê nome às duas equipes e escolha o tema e o número de perguntas.
+2. "Começar" sorteia as perguntas (no modo local, do banco offline).
+3. A equipe da vez responde a pergunta; acertou = 10 pontos, +5 se responder na
+   primeira metade dos 20 segundos.
+4. Teclas `1`–`4` respondem, `Espaço` avança, `F` alterna tela cheia.
+5. O ranking fica no SQLite do servidor (`data/quiz.db`).
+
+## Modos
+
+| Modo | Status | Como funciona |
+|---|---|---|
+| Local | pronto | Um notebook/projetor; o host clica na resposta |
+| Offline | pronto | `LLM_PROVIDER=offline`: nenhuma chamada externa |
+| Celular (QR) | fase 3 | Cada jogador responde pelo celular, tipo Kahoot |
+
+## Configuração
+
+Copie `.env.example` para `.env`. As variáveis principais:
+
+| Variável | Descrição |
+|---|---|
+| `LLM_PROVIDER` | `offline`, `gemini`, `hf` ou `local` |
+| `GEMINI_API_KEY` | chave do Google AI Studio |
+| `GEMINI_MODEL` | modelo do Gemini (padrão `gemini-3.8-flash`) |
+| `HF_TOKEN` / `HF_MODEL` | Hugging Face Inference Providers (opcional) |
+| `OLLAMA_MODEL` | modelo local via Ollama (ex.: `qwen2.5:3b-instruct`) |
+| `PUBLIC_URL` | URL usada no QR code (fase 3); vazio = IP da LAN |
+| `QUESTION_TIME` | segundos por pergunta (padrão 20) |
+
+O `.env` nunca vai para o Git. A chave fica só no servidor.
+
+## Editando perguntas e temas
+
+O banco curado fica em `data/perguntas.json`:
+
+```json
+{
+  "category": "Jogos",
+  "prompt": "Pergunta?",
+  "correct": "Resposta certa",
+  "distractors": ["errada 1", "errada 2", "errada 3"]
+}
+```
+
+Temas em `data/temas/*.json`. Um tema pode filtrar uma categoria do banco:
+
+```json
+{ "id": "jogos", "name": "Jogos", "category": "Jogos" }
+```
+
+ou trazer as próprias perguntas no campo `questions` (útil para temas gerados por IA).
+
+## Testes
+
+```bash
+uv run pytest
+```
+
+Os testes não chamam API externa.
+
+## Estrutura
+
+```
+app/
+  main.py            FastAPI
+  config.py          configuração via .env
+  api/               rotas HTTP
+  domain/            modelos e pontuação
+  game/              engine e salas
+  quiz/              banco e temas
+  db/                SQLite
+  static/            host em JS puro (módulos ES)
+data/                perguntas, temas e banco SQLite
+tests/               pytest
+docs/plans/          plano de evolução
+```
+
+## Legado
+
+O protótipo original continua em `legacy/` (`index.html`, `perguntas.js` e `server.py`) e
+pode ser aberto direto no navegador como plano B, sem servidor. O `legacy/server.py` é o
+backend antigo do protótipo e não faz parte da aplicação atual; ele serve apenas os
+arquivos de `legacy/`.
+
+## Roadmap
+
+Consulte [`docs/plans/2026-11-11-quiz-uemg-portas-abertas.md`](docs/plans/2026-11-11-quiz-uemg-portas-abertas.md).
+
+- Fase 1: estrutura, motor server-side, modo local — **concluída**
+- Fase 2: LangChain (Gemini / HF / local) e fallback offline
+- Fase 3: celulares via QR e WebSocket
+- Fase 4: polimento e ensaio
