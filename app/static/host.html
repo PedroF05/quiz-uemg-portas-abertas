@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Quiz UEMG de Portas Abertas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/host.css">
+</head>
+<body class="host-page">
+  <header class="host-header">
+    <div class="brand">
+      <div class="brand-icon" aria-hidden="true"><img class="ico" src="/img/icons/graduation-cap.png" alt=""></div>
+      <div class="brand-text">
+        <div class="brand-title">
+          <span>UEMG</span>
+          <span class="brand-badge">De Portas Abertas</span>
+        </div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="ghost-btn" id="fullscreen-btn" title="Alternar tela cheia">
+        <kbd>F</kbd>
+        <span>Tela Cheia</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="app">
+    <div class="boot-loading">
+      <img class="ico" src="/img/icons/graduation-cap.png" alt="">
+      <p>Carregando o quiz…</p>
+    </div>
+  </main>
+
+  <footer class="host-footer">
+    <div class="shortcuts">
+      <span><kbd>F</kbd> Tela cheia</span>
+      <span class="dot">•</span>
+      <span><kbd>1–4</kbd> Escolhem a resposta</span>
+      <span class="dot">•</span>
+      <span><kbd>Espaço</kbd> Próxima pergunta</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener("error", () => {
+      const app = document.getElementById("app");
+      if (app && app.querySelector(".boot-loading")) {
+        app.innerHTML = '<div class="boot-loading"><p>Não foi possível carregar o quiz. Recarregue a página com Ctrl+Shift+R.</p></div>';
+      }
+    });
+  </script>
+  <script type="module" src="/js/host/app.js"></script>
+</body>
+</html>

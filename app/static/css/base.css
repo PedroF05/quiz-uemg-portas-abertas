@@ -1,0 +1,146 @@
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/css/fonts/outfit-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/css/fonts/plus-jakarta-sans-latin.woff2") format("woff2");
+}
+
+:root {
+  --azul: #0b2a5b;
+  --azul-escuro: #08204a;
+  --azul-medio: #1d4a96;
+  --azul-claro: #2a63c4;
+  --amarelo: #ffd23f;
+  --branco: #ffffff;
+  --verde: #2ecc71;
+  --vermelho: #e74c3c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, "Segoe UI", Arial, sans-serif;
+  background: var(--azul);
+  color: var(--branco);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 14px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--azul-escuro);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+header span {
+  color: var(--amarelo);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 18px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: var(--amarelo);
+}
+
+.sub {
+  opacity: 0.8;
+  font-size: 1.2rem;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+  border-radius: 14px;
+  padding: 14px 28px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  background: var(--amarelo);
+  color: var(--azul-escuro);
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+button.sec {
+  background: var(--azul-medio);
+  color: var(--branco);
+}
+
+button:disabled {
+  cursor: default;
+  filter: none;
+}
+
+input[type="text"],
+select {
+  font: inherit;
+  font-size: 1.2rem;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 0;
+  background: var(--branco);
+  color: var(--azul-escuro);
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 260px;
+}
+
+.row {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.hint {
+  opacity: 0.6;
+  font-size: 0.95rem;
+}
+
+ol {
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+.ico {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  vertical-align: -0.22em;
+  flex-shrink: 0;
+}
+
