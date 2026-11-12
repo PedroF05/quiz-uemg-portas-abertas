@@ -5,6 +5,7 @@ Uso:  set ANTHROPIC_API_KEY=sua_chave   (Windows)   |   export ANTHROPIC_API_KEY
 Só usa a biblioteca padrão do Python (sem pip install)."""
 import json, os, re, time, urllib.error, urllib.request
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
 
 CHAVE_G = os.environ.get("GEMINI_API_KEY", "")      # Google Gemini (tem plano gratuito)
 CHAVE = os.environ.get("ANTHROPIC_API_KEY", "")     # Anthropic (pago)
@@ -76,5 +77,6 @@ class H(SimpleHTTPRequestHandler):
         self.send_header("Content-Type", "application/json"); self.end_headers(); self.wfile.write(out)
 
 if __name__ == "__main__":
+    os.chdir(Path(__file__).resolve().parent)
     print("IA:", "Gemini" if CHAVE_G else ("Anthropic" if CHAVE else "nenhuma (so offline)"), MODELO, "| abra http://localhost:%d" % PORTA)
     ThreadingHTTPServer(("", PORTA), H).serve_forever()

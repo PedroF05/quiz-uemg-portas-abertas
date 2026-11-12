@@ -1,0 +1,18 @@
+# Ambiente
+.venv/
+.env
+.scratch/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Banco e artefatos locais
+data/quiz.db
+data/quiz.db-*
+data/*.sqlite*
+
+# Sistema
+.DS_Store
+Thumbs.db
