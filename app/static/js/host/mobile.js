@@ -1,3 +1,4 @@
+import { api } from "../core/api.js";
 import { $, esc, icon } from "../core/dom.js";
 import { QuizSocket } from "../core/ws.js";
 
@@ -147,7 +148,7 @@ function scoreboard(state) {
           ${esc(team.name)}
           <b>${team.score}</b>
           <div class="hint" style="font-size:0.9rem; margin-top:4px;">
-            ${team.answered ? "✓ Respondeu" : "Aguardando…"}
+            ${team.answered ? `${icon("check")} Respondeu` : "Aguardando…"}
           </div>
         </div>
       `;
@@ -180,14 +181,16 @@ function optionHtml(option, index, reveal, state) {
 
 function renderQuestion(app, state) {
   app.innerHTML = `
-    ${scoreboard(state)}
-    <div class="cat">${esc(state.question.category)} · Rodada Simultânea</div>
-    <div class="q">${esc(state.question.prompt)}</div>
-    <div class="bar"><div id="clock"></div></div>
-    <div class="opts">
-      ${state.question.options.map((opt, i) => optionHtml(opt, i, null, state)).join("")}
+    <div class="game-screen">
+      ${scoreboard(state)}
+      <div class="cat">${esc(state.question.category)} · Rodada Simultânea</div>
+      <div class="q">${esc(state.question.prompt)}</div>
+      <div class="bar"><div id="clock"></div></div>
+      <div class="opts">
+        ${state.question.options.map((opt, i) => optionHtml(opt, i, null, state)).join("")}
+      </div>
+      <div class="msg" id="msg">${icon("smartphone")} Responda pelo celular!</div>
     </div>
-    <div class="msg" id="msg">${icon("smartphone")} Responda pelo celular!</div>
   `;
 
   animateClock(state.seconds_left);
@@ -208,15 +211,17 @@ function renderReveal(app, state) {
   const nextText = state.index + 1 >= state.total ? "Ver Resultado Final" : "Próxima Pergunta (Espaço)";
 
   app.innerHTML = `
-    ${scoreboard(state)}
-    <div class="cat">${esc(state.question.category)}</div>
-    <div class="q">${esc(state.question.prompt)}</div>
-    <div class="bar"><div id="clock" style="width:0%;"></div></div>
-    <div class="opts">
-      ${state.question.options.map((opt, i) => optionHtml(opt, i, state.reveal, state)).join("")}
+    <div class="game-screen">
+      ${scoreboard(state)}
+      <div class="cat">${esc(state.question.category)}</div>
+      <div class="q">${esc(state.question.prompt)}</div>
+      <div class="bar"><div id="clock" style="width:0%;"></div></div>
+      <div class="opts">
+        ${state.question.options.map((opt, i) => optionHtml(opt, i, state.reveal, state)).join("")}
+      </div>
+      <div class="msg" id="msg">${revealMessage(state)}</div>
+      <button id="mobile-next-btn" class="sec">${nextText}</button>
     </div>
-    <div class="msg" id="msg">${revealMessage(state)}</div>
-    <button id="mobile-next-btn" class="sec">${nextText}</button>
   `;
 
   $("#mobile-next-btn").addEventListener("click", () => {
@@ -224,17 +229,55 @@ function renderReveal(app, state) {
   });
 }
 
+function rankingHtml(ranking) {
+  if (!ranking || !ranking.length) {
+    return "";
+  }
+
+  const items = ranking
+    .map(
+      (entry, index) => `
+        <li>
+          <span class="rank-pos">${index + 1}</span>
+          <span class="rank-name">${esc(entry.name)}</span>
+          <span class="rank-score">${entry.score} pts</span>
+        </li>
+      `,
+    )
+    .join("");
+
+  return `
+    <div class="ranking">
+      <div class="card-heading">${icon("trophy")}<h2>Ranking Geral do Evento</h2></div>
+      <ol>${items}</ol>
+    </div>
+  `;
+}
+
 function renderFinished(app, state, onBackToLobby) {
   const winners = state.winners || [];
   const title = winners.length === 1 ? `${icon("trophy")} ${esc(winners[0])} venceu!` : `${icon("handshake")} Empate!`;
 
   app.innerHTML = `
-    <h1>${title}</h1>
-    <div class="score">
-      ${state.teams.map((t) => `<div class="team">${esc(t.name)}<b>${t.score}</b></div>`).join("")}
+    <div class="game-screen results-screen">
+      <h1>${title}</h1>
+      <div class="score">
+        ${state.teams.map((t) => `<div class="team">${esc(t.name)}<b>${t.score}</b></div>`).join("")}
+      </div>
+      <div id="mobile-ranking-wrap"></div>
+      <button id="mobile-again-btn">Nova Partida</button>
     </div>
-    <button id="mobile-again-btn" style="margin-top:20px;">Nova Partida</button>
   `;
+
+  api
+    .get("/api/ranking?limit=5")
+    .then((ranking) => {
+      const wrap = $("#mobile-ranking-wrap");
+      if (wrap) {
+        wrap.innerHTML = rankingHtml(ranking);
+      }
+    })
+    .catch(() => {});
 
   $("#mobile-again-btn").addEventListener("click", () => {
     if (hostSocket) {

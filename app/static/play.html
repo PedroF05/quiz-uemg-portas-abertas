@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Quiz UEMG — Jogar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/play.css">
 </head>
@@ -12,7 +12,19 @@
     <div>UEMG <span>De Portas Abertas</span></div>
     <div id="hdr">Quiz</div>
   </header>
-  <main id="app"></main>
+  <main id="app">
+    <div class="play-container">
+      <div class="sub">Carregando o quiz…</div>
+    </div>
+  </main>
+  <script>
+    window.addEventListener("error", () => {
+      const app = document.getElementById("app");
+      if (app && app.textContent.includes("Carregando o quiz")) {
+        app.innerHTML = '<div class="play-container"><div class="status-toast" role="status">Não foi possível conectar. Verifique o Wi-Fi e recarregue a página.</div></div>';
+      }
+    });
+  </script>
   <script type="module" src="/js/play/app.js"></script>
 </body>
 </html>

@@ -34,7 +34,7 @@ export async function showJoinScreen(container, initialCode, onJoined) {
         <div class="sub">Digite o código da sala mostrado na tela do host:</div>
         <input id="room-code-input" type="text" placeholder="CÓDIGO (ex: ABC123)" maxlength="6" style="text-transform:uppercase;">
         <button id="find-room-btn">Continuar</button>
-        <div id="join-error" class="hint" style="color:var(--vermelho);"></div>
+        <div id="join-error" class="hint" style="color:#fecaca;"></div>
       </div>
     `;
 
@@ -124,7 +124,7 @@ export async function showJoinScreen(container, initialCode, onJoined) {
         >
 
         <button id="join-btn" ${!selectedTeamId ? "disabled" : ""}>Entrar no Jogo!</button>
-        ${errorMessage ? `<div class="status-toast" style="background:var(--vermelho); color:var(--branco);">${esc(errorMessage)}</div>` : ""}
+        ${errorMessage ? `<div class="status-toast" role="status">${esc(errorMessage)}</div>` : ""}
       </div>
     `;
 

@@ -35,9 +35,8 @@ function showPlayerToast(message) {
   }
   const toast = document.createElement("div");
   toast.className = "status-toast";
+  toast.setAttribute("role", "status");
   toast.style.marginTop = "12px";
-  toast.style.background = "var(--vermelho)";
-  toast.style.color = "var(--branco)";
   toast.innerHTML = `${icon("warning")} ${esc(message)}`;
   const container = $(".play-container", appContainer) || appContainer;
   container.appendChild(toast);

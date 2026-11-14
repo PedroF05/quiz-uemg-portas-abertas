@@ -1,37 +1,59 @@
+/* Telas do jogador — mundo "Palco de Vidro Noturno" (DESIGN.md).
+   Mobile-first: container 540px, coluna única, alvos de toque ≥ 64px. */
+
 .play-container {
   width: 100%;
   max-width: 540px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   padding: 8px 12px;
 }
 
+.play-container h1 .ico {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.08em;
+}
+
+/* Selo/pill — Label do sistema */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--azul-escuro);
-  color: var(--amarelo);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--borda-vidro);
+  background: rgba(30, 41, 59, 0.55);
+  color: var(--neblina);
+  font-size: 0.7rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.12em;
 }
 
+.badge .ico,
+.reveal-banner .ico,
+.locked-card .ico,
+.status-toast .ico {
+  width: 24px;
+  height: 24px;
+}
+
+/* Equipe — comando dourado */
 .team-badge {
-  font-size: 1.3rem;
-  font-weight: 700;
-  padding: 8px 18px;
-  border-radius: 12px;
-  background: var(--azul-medio);
-  border: 2px solid var(--amarelo);
-  color: var(--branco);
+  font-family: var(--fonte-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b 60%, #eab308);
+  color: #101827;
+  box-shadow: 0 8px 20px -8px rgba(245, 158, 11, 0.55);
 }
 
+/* Seleção de equipe — mesma linguagem da alternativa do jogo */
 .teams-grid {
   display: flex;
   flex-direction: column;
@@ -43,33 +65,77 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
-  border-radius: 14px;
-  background: var(--azul-medio);
-  color: var(--branco);
-  border: 3px solid transparent;
-  font-size: 1.2rem;
+  gap: 12px;
+  min-height: 64px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--borda-vidro);
+  background: rgba(30, 41, 59, 0.55);
+  color: var(--texto);
+  font-family: var(--fonte-corpo);
+  font-size: 1.1rem;
+  font-weight: 400;
   text-align: left;
+  transition: 0.16s ease;
+}
+
+.team-select-btn:hover {
+  border-color: rgba(96, 165, 250, 0.4);
+  background: rgba(59, 130, 246, 0.13);
 }
 
 .team-select-btn.selected {
-  border-color: var(--amarelo);
-  background: var(--azul-claro);
+  border-color: rgba(251, 191, 36, 0.7);
+  background: rgba(245, 158, 11, 0.12);
+  color: #fff;
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.15);
 }
 
 .team-select-btn:disabled {
-  opacity: 0.5;
-  background: var(--azul-escuro);
+  opacity: 0.45;
+  background: rgba(15, 23, 42, 0.35);
 }
 
 .team-members-count {
-  font-size: 0.9rem;
-  background: var(--azul-escuro);
-  padding: 4px 10px;
-  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(8, 16, 30, 0.75);
   color: var(--amarelo);
+  flex-shrink: 0;
 }
 
+/* Cronômetro */
+.bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(8, 16, 30, 0.75);
+  overflow: hidden;
+}
+
+.bar div {
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #f59e0b, #fde047);
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.5);
+}
+
+/* Pergunta */
+.q {
+  width: 100%;
+  font-family: var(--fonte-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #fff;
+  margin: 2px 0;
+}
+
+/* Alternativas */
 .play-opts {
   display: flex;
   flex-direction: column;
@@ -80,17 +146,19 @@
 .play-opt {
   display: flex;
   align-items: center;
-  padding: 18px 16px;
   min-height: 64px;
-  font-size: 1.25rem;
-  font-weight: 700;
+  padding: 16px 18px;
+  font-family: var(--fonte-corpo);
+  font-size: 1.1rem;
+  font-weight: 400;
   text-align: left;
-  border-radius: 14px;
-  background: var(--branco);
-  color: var(--azul-escuro);
-  border: 0;
+  border-radius: 16px;
+  border: 1px solid var(--borda-vidro);
+  background: rgba(30, 41, 59, 0.55);
+  color: var(--texto);
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  transition: 0.16s ease;
 }
 
 .play-opt:active {
@@ -101,28 +169,48 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: var(--azul-escuro);
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba(8, 16, 30, 0.75);
   color: var(--amarelo);
   font-style: normal;
-  margin-right: 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 13px;
   flex-shrink: 0;
 }
 
 .play-opt.selected {
-  outline: 4px solid var(--amarelo);
+  border-color: rgba(251, 191, 36, 0.7);
+  background: rgba(245, 158, 11, 0.12);
+  outline: 0;
+  box-shadow: 0 0 0 1px rgba(251, 191, 36, 0.15);
 }
 
-.play-opt.ok {
-  background: var(--verde);
-  color: var(--branco);
+/* Veredito Translúcido — nunca bloco sólido com texto branco (DESIGN.md) */
+.play-opt.ok,
+.reveal-banner.correct {
+  background: rgba(34, 197, 94, 0.18);
+  border-color: rgba(34, 197, 94, 0.55);
+  color: #bbf7d0;
 }
 
-.play-opt.no {
-  background: var(--vermelho);
-  color: var(--branco);
+.play-opt.ok i {
+  background: #16a34a;
+  color: #052e16;
+}
+
+.play-opt.no,
+.reveal-banner.wrong {
+  background: rgba(239, 68, 68, 0.16);
+  border-color: rgba(239, 68, 68, 0.55);
+  color: #fecaca;
+}
+
+.play-opt.no i {
+  background: #dc2626;
+  color: #450a0a;
 }
 
 .play-opt.dim {
@@ -131,85 +219,82 @@
 
 .play-opt:disabled {
   cursor: default;
-  filter: none;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.85;
 }
 
+/* Card de estado (aguardando / placar / classificação) */
 .locked-card {
-  padding: 24px;
+  width: 100%;
+  padding: 18px 20px;
   border-radius: 16px;
-  background: var(--azul-medio);
-  border: 2px dashed var(--amarelo);
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 1.4;
+  border: 1px dashed rgba(251, 191, 36, 0.35);
+  background: var(--vidro);
+  backdrop-filter: blur(18px);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
+.locked-card .hint {
+  font-size: 0.9rem;
+}
+
+/* Indicador de espera */
 .pulse {
   display: inline-block;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: var(--amarelo);
-  box-shadow: 0 0 0 0 rgba(255, 210, 63, 0.7);
-  animation: pulse-ring 1.5s infinite;
+  animation: pulse-ring 1.8s ease-in-out infinite;
 }
 
 @keyframes pulse-ring {
   0% {
+    opacity: 0.5;
     transform: scale(0.9);
-    box-shadow: 0 0 0 0 rgba(255, 210, 63, 0.7);
   }
-  70% {
-    transform: scale(1.1);
-    box-shadow: 0 0 0 10px rgba(255, 210, 63, 0);
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
   }
+
   100% {
+    opacity: 0.5;
     transform: scale(0.9);
-    box-shadow: 0 0 0 0 rgba(255, 210, 63, 0);
   }
 }
 
+/* Veredito da rodada */
 .reveal-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   padding: 16px 20px;
-  border-radius: 14px;
-  font-size: 1.4rem;
-  font-weight: 700;
+  border-radius: 16px;
+  border: 1px solid var(--borda-vidro);
+  font-family: var(--fonte-display);
+  font-size: 1.2rem;
+  font-weight: 600;
   width: 100%;
 }
 
-.reveal-banner.correct {
-  background: var(--verde);
-  color: var(--branco);
-}
-
-.reveal-banner.wrong {
-  background: var(--vermelho);
-  color: var(--branco);
-}
-
 .reveal-banner.neutral {
-  background: var(--azul-medio);
-  color: var(--branco);
+  background: rgba(30, 41, 59, 0.55);
+  color: var(--texto);
 }
 
+/* Toast de erro — Veredito Translúcido */
 .status-toast {
-  background: var(--azul-escuro);
-  color: var(--amarelo);
-  padding: 10px 16px;
-  border-radius: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 68, 68, 0.55);
+  background: rgba(239, 68, 68, 0.16);
+  color: #fecaca;
   font-size: 0.95rem;
   font-weight: 600;
-}
-
-.play-container h1 .ico {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.08em;
-}
-
-.reveal-banner .ico,
-.locked-card .ico,
-.status-toast .ico {
-  width: 24px;
-  height: 24px;
 }

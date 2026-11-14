@@ -7,6 +7,7 @@ const LETTERS = ["A", "B", "C", "D"];
 
 let themes = [];
 let ranking = [];
+let history = [];
 let game = null;
 let hostToken = null;
 let animation = 0;
@@ -25,13 +26,15 @@ boot();
 
 async function boot() {
   try {
-    [themes, ranking] = await Promise.all([
-      api.get("/api/themes"),
-      api.get("/api/ranking?limit=5"),
+    [themes, ranking, history] = await Promise.all([
+      api.get("/api/themes").catch(() => []),
+      api.get("/api/ranking?limit=5").catch(() => []),
+      api.get("/api/history?limit=5").catch(() => []),
     ]);
   } catch {
     themes = [];
     ranking = [];
+    history = [];
   }
   renderLobby();
 }
@@ -120,6 +123,64 @@ function rankingHtml() {
     <div class="ranking">
       <div class="card-heading">${icon("trophy")}<h2>Ranking do evento</h2></div>
       <ol>${items}</ol>
+    </div>
+  `;
+}
+
+function formatShortDate(isoString) {
+  if (!isoString) return "—";
+  try {
+    const d = new Date(isoString);
+    if (isNaN(d.getTime())) return String(isoString).slice(0, 10);
+    const day = String(d.getDate()).padStart(2, "0");
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const hours = String(d.getHours()).padStart(2, "0");
+    const minutes = String(d.getMinutes()).padStart(2, "0");
+    return `${day}/${month} ${hours}:${minutes}`;
+  } catch {
+    return String(isoString).slice(0, 10);
+  }
+}
+
+function historyHtml() {
+  if (!history.length) {
+    return `
+      <div class="history-card">
+        <div class="card-heading">${icon("finish-flag")}<h2>Últimas partidas</h2></div>
+        <p class="ranking-empty">Nenhuma partida finalizada ainda.</p>
+      </div>
+    `;
+  }
+
+  const items = history
+    .map((match) => {
+      const dateText = formatShortDate(match.finished_at || match.created_at);
+      const modeText = match.mode === "mobile" ? "Celulares" : "Local";
+      const teams = match.teams || [];
+      const maxScore = teams.length ? Math.max(...teams.map((t) => t.score)) : 0;
+      const winners = teams.filter((t) => t.score === maxScore).map((t) => t.name);
+      let winnerText = "—";
+      if (winners.length === 1) {
+        winnerText = winners[0];
+      } else if (winners.length > 1) {
+        winnerText = `Empate (${winners.join(", ")})`;
+      }
+
+      return `
+        <li>
+          <span class="hist-date">${esc(dateText)}</span>
+          <span class="hist-theme" title="${esc(match.theme)}">${esc(match.theme)}</span>
+          <span class="hist-mode">${esc(modeText)}</span>
+          <span class="hist-winner">${icon("trophy")} ${esc(winnerText)}</span>
+        </li>
+      `;
+    })
+    .join("");
+
+  return `
+    <div class="history-card">
+      <div class="card-heading">${icon("finish-flag")}<h2>Últimas partidas</h2></div>
+      <ol class="history-list">${items}</ol>
     </div>
   `;
 }
@@ -267,8 +328,9 @@ function renderLobby() {
         <p class="start-hint">Pronto para iniciar? Os cronômetros começam imediatamente!</p>
       </section>
 
-      <section class="ranking-section">
+      <section class="lobby-bottom-grid">
         ${rankingHtml()}
+        ${historyHtml()}
       </section>
     </div>
   `;
@@ -360,7 +422,7 @@ async function handleGenerateAI() {
 
 async function pollGenerationJob(jobId, themeText, statusBox) {
   let attempts = 0;
-  const maxAttempts = 60;
+  const maxAttempts = 420;
   while (attempts < maxAttempts) {
     attempts += 1;
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -370,7 +432,7 @@ async function pollGenerationJob(jobId, themeText, statusBox) {
         generatedQuestions = res.questions || [];
         const providerName = res.provider || "offline";
         const fallbackWarning = res.fallback
-          ? `<div class="ai-fallback">${icon("warning")} Provedor indisponível. Fallback offline utilizado!</div>`
+          ? `<div class="ai-fallback">${icon("warning")} ${esc(res.detail || `Provedor indisponível. Usando ${providerName}.`)}</div>`
           : "";
 
         if (statusBox) {
@@ -389,7 +451,7 @@ async function pollGenerationJob(jobId, themeText, statusBox) {
         return;
       } else {
         if (statusBox) {
-          statusBox.innerHTML = `<span class="ai-status"><span class="pulse"></span> Criando perguntas sobre "${esc(themeText)}"… (${attempts}/${maxAttempts})</span>`;
+          statusBox.innerHTML = `<span class="ai-status"><span class="pulse"></span> Criando perguntas sobre "${esc(themeText)}"… ${attempts}s (limite de 420s)</span>`;
         }
       }
     } catch (err) {
@@ -448,7 +510,15 @@ async function startGame() {
         roomCode: response.code,
         hostToken: response.host_token,
         initialState: response.state,
-        onBackToLobby: renderLobby,
+        onBackToLobby: async () => {
+          try {
+            [ranking, history] = await Promise.all([
+              api.get("/api/ranking?limit=5").catch(() => ranking),
+              api.get("/api/history?limit=5").catch(() => history),
+            ]);
+          } catch {}
+          renderLobby();
+        },
       });
     } else {
       game = response.state;
@@ -515,15 +585,17 @@ function renderGame() {
   const turn = game.teams.find((team) => team.id === game.turn_team_id);
 
   app.innerHTML = `
-    ${scoreboard()}
-    <div class="cat">${esc(game.question.category)}${turn ? ` · vez de ${esc(turn.name)}` : ""}</div>
-    <div class="q">${esc(game.question.prompt)}</div>
-    <div class="bar"><div id="clock"></div></div>
-    <div class="opts">
-      ${game.question.options.map((option, index) => optionHtml(option, index, reveal)).join("")}
+    <div class="game-screen">
+      ${scoreboard()}
+      <div class="cat">${esc(game.question.category)}${turn ? ` · vez de ${esc(turn.name)}` : ""}</div>
+      <div class="q">${esc(game.question.prompt)}</div>
+      <div class="bar"><div id="clock"></div></div>
+      <div class="opts">
+        ${game.question.options.map((option, index) => optionHtml(option, index, reveal)).join("")}
+      </div>
+      <div class="msg" id="msg">${reveal ? revealMessage() : ""}</div>
+      ${reveal ? `<button id="next" class="sec">${nextLabel()}</button>` : ""}
     </div>
-    <div class="msg" id="msg">${reveal ? revealMessage() : ""}</div>
-    ${reveal ? `<button id="next" class="sec">${nextLabel()}</button>` : ""}
   `;
 
   if (reveal) {
@@ -587,7 +659,12 @@ async function nextQuestion() {
   try {
     game = await api.post(`/api/rooms/${game.code}/next`, undefined, hostToken);
     if (game.phase === "finished") {
-      ranking = await api.get("/api/ranking?limit=5").catch(() => ranking);
+      try {
+        [ranking, history] = await Promise.all([
+          api.get("/api/ranking?limit=5").catch(() => ranking),
+          api.get("/api/history?limit=5").catch(() => history),
+        ]);
+      } catch {}
       renderResults();
     } else {
       renderGame();
@@ -620,12 +697,14 @@ function renderResults() {
   const title = winners.length === 1 ? `${icon("trophy")} ${esc(winners[0])} venceu!` : `${icon("handshake")} Empate!`;
 
   app.innerHTML = `
-    <h1>${title}</h1>
-    <div class="score">${game.teams
-      .map((team) => `<div class="team">${esc(team.name)}<b>${team.score}</b></div>`)
-      .join("")}</div>
-    ${rankingHtml()}
-    <button id="again">Nova partida</button>
+    <div class="game-screen results-screen">
+      <h1>${title}</h1>
+      <div class="score">${game.teams
+        .map((team) => `<div class="team">${esc(team.name)}<b>${team.score}</b></div>`)
+        .join("")}</div>
+      ${rankingHtml()}
+      <button id="again">Nova partida</button>
+    </div>
   `;
   $("#again").addEventListener("click", renderLobby);
 }
