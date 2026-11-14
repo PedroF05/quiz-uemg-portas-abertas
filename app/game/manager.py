@@ -125,9 +125,16 @@ class RoomManager:
     def state(self, code: str) -> RoomSnapshotDict:
         return self.get(code).snapshot()
 
-    def answer(self, code: str, host_token: str, team_id: str, option_id: str) -> RoomSnapshotDict:
+    def answer(
+        self,
+        code: str,
+        host_token: str,
+        team_id: str,
+        option_id: str,
+        player_id: str | None = None,
+    ) -> RoomSnapshotDict:
         engine = self.get(code, host_token)
-        return engine.answer(team_id, option_id)
+        return engine.answer(team_id, option_id, player_id=player_id)
 
     def next_question(self, code: str, host_token: str) -> RoomSnapshotDict:
         engine = self.get(code, host_token)

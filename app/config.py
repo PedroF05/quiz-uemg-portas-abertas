@@ -34,6 +34,8 @@ class Settings(BaseSettings):
     ollama_base_url: str = "http://localhost:11434"
     ollama_model: str = "qwen2.5:3b-instruct"
     ollama_timeout: int = 180
+    ollama_num_ctx: int = 4096
+    ollama_think: bool = False
 
     @property
     def themes_dir(self) -> Path:

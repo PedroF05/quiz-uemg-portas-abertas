@@ -129,7 +129,9 @@ class GameEngine:
             self._reveal()
         return self.snapshot()
 
-    def answer(self, team_id: str, option_id: str) -> RoomSnapshotDict:
+    def answer(
+        self, team_id: str, option_id: str, player_id: str | None = None
+    ) -> RoomSnapshotDict:
         room = self.room
         self._check_timeout()
 
@@ -163,15 +165,16 @@ class GameEngine:
 
         team.answered = True
         team.score += points
-        room.answers.append(
-            AnswerRecord(
-                team_id=team_id,
-                option_id=option_id,
-                correct=correct,
-                points=points,
-                elapsed=round(elapsed, 3),
-            )
+        record = AnswerRecord(
+            team_id=team_id,
+            option_id=option_id,
+            correct=correct,
+            points=points,
+            elapsed=round(elapsed, 3),
+            player_id=player_id,
         )
+        room.answers.append(record)
+        room.all_answers.append(record)
 
         if all(t.answered for t in self._eligible_teams()):
             self._reveal()

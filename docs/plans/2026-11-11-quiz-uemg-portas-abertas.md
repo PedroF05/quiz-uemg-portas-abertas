@@ -1,8 +1,8 @@
 # Plano de evolução — Quiz UEMG de Portas Abertas
 
-> Documento de planejamento com andamento atualizado em 2026-11-12. Fases 1 e 2
-> concluídas, Fase 3 com 6 de 8 itens concluídos e Fase 4 parcial. A auditoria item a
-> item está em `.scratch/quiz-uemg/implemented/auditoria-plano.md`.
+> Documento de planejamento com andamento atualizado em 2026-11-12. Fases 1–4
+> implementadas; restam apenas o ensaio com celulares na rede do campus e o ensaio
+> geral. A auditoria item a item está em `.scratch/quiz-uemg/implemented/auditoria-plano.md`.
 > Destino final no repositório: `docs/plans/` (copiar quando sair do modo plano).
 
 ## 1. Contexto
@@ -380,30 +380,31 @@ rede/API cai para tema pronto sem travar a partida.
 - [x] resposta por time (primeira trava)
 - [x] timer e reveal server-side, gabarito protegido
 - [x] reconexão e rejoin
-- [ ] teste de fluxo WS com 2 times × 3 jogadores
-      **Parcial:** há fluxo WS 1v1, trava com 2 membros do mesmo time e capacidade de 3
-      via HTTP (409 no quarto). Falta teste com 6 sockets simultâneos e `scripts/smoke_ws.py`.
+- [x] teste de fluxo WS com 2 times × 3 jogadores
+      (`tests/test_ws_3v3.py` cobre 6 jogadores/7 sockets; `scripts/smoke_ws.py` valida
+      o mesmo fluxo contra servidor real)
 - [ ] ensaio real com celulares na rede do campus
-      **Pendente:** só há roteiro manual no relatório da fase; nenhum ensaio presencial registrado.
+      **Pendente:** só há roteiro manual; falta executar o ensaio presencial.
 
 Critério de aceite: partida 3v3 completa, com um celular desconectando e voltando sem
 travar a rodada.
 
 ### Fase 4 — Polimento e entrega
-- [ ] ranking/histórico no host
-      **Parcial:** o host exibe o ranking persistido (`GET /api/ranking`) no lobby e no fim
-      do modo local. Falta histórico de partidas (`matches`), ranking geral no fim do modo
-      mobile e a tabela `match_players` (métricas por jogador).
-- [ ] script de subida + Docker
-      **Parcial:** `run.sh` e `run.bat` funcionam. `Dockerfile` e `docker-compose.yml` não existem.
-- [ ] README de operação para o dia do evento
-      **Pendente:** o README atual é de desenvolvimento e ainda diz "Celular: fase 3";
-      falta roteiro de operação, contingência de Wi-Fi e troubleshooting.
+- [x] ranking/histórico no host
+      (ranking persistido, `GET /api/history`, histórico no lobby, ranking no fim do
+      modo mobile e métricas por jogador em `match_players`)
+- [x] script de subida + Docker
+      (`run.sh`/`run.bat` e `Dockerfile`/`docker-compose.yml`; build e `/api/health`
+      validados no container)
+- [x] README de operação para o dia do evento
+      (README atualizado + `docs/operacao-evento.md` com contingência e troubleshooting)
 - [ ] ensaio geral e checklist
-      **Pendente:** não há checklist operacional nem registro de ensaio geral.
+      **Parcial:** o checklist operacional existe em `docs/operacao-evento.md`; falta
+      executar o ensaio geral presencial.
 
 Status da implementação em 2026-11-12 (ver `app/` e `.scratch/quiz-uemg/implemented/`):
-suíte com 61 testes passando, 8 módulos JS válidos e nenhuma chamada real de LLM nos testes.
+suíte com 67 testes passando, 8 módulos JS válidos, nenhuma chamada real de LLM nos
+testes e container Docker respondendo `status: ok`.
 
 ## 13. Testes
 

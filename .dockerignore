@@ -1,0 +1,12 @@
+.venv
+.git
+.gitignore
+.env
+.scratch
+docs
+tests
+legacy
+data/quiz.db*
+__pycache__
+*.pyc
+.pytest_cache

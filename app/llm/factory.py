@@ -81,9 +81,9 @@ def get_provider_timeout(
     if normalized == "local":
         return float(current.ollama_timeout)
     if normalized == "gemini":
-        return 30.0
+        return 60.0
     if normalized == "hf":
-        return 30.0
+        return 60.0
     return 10.0
 
 
@@ -123,7 +123,8 @@ def build_chat_model(
         return ChatOllama(
             model=current.ollama_model,
             base_url=current.ollama_base_url,
-            num_ctx=4096,
+            num_ctx=current.ollama_num_ctx,
+            reasoning=current.ollama_think,
             timeout=current.ollama_timeout,
         )
 

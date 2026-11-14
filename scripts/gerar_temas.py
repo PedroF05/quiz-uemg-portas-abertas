@@ -55,11 +55,32 @@ def main() -> None:
 
     args = parser.parse_args()
 
+    if args.n < 1 or args.n > 20:
+        print("Erro: --n deve estar entre 1 e 20.", file=sys.stderr)
+        sys.exit(2)
+
+    requested_provider = (args.provider or settings.llm_provider).strip().lower()
+
     result = generate_questions_sync(
         theme=args.tema,
         n=args.n,
         requested_provider=args.provider,
     )
+
+    if result.detail:
+        print(f"Detalhe: {result.detail}", file=sys.stderr)
+
+    if not result.questions:
+        print("Erro: nenhuma pergunta foi gerada.", file=sys.stderr)
+        sys.exit(1)
+
+    if requested_provider != "offline" and result.provider == "offline":
+        print(
+            f"Erro: o provedor '{requested_provider}' não respondeu e a geração caiu "
+            "para o banco offline. Nenhum arquivo foi gravado.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
 
     slug = make_slug(args.tema)
     if args.saida:

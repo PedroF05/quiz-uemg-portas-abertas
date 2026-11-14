@@ -19,8 +19,17 @@ def themes() -> list[dict]:
 
 
 @router.get("/ranking")
-def ranking(limit: int = Query(default=10, ge=1, le=50)) -> list[dict]:
+def ranking(
+    limit: int = Query(default=10, ge=1, le=50),
+) -> list[repository.RankingEntryDict]:
     return repository.ranking(settings.db_path, limit)
+
+
+@router.get("/history")
+def history(
+    limit: int = Query(default=5, ge=1, le=50),
+) -> list[repository.MatchHistoryDict]:
+    return repository.history(settings.db_path, limit)
 
 
 @router.get("/health")

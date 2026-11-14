@@ -69,6 +69,7 @@ class AnswerRecord(BaseModel):
     correct: bool
     points: int
     elapsed: float
+    player_id: str | None = None
 
 
 class TeamResult(BaseModel):
@@ -118,6 +119,7 @@ class Room:
         self.turn_team_id: str | None = None
         self.deadline = 0.0
         self.answers: list[AnswerRecord] = []
+        self.all_answers: list[AnswerRecord] = []
         self.created_at = datetime.now()
         self.finished_at: datetime | None = None
         self.persisted = False

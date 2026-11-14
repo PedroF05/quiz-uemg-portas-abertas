@@ -8,6 +8,7 @@ from pathlib import Path
 
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_huggingface import ChatHuggingFace
 from pydantic import BaseModel, Field
 
 from ..config import Settings, settings
@@ -90,7 +91,11 @@ def invoke_model_structured(
     retry_error: str | None = None,
 ) -> QuestionBatch:
     """Invoca o modelo com structured output exigindo o modelo Pydantic QuestionBatch."""
-    runnable = model.with_structured_output(QuestionBatch)
+    if isinstance(model, ChatHuggingFace):
+        schema: type[QuestionBatch] | dict = QuestionBatch.model_json_schema()
+    else:
+        schema = QuestionBatch
+    runnable = model.with_structured_output(schema)
     system_msg = SystemMessage(content=SYSTEM_PROMPT)
     user_msg = HumanMessage(content=build_user_prompt(theme, n, retry_error))
     output = runnable.invoke([system_msg, user_msg])
@@ -101,19 +106,31 @@ def invoke_model_structured(
     raise ValueError("Formato de saída inesperado do modelo estruturado.")
 
 
+def _short_error(message: str, limit: int = 300) -> str:
+    """Encurta a mensagem de erro para caber no detalhe devolvido ao operador."""
+    cleaned = " ".join(message.split())
+    if len(cleaned) <= limit:
+        return cleaned
+    return cleaned[: limit - 3] + "..."
+
+
 async def try_provider_async(
     provider: str,
     theme: str,
     n: int,
     bank_prompts: set[str],
     settings_obj: Settings,
-) -> list[GeneratedQuestion] | None:
-    """Tenta gerar perguntas via provedor com 1 retry e timeout estrito."""
+) -> tuple[list[GeneratedQuestion] | None, str]:
+    """Tenta gerar perguntas via provedor com 1 retry e timeout estrito.
+
+    A segunda posição do retorno traz o último erro do provedor, ou string vazia
+    quando a geração funcionou.
+    """
     timeout = get_provider_timeout(provider, settings_obj)
     try:
         model = build_chat_model(provider, settings_obj)
-    except Exception:
-        return None
+    except Exception as exc:
+        return None, _short_error(str(exc))
 
     def _execute(error_msg: str | None) -> list[GeneratedQuestion]:
         batch = invoke_model_structured(model, theme, n, error_msg)
@@ -124,20 +141,22 @@ async def try_provider_async(
 
     first_error: str = ""
     try:
-        return await asyncio.wait_for(
+        questions = await asyncio.wait_for(
             asyncio.to_thread(_execute, None),
             timeout=timeout,
         )
+        return questions, ""
     except Exception as exc:
-        first_error = str(exc)
+        first_error = str(exc) or type(exc).__name__
 
     try:
-        return await asyncio.wait_for(
+        questions = await asyncio.wait_for(
             asyncio.to_thread(_execute, f"Tentativa anterior falhou: {first_error}"),
             timeout=timeout,
         )
-    except Exception:
-        return None
+        return questions, ""
+    except Exception as exc:
+        return None, _short_error(str(exc) or first_error)
 
 
 async def generate_questions_async(
@@ -171,7 +190,9 @@ async def generate_questions_async(
             detail=None,
         )
 
-    valid_questions = await try_provider_async(
+    provider_errors: list[str] = []
+
+    valid_questions, primary_error = await try_provider_async(
         provider,
         theme,
         n,
@@ -187,6 +208,7 @@ async def generate_questions_async(
             fallback=False,
             detail=None,
         )
+    provider_errors.append(f"{provider}: {primary_error}")
 
     fallback_order = ["gemini", "hf", "local"]
     candidates = [
@@ -196,7 +218,7 @@ async def generate_questions_async(
     ]
 
     for candidate in candidates:
-        candidate_questions = await try_provider_async(
+        candidate_questions, candidate_error = await try_provider_async(
             candidate,
             theme,
             n,
@@ -211,18 +233,24 @@ async def generate_questions_async(
                 f"Provedor solicitado '{provider}' indisponível; "
                 f"perguntas geradas pelo provedor reserva '{candidate}'."
             )
+            if provider_errors:
+                operator_detail += f" Motivo: {provider_errors[0]}"
             return GenerationResult(
                 questions=candidate_questions,
                 provider=candidate,
                 fallback=True,
                 detail=operator_detail,
             )
+        provider_errors.append(f"{candidate}: {candidate_error}")
 
     offline_result = get_offline_questions(current_bank, n, theme)
-    offline_result.detail = (
+    offline_detail = (
         f"Provedor '{provider}' e reservas indisponíveis; "
         "utilizando perguntas do banco offline."
     )
+    if provider_errors:
+        offline_detail += " Últimos erros: " + " | ".join(provider_errors)
+    offline_result.detail = offline_detail
     return offline_result
 
 

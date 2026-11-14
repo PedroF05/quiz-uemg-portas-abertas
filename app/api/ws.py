@@ -274,7 +274,7 @@ class WebSocketHub:
                         PlayerTeamLockedMessage(team_id=player.team_id).model_dump_json()
                     )
                     return
-                engine.answer(player.team_id, option_id)
+                engine.answer(player.team_id, option_id, player_id=player.id)
                 await self.broadcast_team_locked(code, player.team_id)
                 if engine.room.phase is Phase.REVEAL:
                     self.cancel_timer(code)

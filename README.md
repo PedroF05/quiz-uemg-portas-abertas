@@ -24,6 +24,22 @@ uv run uvicorn app.main:app --host 0.0.0.0 --port 8000
 
 Abra <http://localhost:8000>. O modo local funciona sem internet e sem chave de API.
 
+## Docker
+
+Você também pode rodar a aplicação em container via Docker Compose:
+
+```bash
+docker compose up --build
+```
+
+Para subir junto o serviço do Ollama local:
+
+```bash
+docker compose --profile local-llm up --build
+```
+
+A aplicação fica acessível em <http://localhost:8000> com dados persistidos em `./data`.
+
 ## Como jogar
 
 1. Dê nome às duas equipes e escolha o tema e o número de perguntas.
@@ -39,7 +55,17 @@ Abra <http://localhost:8000>. O modo local funciona sem internet e sem chave de 
 |---|---|---|
 | Local | pronto | Um notebook/projetor; o host clica na resposta |
 | Offline | pronto | `LLM_PROVIDER=offline`: nenhuma chamada externa |
-| Celular (QR) | fase 3 | Cada jogador responde pelo celular, tipo Kahoot |
+| Celular (QR) | pronto | Cada jogador responde pelo celular, tipo Kahoot |
+
+## Operação no dia do evento
+
+Consulte o roteiro completo em [`docs/operacao-evento.md`](docs/operacao-evento.md).
+
+Pontos essenciais para o apresentador:
+- **Rede e contingência:** Wi-Fi com isolamento de clientes (*client isolation*) impede o acesso dos celulares ao notebook. Se os aparelhos não abrirem o QR Code, ative o hotspot Wi-Fi do notebook e conecte todos nele.
+- **Modo offline:** O sistema funciona 100% sem internet usando `LLM_PROVIDER=offline` e temas pré-gerados com `scripts/gerar_temas.py`.
+- **Projeção:** Ligue o projetor em 1080p e use a tecla `F` para colocar o navegador em tela cheia.
+- **Equipes no celular:** Até 2 equipes de 3 pessoas; a primeira resposta enviada trava a rodada para o time.
 
 ## Configuração
 
@@ -50,9 +76,11 @@ Copie `.env.example` para `.env`. As variáveis principais:
 | `LLM_PROVIDER` | `offline`, `gemini`, `hf` ou `local` |
 | `GEMINI_API_KEY` | chave do Google AI Studio |
 | `GEMINI_MODEL` | modelo do Gemini (padrão `gemini-3.8-flash`) |
-| `HF_TOKEN` / `HF_MODEL` | Hugging Face Inference Providers (opcional) |
-| `OLLAMA_MODEL` | modelo local via Ollama (ex.: `qwen2.5:3b-instruct`) |
-| `PUBLIC_URL` | URL usada no QR code (fase 3); vazio = IP da LAN |
+| `HF_TOKEN` / `HF_MODEL` | Hugging Face Inference Providers (opcional; requer créditos e modelo disponível na conta) |
+| `OLLAMA_MODEL` | modelo local via Ollama (ex.: `qwen2.5:3b-instruct` ou `qwen3:4b`) |
+| `OLLAMA_NUM_CTX` | contexto do Ollama (padrão 4096; 2048 cabe até ~10 perguntas) |
+| `OLLAMA_THINK` | `false` desliga o raciocínio do Qwen3 e acelera a resposta |
+| `PUBLIC_URL` | URL usada no QR code; vazio = IP da LAN |
 | `QUESTION_TIME` | segundos por pergunta (padrão 20) |
 
 O `.env` nunca vai para o Git. A chave fica só no servidor.
@@ -99,8 +127,13 @@ app/
   db/                SQLite
   static/            host em JS puro (módulos ES)
 data/                perguntas, temas e banco SQLite
+docs/
+  operacao-evento.md guia operacional do evento
+  plans/             plano de evolução
+scripts/             scripts utilitários
 tests/               pytest
-docs/plans/          plano de evolução
+Dockerfile           imagem Docker da aplicação
+docker-compose.yml   orquestração de containers
 ```
 
 ## Legado
@@ -115,6 +148,6 @@ arquivos de `legacy/`.
 Consulte [`docs/plans/2026-11-11-quiz-uemg-portas-abertas.md`](docs/plans/2026-11-11-quiz-uemg-portas-abertas.md).
 
 - Fase 1: estrutura, motor server-side, modo local — **concluída**
-- Fase 2: LangChain (Gemini / HF / local) e fallback offline
-- Fase 3: celulares via QR e WebSocket
-- Fase 4: polimento e ensaio
+- Fase 2: LangChain (Gemini / HF / local) e fallback offline — **concluída**
+- Fase 3: celulares via QR e WebSocket — **concluída**
+- Fase 4: polimento, Docker e ensaio — em andamento

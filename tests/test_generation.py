@@ -144,6 +144,24 @@ async def test_fallback_when_provider_fails(tmp_path: Path) -> None:
 
 
 @pytest.mark.asyncio
+async def test_offline_fallback_reports_provider_error(tmp_path: Path) -> None:
+    db_file = tmp_path / "test_quiz.db"
+    init_db(db_file)
+
+    result = await generate_questions_async(
+        theme="Tema Sem Chave",
+        n=1,
+        requested_provider="gemini",
+        db_path=db_file,
+    )
+
+    assert result.provider == "offline"
+    assert result.detail is not None
+    assert "gemini:" in result.detail
+    assert "Chave de API" in result.detail
+
+
+@pytest.mark.asyncio
 async def test_offline_provider_direct() -> None:
     result = await generate_questions_async(
         theme="Biologia",
