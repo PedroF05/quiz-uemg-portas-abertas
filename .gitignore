@@ -16,3 +16,8 @@ data/*.sqlite*
 # Sistema
 .DS_Store
 Thumbs.db
+
+.agent
+.agents
+.impeccable
+.opencode

@@ -22,7 +22,7 @@ cp .env.example .env
 uv run uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
-Abra <http://localhost:8000>. O modo local funciona sem internet e sem chave de API.
+Abra <http://localhost:8000>. Com `LLM_PROVIDER=offline` o sistema funciona sem internet e sem chave de API.
 
 ## Docker
 
@@ -42,20 +42,28 @@ A aplicação fica acessível em <http://localhost:8000> com dados persistidos e
 
 ## Como jogar
 
-1. Dê nome às duas equipes e escolha o tema e o número de perguntas.
-2. "Começar" sorteia as perguntas (no modo local, do banco offline).
-3. A equipe da vez responde a pergunta; acertou = 10 pontos, +5 se responder na
-   primeira metade dos 20 segundos.
-4. Teclas `1`–`4` respondem, `Espaço` avança, `F` alterna tela cheia.
-5. O ranking fica no SQLite do servidor (`data/quiz.db`).
+1. No notebook do apresentador, abra o host e crie uma **sessão**: o sistema gera um QR Code
+   e um código de sala de 6 caracteres.
+2. Cada jogador entra em `/play` escaneando o QR Code no celular **ou** digitando o código
+   da sala no navegador do celular ou do PC.
+3. Na tela do jogador, escolha sua equipe e informe o apelido.
+4. Com as equipes preenchidas, o host clica em "Começar" e sorteia as perguntas.
+5. Cada rodada tem 20 segundos; a primeira resposta enviada pela equipe trava a rodada.
+   Acertou = 10 pontos, +5 se responder na primeira metade do tempo.
+6. No PC, as teclas `1`–`4` respondem; no host, `Espaço` avança e `F` alterna tela cheia.
+7. O ranking fica no SQLite do servidor (`data/quiz.db`).
 
 ## Modos
 
 | Modo | Status | Como funciona |
 |---|---|---|
-| Local | pronto | Um notebook/projetor; o host clica na resposta |
-| Offline | pronto | `LLM_PROVIDER=offline`: nenhuma chamada externa |
-| Celular (QR) | pronto | Cada jogador responde pelo celular, tipo Kahoot |
+| Sessão | pronto | O host cria a sessão (QR Code + código de 6 caracteres); cada jogador entra por `/play` no celular ou no PC e responde pela equipe, tipo Kahoot |
+
+O modo local (host clicando nas respostas) foi removido: toda partida acontece em uma
+sessão, com os jogadores conectados por `/play`.
+
+Os provedores de geração de perguntas são configurados em `LLM_PROVIDER` e não são modos
+de jogo: `offline` (banco local, sem chamadas externas), `gemini`, `hf` e `local` (Ollama).
 
 ## Operação no dia do evento
 
@@ -63,9 +71,9 @@ Consulte o roteiro completo em [`docs/operacao-evento.md`](docs/operacao-evento.
 
 Pontos essenciais para o apresentador:
 - **Rede e contingência:** Wi-Fi com isolamento de clientes (*client isolation*) impede o acesso dos celulares ao notebook. Se os aparelhos não abrirem o QR Code, ative o hotspot Wi-Fi do notebook e conecte todos nele.
-- **Modo offline:** O sistema funciona 100% sem internet usando `LLM_PROVIDER=offline` e temas pré-gerados com `scripts/gerar_temas.py`.
+- **Geração offline:** O sistema funciona 100% sem internet usando `LLM_PROVIDER=offline` e temas pré-gerados com `scripts/gerar_temas.py`.
 - **Projeção:** Ligue o projetor em 1080p e use a tecla `F` para colocar o navegador em tela cheia.
-- **Equipes no celular:** Até 2 equipes de 3 pessoas; a primeira resposta enviada trava a rodada para o time.
+- **Equipes em `/play`:** Até 2 equipes de 3 pessoas, cada jogador no próprio celular ou PC; a primeira resposta enviada trava a rodada para o time.
 
 ## Configuração
 
@@ -147,7 +155,7 @@ arquivos de `legacy/`.
 
 Consulte [`docs/plans/2026-11-11-quiz-uemg-portas-abertas.md`](docs/plans/2026-11-11-quiz-uemg-portas-abertas.md).
 
-- Fase 1: estrutura, motor server-side, modo local — **concluída**
+- Fase 1: estrutura, motor server-side, modo sessão — **concluída**
 - Fase 2: LangChain (Gemini / HF / local) e fallback offline — **concluída**
-- Fase 3: celulares via QR e WebSocket — **concluída**
+- Fase 3: jogadores via QR Code e WebSocket — **concluída**
 - Fase 4: polimento, Docker e ensaio — em andamento
