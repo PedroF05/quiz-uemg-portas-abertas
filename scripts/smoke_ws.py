@@ -54,7 +54,7 @@ async def run_smoke_test(http_url: str, n_questions: int, timeout: float) -> Non
         res_room = await client.post(
             "/api/rooms",
             json={
-                "mode": "mobile",
+                "mode": "session",
                 "team_names": ["Equipe Alfa", "Equipe Beta"],
                 "theme_id": "jogos",
                 "n": n_questions,

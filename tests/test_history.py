@@ -18,6 +18,7 @@ from app.domain.models import (
     Room,
     Team,
 )
+from app.game.manager import manager
 from app.main import app
 
 
@@ -51,7 +52,7 @@ def _build_test_room(code: str = "TST001") -> Room:
     return Room(
         code=code,
         host_token="token_host_secret",
-        mode=Mode.MOBILE,
+        mode=Mode.SESSION,
         answer_mode=AnswerMode.SIMULTANEOUS,
         teams=[team1, team2],
         questions=questions,
@@ -194,7 +195,7 @@ def test_single_persistence_on_next(client: TestClient) -> None:
     res = client.post(
         "/api/rooms",
         json={
-            "mode": "local",
+            "mode": "session",
             "team_names": ["Time 1", "Time 2"],
             "theme_id": "jogos",
             "n": 1,
@@ -203,45 +204,76 @@ def test_single_persistence_on_next(client: TestClient) -> None:
     assert res.status_code == 201
     data = res.json()
     code = data["code"]
-    token = data["host_token"]
+    host_token = data["host_token"]
+    team_1 = data["state"]["teams"][0]["id"]
+    team_2 = data["state"]["teams"][1]["id"]
 
-    state = data["state"]
-    turn_team = state["turn_team_id"]
-    opt_id = state["question"]["options"][0]["id"]
-    client.post(
-        f"/api/rooms/{code}/answer",
-        headers={"X-Host-Token": token},
-        json={"team_id": turn_team, "option_id": opt_id},
-    )
+    player_1 = client.post(
+        f"/api/rooms/{code}/players",
+        json={"nickname": "T1 P1", "team_id": team_1},
+    ).json()
+    player_2 = client.post(
+        f"/api/rooms/{code}/players",
+        json={"nickname": "T2 P1", "team_id": team_2},
+    ).json()
 
-    next_res = client.post(
-        f"/api/rooms/{code}/next",
-        headers={"X-Host-Token": token},
-    )
-    assert next_res.status_code == 200
-    finished_state = next_res.json()
-    assert finished_state["phase"] == "finished"
+    with client.websocket_connect(f"/ws/host?room={code}&token={host_token}") as host_ws:
+        _ = host_ws.receive_json()
 
-    history_first = client.get("/api/history?limit=50").json()
-    matches_for_code = [m for m in history_first if m["code"] == code]
+        with client.websocket_connect(
+            f"/ws/player?room={code}&token={player_1['player_token']}"
+        ) as player_1_ws:
+            _ = player_1_ws.receive_json()
+
+            with client.websocket_connect(
+                f"/ws/player?room={code}&token={player_2['player_token']}"
+            ) as player_2_ws:
+                _ = player_2_ws.receive_json()
+
+                host_ws.send_json({"type": "start"})
+                _ = host_ws.receive_json()
+
+                question = player_1_ws.receive_json()
+                _ = player_2_ws.receive_json()
+
+                player_1_ws.send_json(
+                    {"type": "answer", "option_id": question["options"][0]["id"]}
+                )
+                _ = player_1_ws.receive_json()
+                _ = player_2_ws.receive_json()
+                _ = host_ws.receive_json()
+
+                player_2_ws.send_json(
+                    {"type": "answer", "option_id": question["options"][1]["id"]}
+                )
+                _ = player_1_ws.receive_json()
+                _ = player_2_ws.receive_json()
+                _ = player_1_ws.receive_json()
+                _ = player_2_ws.receive_json()
+                _ = host_ws.receive_json()
+
+                host_ws.send_json({"type": "next"})
+                assert host_ws.receive_json()["phase"] == "finished"
+                _ = player_1_ws.receive_json()
+                _ = player_2_ws.receive_json()
+
+                host_ws.send_json({"type": "next"})
+                assert host_ws.receive_json()["phase"] == "finished"
+                _ = player_1_ws.receive_json()
+                _ = player_2_ws.receive_json()
+
+    manager.persist_if_finished(manager.get(code))
+
+    history = client.get("/api/history?limit=50").json()
+    matches_for_code = [m for m in history if m["code"] == code]
     assert len(matches_for_code) == 1
 
-    next_again = client.post(
-        f"/api/rooms/{code}/next",
-        headers={"X-Host-Token": token},
-    )
-    assert next_again.status_code == 200
 
-    history_second = client.get("/api/history?limit=50").json()
-    matches_for_code_after = [m for m in history_second if m["code"] == code]
-    assert len(matches_for_code_after) == 1
-
-
-def test_mobile_match_persists_players_metrics_via_ws(client: TestClient) -> None:
+def test_match_persists_players_metrics_via_ws(client: TestClient) -> None:
     res = client.post(
         "/api/rooms",
         json={
-            "mode": "mobile",
+            "mode": "session",
             "team_names": ["Equipe Ouro", "Equipe Prata"],
             "theme_id": "jogos",
             "n": 1,

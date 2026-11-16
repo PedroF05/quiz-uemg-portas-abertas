@@ -31,21 +31,31 @@ export async function showJoinScreen(container, initialCode, onJoined) {
     container.innerHTML = `
       <div class="play-container">
         <h1>Entrar no Quiz ${icon("game-controller")}</h1>
-        <div class="sub">Digite o código da sala mostrado na tela do host:</div>
+        <div class="sub">Digite o código da sala mostrado na tela do host (celular ou PC):</div>
         <input id="room-code-input" type="text" placeholder="CÓDIGO (ex: ABC123)" maxlength="6" style="text-transform:uppercase;">
         <button id="find-room-btn">Continuar</button>
         <div id="join-error" class="hint" style="color:#fecaca;"></div>
       </div>
     `;
 
-    $("#find-room-btn").addEventListener("click", () => {
-      const codeVal = $("#room-code-input").value.trim().toUpperCase();
+    const roomInput = $("#room-code-input");
+    const submitCode = () => {
+      const codeVal = roomInput.value.trim().toUpperCase();
       if (!codeVal) {
         $("#join-error").textContent = "Digite o código da sala.";
         return;
       }
       showJoinScreen(container, codeVal, onJoined);
+    };
+
+    $("#find-room-btn").addEventListener("click", submitCode);
+    roomInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        submitCode();
+      }
     });
+    roomInput.focus();
     return;
   }
 
@@ -87,7 +97,12 @@ export async function showJoinScreen(container, initialCode, onJoined) {
     return;
   }
 
+  // Mantém a sala na URL para que um F5 no PC ou no celular reconecte sozinho.
+  window.history.replaceState(null, "", `/play?room=${encodeURIComponent(currentCode)}`);
+
   let selectedTeamId = "";
+  // Preserva o apelido digitado entre re-renders (troca de equipe, erro de entrada).
+  let typedNickname = "";
   const renderForm = (errorMessage = "") => {
     container.innerHTML = `
       <div class="play-container">
@@ -120,64 +135,95 @@ export async function showJoinScreen(container, initialCode, onJoined) {
           type="text"
           placeholder="Seu apelido (até 18 letras)"
           maxlength="18"
+          value="${esc(typedNickname)}"
           aria-label="Seu apelido"
         >
 
         <button id="join-btn" ${!selectedTeamId ? "disabled" : ""}>Entrar no Jogo!</button>
+        <button id="change-room-btn" class="sec">Trocar código</button>
         ${errorMessage ? `<div class="status-toast" role="status">${esc(errorMessage)}</div>` : ""}
       </div>
     `;
 
+    const nickInput = $("#nickname-input");
+    const joinBtn = $("#join-btn");
+    let submitting = false;
+
+    const syncNickname = () => {
+      typedNickname = nickInput ? nickInput.value : typedNickname;
+    };
+
+    if (nickInput) {
+      nickInput.addEventListener("input", () => {
+        typedNickname = nickInput.value;
+      });
+    }
+
     container.querySelectorAll(".team-select-btn").forEach((btn) => {
       if (!btn.disabled) {
         btn.addEventListener("click", () => {
+          syncNickname();
           selectedTeamId = btn.dataset.team;
           renderForm();
         });
       }
     });
 
-    const nickInput = $("#nickname-input");
-    const joinBtn = $("#join-btn");
+    const submitJoin = async () => {
+      if (submitting) return;
+      syncNickname();
+      const nickname = typedNickname.trim();
+      if (!selectedTeamId) {
+        renderForm("Selecione uma equipe antes de entrar.");
+        return;
+      }
+      if (!nickname || nickname.length > 18) {
+        renderForm("Digite um apelido entre 1 e 18 caracteres.");
+        return;
+      }
 
-    if (joinBtn && !joinBtn.disabled) {
-      joinBtn.addEventListener("click", async () => {
-        const nickname = (nickInput ? nickInput.value : "").trim();
-        if (!nickname || nickname.length > 18) {
-          renderForm("Digite um apelido entre 1 e 18 caracteres.");
-          return;
-        }
-        if (!selectedTeamId) {
-          renderForm("Selecione uma equipe antes de entrar.");
-          return;
-        }
+      submitting = true;
+      joinBtn.disabled = true;
+      joinBtn.textContent = "Entrando…";
+      try {
+        const res = await api.post(`/api/rooms/${currentCode}/players`, {
+          nickname,
+          team_id: selectedTeamId,
+        });
 
-        joinBtn.disabled = true;
-        joinBtn.textContent = "Entrando…";
+        const session = {
+          room: currentCode,
+          player_id: res.player_id,
+          player_token: res.player_token,
+          team_id: res.team_id,
+          team_name: res.team_name,
+          nickname,
+        };
+        saveSession(session);
+        onJoined(session);
+      } catch (err) {
         try {
-          const res = await api.post(`/api/rooms/${currentCode}/players`, {
-            nickname,
-            team_id: selectedTeamId,
-          });
+          joinInfo = await api.get(`/api/rooms/${currentCode}/join-info`);
+        } catch {}
+        syncNickname();
+        renderForm(err.message || "Erro ao entrar na sala.");
+      }
+    };
 
-          const session = {
-            room: currentCode,
-            player_id: res.player_id,
-            player_token: res.player_token,
-            team_id: res.team_id,
-            team_name: res.team_name,
-            nickname,
-          };
-          saveSession(session);
-          onJoined(session);
-        } catch (err) {
-          try {
-            joinInfo = await api.get(`/api/rooms/${currentCode}/join-info`);
-          } catch {}
-          renderForm(err.message || "Erro ao entrar na sala.");
+    joinBtn.addEventListener("click", submitJoin);
+    if (nickInput) {
+      nickInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          submitJoin();
         }
       });
     }
+
+    $("#change-room-btn").addEventListener("click", () => {
+      window.history.replaceState(null, "", "/play");
+      showJoinScreen(container, "", onJoined);
+    });
   };
 
   renderForm();

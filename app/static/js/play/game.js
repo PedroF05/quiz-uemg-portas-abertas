@@ -2,9 +2,18 @@ import { $, esc, icon } from "../core/dom.js";
 
 const LETTERS = ["A", "B", "C", "D"];
 let clockAnimation = 0;
+let keydownHandler = null;
+
+function clearKeydownHandler() {
+  if (keydownHandler) {
+    document.removeEventListener("keydown", keydownHandler);
+    keydownHandler = null;
+  }
+}
 
 export function renderLobby(container, session) {
   cancelAnimationFrame(clockAnimation);
+  clearKeydownHandler();
   container.innerHTML = `
     <div class="play-container">
       <div class="team-badge">${esc(session.team_name)}</div>
@@ -19,6 +28,7 @@ export function renderLobby(container, session) {
 
 export function renderQuestion(container, session, questionMsg, onAnswer) {
   cancelAnimationFrame(clockAnimation);
+  clearKeydownHandler();
   const totalSeconds = Math.max(1, questionMsg.seconds_left || 20);
 
   container.innerHTML = `
@@ -42,6 +52,7 @@ export function renderQuestion(container, session, questionMsg, onAnswer) {
           `)
           .join("")}
       </div>
+      <div class="hint desktop-only">Dica: use o clique ou as teclas 1–4 para responder</div>
     </div>
   `;
 
@@ -61,17 +72,34 @@ export function renderQuestion(container, session, questionMsg, onAnswer) {
   clockAnimation = requestAnimationFrame(tick);
 
   let answered = false;
-  container.querySelectorAll(".play-opt").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      if (answered) return;
-      answered = true;
-      btn.classList.add("selected");
-      container.querySelectorAll(".play-opt").forEach((b) => {
-        b.disabled = true;
-      });
-      onAnswer(btn.dataset.id);
+  const answer = (btn) => {
+    if (answered) return;
+    answered = true;
+    btn.classList.add("selected");
+    container.querySelectorAll(".play-opt").forEach((b) => {
+      b.disabled = true;
     });
+    onAnswer(btn.dataset.id);
+  };
+
+  const optionButtons = container.querySelectorAll(".play-opt");
+  optionButtons.forEach((btn) => {
+    btn.addEventListener("click", () => answer(btn));
   });
+
+  // Atalhos 1–4 para quem joga no PC.
+  keydownHandler = (event) => {
+    if (answered || event.ctrlKey || event.altKey || event.metaKey) return;
+    const tag = (event.target && event.target.tagName) || "";
+    if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA") return;
+    const index = ["1", "2", "3", "4"].indexOf(event.key);
+    if (index === -1) return;
+    const btn = optionButtons[index];
+    if (!btn || btn.disabled) return;
+    event.preventDefault();
+    answer(btn);
+  };
+  document.addEventListener("keydown", keydownHandler);
 }
 
 export function renderTeamLocked(container, session) {
@@ -95,6 +123,7 @@ export function renderTeamLocked(container, session) {
 
 export function renderReveal(container, session, revealMsg) {
   cancelAnimationFrame(clockAnimation);
+  clearKeydownHandler();
   const myAnswer = revealMsg.answers.find((a) => a.team_id === session.team_id);
   let statusBanner = "";
 
@@ -124,6 +153,7 @@ export function renderReveal(container, session, revealMsg) {
 
 export function renderFinished(container, session, finishedMsg, onPlayAgain) {
   cancelAnimationFrame(clockAnimation);
+  clearKeydownHandler();
   const winners = finishedMsg.winners || [];
   const isWinner = winners.includes(session.team_name);
   const title = isWinner ? `${icon("trophy")} Sua equipe venceu!` : "Fim de jogo!";

@@ -10,11 +10,11 @@ def client():
         yield test_client
 
 
-def test_create_mobile_room_starts_in_lobby(client: TestClient) -> None:
+def test_create_session_room_starts_in_lobby(client: TestClient) -> None:
     response = client.post(
         "/api/rooms",
         json={
-            "mode": "mobile",
+            "mode": "session",
             "team_names": ["Equipe Sol", "Equipe Lua"],
             "theme_id": "jogos",
             "n": 5,
@@ -24,7 +24,10 @@ def test_create_mobile_room_starts_in_lobby(client: TestClient) -> None:
     data = response.json()
     assert "code" in data
     assert "host_token" in data
+    assert data["join_url"].endswith("/play")
     state = data["state"]
+    assert state["mode"] == "session"
+    assert state["answer_mode"] == "simultaneous"
     assert state["phase"] == "lobby"
     assert state["question"] is None
     assert state["seconds_left"] == 0
@@ -33,21 +36,16 @@ def test_create_mobile_room_starts_in_lobby(client: TestClient) -> None:
         assert team["players"] == []
 
 
-def test_create_local_room_still_opens_first_question(client: TestClient) -> None:
+def test_create_room_defaults_to_session_mode(client: TestClient) -> None:
     response = client.post(
         "/api/rooms",
-        json={
-            "mode": "local",
-            "team_names": ["Equipe 1", "Equipe 2"],
-            "theme_id": "jogos",
-            "n": 5,
-        },
+        json={"team_names": ["Equipe 1", "Equipe 2"], "n": 2},
     )
     assert response.status_code == 201
     state = response.json()["state"]
-    assert state["phase"] == "question"
-    assert state["question"] is not None
-    assert "options" in state["question"]
+    assert state["mode"] == "session"
+    assert state["answer_mode"] == "simultaneous"
+    assert state["phase"] == "lobby"
 
 
 def test_create_room_with_generated_questions(client: TestClient) -> None:
@@ -68,7 +66,7 @@ def test_create_room_with_generated_questions(client: TestClient) -> None:
     response = client.post(
         "/api/rooms",
         json={
-            "mode": "mobile",
+            "mode": "session",
             "team_names": ["Time A", "Time B"],
             "theme_id": "UEMG IA",
             "generated_questions": generated,
@@ -92,7 +90,7 @@ def test_generated_questions_validation_limits(client: TestClient) -> None:
     res_2_dist = client.post(
         "/api/rooms",
         json={
-            "mode": "mobile",
+            "mode": "session",
             "team_names": ["A", "B"],
             "generated_questions": two_distractors,
         },
@@ -110,7 +108,7 @@ def test_generated_questions_validation_limits(client: TestClient) -> None:
     res_long_dist = client.post(
         "/api/rooms",
         json={
-            "mode": "mobile",
+            "mode": "session",
             "team_names": ["A", "B"],
             "generated_questions": long_distractor,
         },
@@ -129,7 +127,7 @@ def test_generated_questions_validation_limits(client: TestClient) -> None:
     res_too_many = client.post(
         "/api/rooms",
         json={
-            "mode": "mobile",
+            "mode": "session",
             "team_names": ["A", "B"],
             "generated_questions": too_many,
         },
@@ -141,7 +139,7 @@ def test_join_info_and_add_players_with_capacity(client: TestClient) -> None:
     create_res = client.post(
         "/api/rooms",
         json={
-            "mode": "mobile",
+            "mode": "session",
             "team_names": ["Azul", "Vermelho"],
             "theme_id": "jogos",
             "n": 5,
@@ -203,7 +201,7 @@ def test_join_info_and_add_players_with_capacity(client: TestClient) -> None:
 def test_player_validation_rules(client: TestClient) -> None:
     create_res = client.post(
         "/api/rooms",
-        json={"mode": "mobile", "team_names": ["T1", "T2"], "n": 3},
+        json={"mode": "session", "team_names": ["T1", "T2"], "n": 3},
     )
     code = create_res.json()["code"]
     team_id = create_res.json()["state"]["teams"][0]["id"]
@@ -236,7 +234,7 @@ def test_player_validation_rules(client: TestClient) -> None:
 def test_qr_code_image_endpoint(client: TestClient) -> None:
     create_res = client.post(
         "/api/rooms",
-        json={"mode": "mobile", "team_names": ["A", "B"], "n": 2},
+        json={"mode": "session", "team_names": ["A", "B"], "n": 2},
     )
     code = create_res.json()["code"]
 
@@ -255,18 +253,3 @@ def test_play_endpoint_serves_html(client: TestClient) -> None:
     assert "text/html" in res.headers["content-type"]
     assert "Quiz UEMG" in res.text
 
-
-def test_next_in_lobby_via_http_is_rejected(client: TestClient) -> None:
-    create_res = client.post(
-        "/api/rooms",
-        json={"mode": "mobile", "team_names": ["A", "B"], "n": 2},
-    )
-    code = create_res.json()["code"]
-    token = create_res.json()["host_token"]
-
-    res = client.post(
-        f"/api/rooms/{code}/next",
-        headers={"X-Host-Token": token},
-    )
-    assert res.status_code == 409
-    assert "não foi iniciada" in res.json()["detail"]

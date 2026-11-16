@@ -10,14 +10,12 @@ from pydantic import BaseModel, Field
 class Mode(str, Enum):
     """Modo de operação da partida."""
 
-    LOCAL = "local"
-    MOBILE = "mobile"
+    SESSION = "session"
 
 
 class AnswerMode(str, Enum):
     """Como as equipes respondem cada pergunta."""
 
-    ALTERNATE = "alternate"
     SIMULTANEOUS = "simultaneous"
 
 
@@ -115,8 +113,7 @@ class Room:
         self.question_time = question_time
 
         self.index = 0
-        self.phase = Phase.LOBBY if mode is Mode.MOBILE else Phase.QUESTION
-        self.turn_team_id: str | None = None
+        self.phase = Phase.LOBBY
         self.deadline = 0.0
         self.answers: list[AnswerRecord] = []
         self.all_answers: list[AnswerRecord] = []
@@ -135,7 +132,7 @@ class Room:
 
 
 class CreateRoomRequest(BaseModel):
-    mode: Mode = Mode.LOCAL
+    mode: Mode = Mode.SESSION
     team_names: list[str] = Field(
         default_factory=lambda: ["Equipe 1", "Equipe 2"],
         min_length=2,
@@ -143,15 +140,9 @@ class CreateRoomRequest(BaseModel):
     )
     theme_id: str = ""
     n: int = Field(default=10, ge=1, le=20)
-    answer_mode: AnswerMode | None = None
     generated_questions: list[GeneratedQuestionInput] | None = Field(
         default=None, max_length=20
     )
-
-
-class AnswerRequest(BaseModel):
-    team_id: str
-    option_id: str
 
 
 class JoinTeamInfo(BaseModel):

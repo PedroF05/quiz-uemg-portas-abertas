@@ -54,7 +54,6 @@ class RoomSnapshot(BaseModel):
     theme: str
     provider: str
     seconds_left: float
-    turn_team_id: str | None
     teams: list[TeamSnapshot]
     question: QuestionSnapshot | None
     reveal: RevealSnapshot | None
@@ -85,7 +84,6 @@ class HostStateMessage(BaseModel):
     theme: str
     provider: str
     seconds_left: float
-    turn_team_id: str | None
     teams: list[TeamSnapshot]
     question: QuestionSnapshot | None
     reveal: RevealSnapshot | None

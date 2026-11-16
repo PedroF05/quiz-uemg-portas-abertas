@@ -6,6 +6,7 @@ from app.domain.models import (
     AnswerMode,
     Mode,
     Option,
+    PlayerSummary,
     Question,
     Room,
     Team,
@@ -39,13 +40,25 @@ def make_question(question_id: str = "q1") -> Question:
     )
 
 
-def make_engine(answer_mode: AnswerMode, questions: int = 2) -> tuple[GameEngine, FakeClock]:
+def make_engine(questions: int = 2) -> tuple[GameEngine, FakeClock]:
+    teams = [
+        Team(
+            id="t1",
+            name="Um",
+            players=[PlayerSummary(id="p1", nickname="Alice")],
+        ),
+        Team(
+            id="t2",
+            name="Dois",
+            players=[PlayerSummary(id="p2", nickname="Bob")],
+        ),
+    ]
     room = Room(
         code="ABC123",
         host_token="token",
-        mode=Mode.LOCAL,
-        answer_mode=answer_mode,
-        teams=[Team(id="t1", name="Um"), Team(id="t2", name="Dois")],
+        mode=Mode.SESSION,
+        answer_mode=AnswerMode.SIMULTANEOUS,
+        teams=teams,
         questions=[make_question(f"q{i}") for i in range(1, questions + 1)],
         theme="Teste",
         provider="offline",
@@ -53,21 +66,26 @@ def make_engine(answer_mode: AnswerMode, questions: int = 2) -> tuple[GameEngine
     )
     clock = FakeClock()
     settings = SimpleNamespace(base_points=10, speed_bonus=5)
-    return GameEngine(room, settings, clock=clock), clock
+    engine = GameEngine(room, settings, clock=clock)
+    engine.start_game()
+    return engine, clock
 
 
 def test_correct_answer_in_first_half_scores_bonus():
-    engine, clock = make_engine(AnswerMode.ALTERNATE)
+    engine, clock = make_engine()
     clock.advance(2)
     state = engine.answer("t1", "o1")
 
-    assert state["phase"] == "reveal"
+    assert state["phase"] == "question"
     assert state["teams"][0]["score"] == 15
+
+    state = engine.answer("t2", "o2")
+    assert state["phase"] == "reveal"
     assert state["reveal"]["answers"][0]["points"] == 15
 
 
 def test_correct_answer_in_second_half_scores_base():
-    engine, clock = make_engine(AnswerMode.ALTERNATE)
+    engine, clock = make_engine()
     clock.advance(12)
     engine.answer("t1", "o1")
 
@@ -75,7 +93,7 @@ def test_correct_answer_in_second_half_scores_base():
 
 
 def test_wrong_answer_scores_zero():
-    engine, _ = make_engine(AnswerMode.ALTERNATE)
+    engine, _ = make_engine()
     engine.answer("t1", "o2")
 
     assert engine.room.teams[0].score == 0
@@ -83,7 +101,7 @@ def test_wrong_answer_scores_zero():
 
 
 def test_answer_after_deadline_is_rejected():
-    engine, clock = make_engine(AnswerMode.ALTERNATE)
+    engine, clock = make_engine()
     clock.advance(21)
 
     with pytest.raises(EngineError):
@@ -91,16 +109,8 @@ def test_answer_after_deadline_is_rejected():
     assert engine.room.phase.value == "reveal"
 
 
-def test_alternate_mode_rejects_team_out_of_turn():
-    engine, _ = make_engine(AnswerMode.ALTERNATE)
-
-    with pytest.raises(EngineError):
-        engine.answer("t2", "o1")
-    assert engine.room.teams[1].answered is False
-
-
 def test_simultaneous_mode_waits_for_both_teams():
-    engine, _ = make_engine(AnswerMode.SIMULTANEOUS)
+    engine, _ = make_engine()
 
     state = engine.answer("t1", "o1")
     assert state["phase"] == "question"
@@ -112,25 +122,26 @@ def test_simultaneous_mode_waits_for_both_teams():
 
 
 def test_same_team_cannot_answer_twice():
-    engine, _ = make_engine(AnswerMode.SIMULTANEOUS)
+    engine, _ = make_engine()
     engine.answer("t1", "o1")
 
     with pytest.raises(EngineError):
         engine.answer("t1", "o2")
 
 
-def test_next_question_alternates_turn_and_finishes():
-    engine, clock = make_engine(AnswerMode.ALTERNATE)
+def test_advances_to_next_question_and_finishes():
+    engine, _ = make_engine()
 
-    assert engine.room.turn_team_id == "t1"
     engine.answer("t1", "o1")
-    engine.next_question()
+    engine.answer("t2", "o2")
+    state = engine.next_question()
 
-    assert engine.room.index == 1
-    assert engine.room.turn_team_id == "t2"
+    assert state["index"] == 1
+    assert state["phase"] == "question"
+    assert all(team["answered"] is False for team in state["teams"])
 
-    clock.advance(12)  # segunda metade: 10 pontos
-    engine.answer("t2", "o1")
+    engine.answer("t1", "o1")
+    engine.answer("t2", "o2")
     state = engine.next_question()
 
     assert state["phase"] == "finished"
@@ -138,9 +149,11 @@ def test_next_question_alternates_turn_and_finishes():
 
 
 def test_snapshot_hides_correct_option_while_question_is_open():
-    engine, _ = make_engine(AnswerMode.ALTERNATE)
+    engine, _ = make_engine()
     state = engine.snapshot()
 
+    assert state["phase"] == "question"
     assert state["reveal"] is None
+    assert "turn_team_id" not in state
     assert "correct_option_id" not in state["question"]
     assert len(state["question"]["options"]) == 4

@@ -2,14 +2,12 @@
 
 import io
 import socket
-from typing import Annotated
 
-from fastapi import APIRouter, Header, HTTPException, Response
+from fastapi import APIRouter, HTTPException, Response
 import qrcode
 
 from ..config import settings as app_settings
 from ..domain.models import (
-    AnswerRequest,
     CreateRoomRequest,
     JoinInfoResponse,
     PlayerJoinRequest,
@@ -21,8 +19,6 @@ from ..quiz.bank import BankError
 from .ws import hub
 
 router = APIRouter(prefix="/api", tags=["rooms"])
-
-HostToken = Annotated[str | None, Header(alias="X-Host-Token")]
 
 
 def get_lan_ip() -> str:
@@ -40,6 +36,13 @@ def get_lan_ip() -> str:
         return "127.0.0.1"
 
 
+def _public_base_url() -> str:
+    """URL base pública da aplicação, priorizando a configuração explícita."""
+    if app_settings.public_url:
+        return app_settings.public_url.rstrip("/")
+    return f"http://{get_lan_ip()}:{app_settings.app_port}"
+
+
 @router.post("/rooms", status_code=201)
 async def create_room(payload: CreateRoomRequest) -> dict[str, str | RoomSnapshotDict]:
     try:
@@ -48,7 +51,12 @@ async def create_room(payload: CreateRoomRequest) -> dict[str, str | RoomSnapsho
         status_code = getattr(error, "status_code", 400)
         message = getattr(error, "message", str(error))
         raise HTTPException(status_code=status_code, detail=message) from error
-    return {"code": code, "host_token": host_token, "state": state}
+    return {
+        "code": code,
+        "host_token": host_token,
+        "join_url": f"{_public_base_url()}/play",
+        "state": state,
+    }
 
 
 @router.get("/rooms/{code}/state")
@@ -56,28 +64,6 @@ async def room_state(code: str) -> RoomSnapshotDict:
     async with manager.room_lock(code):
         try:
             return manager.state(code)
-        except EngineError as error:
-            raise HTTPException(status_code=error.status_code, detail=error.message) from error
-
-
-@router.post("/rooms/{code}/answer")
-async def answer(code: str, payload: AnswerRequest, host_token: HostToken = None) -> RoomSnapshotDict:
-    if not host_token:
-        raise HTTPException(status_code=403, detail="Token do host ausente.")
-    async with manager.room_lock(code):
-        try:
-            return manager.answer(code, host_token, payload.team_id, payload.option_id)
-        except EngineError as error:
-            raise HTTPException(status_code=error.status_code, detail=error.message) from error
-
-
-@router.post("/rooms/{code}/next")
-async def next_question(code: str, host_token: HostToken = None) -> RoomSnapshotDict:
-    if not host_token:
-        raise HTTPException(status_code=403, detail="Token do host ausente.")
-    async with manager.room_lock(code):
-        try:
-            return manager.next_question(code, host_token)
         except EngineError as error:
             raise HTTPException(status_code=error.status_code, detail=error.message) from error
 
@@ -118,13 +104,7 @@ async def room_qr(code: str) -> Response:
         except EngineError as error:
             raise HTTPException(status_code=error.status_code, detail=error.message) from error
 
-    if app_settings.public_url:
-        base = app_settings.public_url.rstrip("/")
-    else:
-        lan_ip = get_lan_ip()
-        base = f"http://{lan_ip}:{app_settings.app_port}"
-
-    target_url = f"{base}/play?room={code.upper()}"
+    target_url = f"{_public_base_url()}/play?room={code.upper()}"
     image = qrcode.make(target_url)
     buffer = io.BytesIO()
     image.save(buffer, format="PNG")

@@ -298,3 +298,25 @@
   font-size: 0.95rem;
   font-weight: 600;
 }
+
+/* Dicas de teclado — só fazem sentido com teclado físico */
+.desktop-only {
+  display: none;
+}
+
+/* Desktop: mesma linguagem visual, com mais respiro e atalhos visíveis */
+@media (min-width: 768px) {
+  .play-container {
+    max-width: 760px;
+  }
+
+  .play-opts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+}

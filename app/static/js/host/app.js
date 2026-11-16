@@ -1,19 +1,13 @@
 import { api } from "../core/api.js";
 import { $, esc, icon } from "../core/dom.js";
-import { initMobileHost } from "./mobile.js";
+import { initSessionHost } from "./session.js";
 
 const app = $("#app");
-const LETTERS = ["A", "B", "C", "D"];
 
 let themes = [];
 let ranking = [];
 let history = [];
-let game = null;
-let hostToken = null;
-let animation = 0;
-let timeoutRequested = false;
 let busy = false;
-let selectedMode = "local";
 let generatedQuestions = [];
 let isGenerating = false;
 
@@ -155,7 +149,8 @@ function historyHtml() {
   const items = history
     .map((match) => {
       const dateText = formatShortDate(match.finished_at || match.created_at);
-      const modeText = match.mode === "mobile" ? "Celulares" : "Local";
+      const modeText =
+        match.mode === "session" || match.mode === "mobile" ? "Sessão" : "Local";
       const teams = match.teams || [];
       const maxScore = teams.length ? Math.max(...teams.map((t) => t.score)) : 0;
       const winners = teams.filter((t) => t.score === maxScore).map((t) => t.name);
@@ -186,9 +181,6 @@ function historyHtml() {
 }
 
 function renderLobby() {
-  cancelAnimationFrame(animation);
-  game = null;
-  hostToken = null;
   generatedQuestions = [];
   isGenerating = false;
 
@@ -208,25 +200,24 @@ function renderLobby() {
         <p class="hero-sub">Duas equipes, até 3 participantes cada. Quem acumular mais pontos domina o pódio!</p>
       </section>
 
-      <div class="mode-bar">
-        <span class="mode-label">Como vai jogar?</span>
-        <div class="mode-pills" role="tablist" aria-label="Modo de jogo">
-          <button
-            type="button"
-            id="mode-local"
-            class="mode-pill ${selectedMode === "local" ? "active" : ""}"
-          >
-            ${icon("desktop")} Modo Local
-          </button>
-          <button
-            type="button"
-            id="mode-mobile"
-            class="mode-pill ${selectedMode === "mobile" ? "active" : ""}"
-          >
-            ${icon("smartphone")} Modo Celulares
-          </button>
+      <section class="join-shortcut" data-purpose="quick-join">
+        <div class="join-shortcut-label">
+          ${icon("game-controller")}
+          <span>Já tem o código da sala? Entre por aqui</span>
         </div>
-      </div>
+        <div class="join-shortcut-form">
+          <input
+            id="quick-room-code"
+            type="text"
+            maxlength="6"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="CÓDIGO"
+            aria-label="Código da sala"
+          >
+          <button type="button" id="quick-join-btn" class="join-enter-btn">Entrar</button>
+        </div>
+      </section>
 
       <div class="home-grid">
         <section class="glass-card team-setup" data-purpose="teams-setup">
@@ -239,7 +230,7 @@ function renderLobby() {
 
           <div class="team-side side-blue">
             <div class="side-head">
-              <span class="side-label"><span class="side-dot"></span> Lado Azul (Teclas 1 e 2)</span>
+              <span class="side-label"><span class="side-dot"></span> Lado Azul</span>
               <span class="side-tag">Equipe A</span>
             </div>
             <div class="team-input-row">
@@ -253,7 +244,7 @@ function renderLobby() {
 
           <div class="team-side side-gold">
             <div class="side-head">
-              <span class="side-label"><span class="side-dot"></span> Lado Ouro (Teclas 3 e 4)</span>
+              <span class="side-label"><span class="side-dot"></span> Lado Ouro</span>
               <span class="side-tag">Equipe B</span>
             </div>
             <div class="team-input-row">
@@ -325,7 +316,7 @@ function renderLobby() {
           <span>Começar Partida!</span>
           <span aria-hidden="true">${icon("rocket")}</span>
         </button>
-        <p class="start-hint">Pronto para iniciar? Os cronômetros começam imediatamente!</p>
+        <p class="start-hint">Crie a sessão e compartilhe o QR Code ou o código da sala!</p>
       </section>
 
       <section class="lobby-bottom-grid">
@@ -335,17 +326,28 @@ function renderLobby() {
     </div>
   `;
 
-  $("#mode-local").addEventListener("click", () => {
-    selectedMode = "local";
-    $("#mode-local").classList.add("active");
-    $("#mode-mobile").classList.remove("active");
+  const quickCode = $("#quick-room-code");
+  const quickJoinBtn = $("#quick-join-btn");
+
+  const goToPlay = () => {
+    const code = (quickCode.value || "").trim().toUpperCase();
+    window.location.href = code
+      ? `/play?room=${encodeURIComponent(code)}`
+      : "/play";
+  };
+
+  quickCode.addEventListener("input", () => {
+    quickCode.value = quickCode.value.toUpperCase();
   });
 
-  $("#mode-mobile").addEventListener("click", () => {
-    selectedMode = "mobile";
-    $("#mode-mobile").classList.add("active");
-    $("#mode-local").classList.remove("active");
+  quickCode.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      goToPlay();
+    }
   });
+
+  quickJoinBtn.addEventListener("click", goToPlay);
 
   const temaSelect = $("#tema");
   const freeInput = $("#free-theme-input");
@@ -493,7 +495,7 @@ async function startGame() {
 
   try {
     const payload = {
-      mode: selectedMode,
+      mode: "session",
       team_names: teamNames,
       theme_id: themeId,
       n,
@@ -505,26 +507,21 @@ async function startGame() {
 
     const response = await api.post("/api/rooms", payload);
 
-    if (selectedMode === "mobile") {
-      initMobileHost({
-        roomCode: response.code,
-        hostToken: response.host_token,
-        initialState: response.state,
-        onBackToLobby: async () => {
-          try {
-            [ranking, history] = await Promise.all([
-              api.get("/api/ranking?limit=5").catch(() => ranking),
-              api.get("/api/history?limit=5").catch(() => history),
-            ]);
-          } catch {}
-          renderLobby();
-        },
-      });
-    } else {
-      game = response.state;
-      hostToken = response.host_token;
-      renderGame();
-    }
+    initSessionHost({
+      roomCode: response.code,
+      hostToken: response.host_token,
+      joinUrl: response.join_url,
+      initialState: response.state,
+      onBackToLobby: async () => {
+        try {
+          [ranking, history] = await Promise.all([
+            api.get("/api/ranking?limit=5").catch(() => ranking),
+            api.get("/api/history?limit=5").catch(() => history),
+          ]);
+        } catch {}
+        renderLobby();
+      },
+    });
   } catch (error) {
     app.innerHTML = `
       <h1>Não deu para começar</h1>
@@ -537,197 +534,11 @@ async function startGame() {
   }
 }
 
-function scoreboard() {
-  return `<div class="score">${game.teams
-    .map((team) => {
-      const active = game.phase === "question" && team.id === game.turn_team_id;
-      return `<div class="team ${active ? "on" : ""}">${esc(team.name)}<b>${team.score}</b></div>`;
-    })
-    .join("")}</div>`;
-}
-
-function wrongOptionIds() {
-  if (!game.reveal) return new Set();
-  return new Set(
-    game.reveal.answers.filter((answer) => !answer.correct).map((answer) => answer.option_id),
-  );
-}
-
-function optionHtml(option, index, reveal) {
-  let classes = "opt";
-  if (reveal) {
-    if (option.id === reveal.correct_option_id) classes += " ok";
-    else if (wrongOptionIds().has(option.id)) classes += " no";
-    else classes += " dim";
-  }
-  return `<button class="${classes}" data-id="${esc(option.id)}" ${reveal ? "disabled" : ""}>
-    <i>${LETTERS[index]}</i>${esc(option.text)}
-  </button>`;
-}
-
-function revealMessage() {
-  return game.teams
-    .map((team) => {
-      const answer = game.reveal.answers.find((item) => item.team_id === team.id);
-      if (!answer) return `${esc(team.name)}: ${icon("alarm")} sem resposta`;
-      if (answer.correct) return `${esc(team.name)}: ${icon("check")} +${answer.points}`;
-      return `${esc(team.name)}: ${icon("x")}`;
-    })
-    .join(" · ");
-}
-
-function renderGame() {
-  cancelAnimationFrame(animation);
-  if (!game) return renderLobby();
-  if (game.phase === "finished") return renderResults();
-
-  const reveal = game.reveal;
-  const turn = game.teams.find((team) => team.id === game.turn_team_id);
-
-  app.innerHTML = `
-    <div class="game-screen">
-      ${scoreboard()}
-      <div class="cat">${esc(game.question.category)}${turn ? ` · vez de ${esc(turn.name)}` : ""}</div>
-      <div class="q">${esc(game.question.prompt)}</div>
-      <div class="bar"><div id="clock"></div></div>
-      <div class="opts">
-        ${game.question.options.map((option, index) => optionHtml(option, index, reveal)).join("")}
-      </div>
-      <div class="msg" id="msg">${reveal ? revealMessage() : ""}</div>
-      ${reveal ? `<button id="next" class="sec">${nextLabel()}</button>` : ""}
-    </div>
-  `;
-
-  if (reveal) {
-    $("#next").addEventListener("click", nextQuestion);
-  } else {
-    app.querySelectorAll(".opt").forEach((button) => {
-      button.addEventListener("click", () => sendAnswer(button.dataset.id));
-    });
-    animateClock();
-  }
-}
-
-function nextLabel() {
-  return game.index + 1 >= game.total ? "Ver resultado" : "Próxima (Espaço)";
-}
-
-function animateClock() {
-  cancelAnimationFrame(animation);
-  timeoutRequested = false;
-  const bar = $("#clock");
-  if (!bar) return;
-
-  const total = Math.max(1, game.seconds_left * 1000);
-  const end = performance.now() + total;
-
-  const frame = () => {
-    const remaining = Math.max(0, end - performance.now());
-    bar.style.width = `${(remaining / total) * 100}%`;
-    if (remaining <= 0) {
-      if (!timeoutRequested) {
-        timeoutRequested = true;
-        syncState();
-      }
-      return;
-    }
-    animation = requestAnimationFrame(frame);
-  };
-  animation = requestAnimationFrame(frame);
-}
-
-async function sendAnswer(optionId) {
-  if (busy || !game || game.phase !== "question" || !game.turn_team_id) return;
-  busy = true;
-  try {
-    game = await api.post(
-      `/api/rooms/${game.code}/answer`,
-      { team_id: game.turn_team_id, option_id: optionId },
-      hostToken,
-    );
-    renderGame();
-  } catch (error) {
-    flash(error.message);
-  } finally {
-    busy = false;
-  }
-}
-
-async function nextQuestion() {
-  if (busy || !game) return;
-  busy = true;
-  try {
-    game = await api.post(`/api/rooms/${game.code}/next`, undefined, hostToken);
-    if (game.phase === "finished") {
-      try {
-        [ranking, history] = await Promise.all([
-          api.get("/api/ranking?limit=5").catch(() => ranking),
-          api.get("/api/history?limit=5").catch(() => history),
-        ]);
-      } catch {}
-      renderResults();
-    } else {
-      renderGame();
-    }
-  } catch (error) {
-    flash(error.message);
-  } finally {
-    busy = false;
-  }
-}
-
-async function syncState() {
-  if (!game) return;
-  try {
-    game = await api.get(`/api/rooms/${game.code}/state`);
-    renderGame();
-  } catch (error) {
-    flash(error.message);
-  }
-}
-
-function flash(message) {
-  const target = $("#msg");
-  if (target) target.textContent = message;
-}
-
-function renderResults() {
-  cancelAnimationFrame(animation);
-  const winners = game.winners || [];
-  const title = winners.length === 1 ? `${icon("trophy")} ${esc(winners[0])} venceu!` : `${icon("handshake")} Empate!`;
-
-  app.innerHTML = `
-    <div class="game-screen results-screen">
-      <h1>${title}</h1>
-      <div class="score">${game.teams
-        .map((team) => `<div class="team">${esc(team.name)}<b>${team.score}</b></div>`)
-        .join("")}</div>
-      ${rankingHtml()}
-      <button id="again">Nova partida</button>
-    </div>
-  `;
-  $("#again").addEventListener("click", renderLobby);
-}
-
 document.addEventListener("keydown", (event) => {
   if (event.target.tagName === "INPUT" || event.target.tagName === "SELECT") return;
 
   if (event.key === "f" || event.key === "F") {
     if (document.fullscreenElement) document.exitFullscreen();
     else document.documentElement.requestFullscreen();
-    return;
-  }
-
-  if (!game) return;
-
-  if (event.key === " " && game.phase === "reveal") {
-    event.preventDefault();
-    nextQuestion();
-    return;
-  }
-
-  if (game.phase === "question" && ["1", "2", "3", "4"].includes(event.key)) {
-    const option = game.question.options[Number(event.key) - 1];
-    if (option) sendAnswer(option.id);
   }
 });

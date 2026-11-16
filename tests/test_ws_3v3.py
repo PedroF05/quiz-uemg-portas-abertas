@@ -23,7 +23,7 @@ def test_full_websocket_3v3_match_flow(client: TestClient) -> None:
     create_response = client.post(
         "/api/rooms",
         json={
-            "mode": "mobile",
+            "mode": "session",
             "team_names": ["Equipe Alpha", "Equipe Beta"],
             "theme_id": "jogos",
             "n": 2,

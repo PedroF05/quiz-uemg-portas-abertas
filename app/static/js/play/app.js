@@ -91,7 +91,7 @@ function handleServerMessage(session, msg) {
   } else if (msg.type === "finished") {
     renderFinished(appContainer, session, msg, () => {
       clearSession(session.room);
-      window.location.href = `/play?room=${encodeURIComponent(session.room)}`;
+      window.location.href = "/play";
     });
   }
 }

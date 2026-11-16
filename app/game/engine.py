@@ -5,7 +5,6 @@ import time
 from typing import TypedDict
 
 from ..domain.models import (
-    AnswerMode,
     AnswerRecord,
     Phase,
     Room,
@@ -69,7 +68,6 @@ class RoomSnapshotDict(TypedDict):
     theme: str
     provider: str
     seconds_left: float
-    turn_team_id: str | None
     teams: list[TeamDict]
     question: QuestionDict | None
     reveal: RevealDict | None
@@ -94,16 +92,9 @@ class GameEngine:
             team.answered = False
 
         room.deadline = self._clock() + room.question_time
-        if room.answer_mode is AnswerMode.ALTERNATE and room.teams:
-            room.turn_team_id = room.teams[room.index % len(room.teams)].id
-        else:
-            room.turn_team_id = None
 
     def _eligible_teams(self) -> list[Team]:
-        room = self.room
-        if room.answer_mode is AnswerMode.ALTERNATE:
-            return [t for t in room.teams if t.id == room.turn_team_id]
-        return list(room.teams)
+        return list(self.room.teams)
 
     def _reveal(self) -> None:
         self.room.phase = Phase.REVEAL
@@ -263,7 +254,6 @@ class GameEngine:
             "theme": room.theme,
             "provider": room.provider,
             "seconds_left": round(seconds_left, 2),
-            "turn_team_id": room.turn_team_id,
             "teams": teams_data,
             "question": question_data,
             "reveal": reveal_data,

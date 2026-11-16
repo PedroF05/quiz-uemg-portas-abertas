@@ -7,14 +7,12 @@ let clockAnimation = 0;
 let hostSocket = null;
 let currentGameState = null;
 
-export function initMobileHost({ roomCode, hostToken, initialState, onBackToLobby }) {
+export function initSessionHost({ roomCode, hostToken, joinUrl, initialState, onBackToLobby }) {
   const app = $("#app");
 
   currentGameState = initialState;
 
-  if (hostSocket) {
-    hostSocket.close();
-  }
+  detachHostSession();
 
   const wsPath = `/ws/host?room=${encodeURIComponent(roomCode)}&token=${encodeURIComponent(hostToken)}`;
 
@@ -28,7 +26,7 @@ export function initMobileHost({ roomCode, hostToken, initialState, onBackToLobb
       const state = msg.state || msg;
       if (state && state.phase) {
         currentGameState = state;
-        renderState(app, state, onBackToLobby);
+        renderState(app, state, joinUrl, onBackToLobby);
       }
     },
     onClose: () => {},
@@ -36,19 +34,33 @@ export function initMobileHost({ roomCode, hostToken, initialState, onBackToLobb
   });
 
   hostSocket.connect();
-  renderState(app, initialState, onBackToLobby);
+  renderState(app, initialState, joinUrl, onBackToLobby);
 
   const keyHandler = (event) => {
     if (!currentGameState) return;
-    if (event.key === " " && currentGameState.phase === "reveal") {
+    if (event.key !== " ") return;
+    // Let focused buttons handle Space themselves (avoids sending "next" twice).
+    if (event.target?.tagName === "BUTTON" || event.target?.id === "session-next-btn") return;
+    if (currentGameState.phase === "reveal") {
       event.preventDefault();
       sendNext();
     }
   };
 
-  document.removeEventListener("keydown", window.__mobileHostKeyHandler);
-  window.__mobileHostKeyHandler = keyHandler;
+  window.__sessionHostKeyHandler = keyHandler;
   document.addEventListener("keydown", keyHandler);
+}
+
+function detachHostSession() {
+  if (window.__sessionHostKeyHandler) {
+    document.removeEventListener("keydown", window.__sessionHostKeyHandler);
+    window.__sessionHostKeyHandler = null;
+  }
+
+  if (hostSocket) {
+    hostSocket.close();
+    hostSocket = null;
+  }
 }
 
 function sendStart() {
@@ -70,11 +82,11 @@ function showHostError(message) {
   }
 }
 
-function renderState(app, state, onBackToLobby) {
+function renderState(app, state, joinUrl, onBackToLobby) {
   cancelAnimationFrame(clockAnimation);
 
   if (state.phase === "lobby") {
-    renderLobby(app, state);
+    renderLobby(app, state, joinUrl);
   } else if (state.phase === "question") {
     renderQuestion(app, state);
   } else if (state.phase === "reveal") {
@@ -84,7 +96,7 @@ function renderState(app, state, onBackToLobby) {
   }
 }
 
-function renderLobby(app, state) {
+function renderLobby(app, state, joinUrl) {
   const teamsHtml = state.teams
     .map((team) => {
       const players = team.players || [];
@@ -111,10 +123,14 @@ function renderLobby(app, state) {
     0,
   );
 
+  const playUrl = joinUrl || `${window.location.origin}/play`;
+
   app.innerHTML = `
     <div class="lobby-box">
       <div class="room-code-tag">CÓDIGO: ${esc(state.code)}</div>
-      <div class="sub">Conecte seu celular escaneando o QR code abaixo:</div>
+      <div class="sub">Escaneie o QR Code no celular ou acesse pelo navegador (celular ou PC) e digite o código:</div>
+
+      <div class="join-url-pill">${icon("laptop")}<span>${esc(playUrl)}</span></div>
 
       <div class="qr-card">
         <img src="/api/rooms/${encodeURIComponent(state.code)}/qr.png" alt="QR Code da Sala">
@@ -122,16 +138,16 @@ function renderLobby(app, state) {
 
       <div class="lobby-teams">${teamsHtml}</div>
 
-      <button id="start-mobile-btn" style="padding:16px 36px; font-size:1.4rem;" ${totalPlayers === 0 ? "disabled" : ""}>
+      <button id="start-session-btn" style="padding:16px 36px; font-size:1.4rem;" ${totalPlayers === 0 ? "disabled" : ""}>
         Começar Partida! (${totalPlayers}/6 conectados)
       </button>
 
       <div id="host-msg" class="msg" style="color:var(--vermelho);"></div>
-      <div class="hint">Os jogadores escolhem a equipe no celular · Quem responder primeiro pontua</div>
+      <div class="hint">Os jogadores escolhem a equipe pelo celular ou PC · Quem responder primeiro pontua</div>
     </div>
   `;
 
-  const startBtn = $("#start-mobile-btn");
+  const startBtn = $("#start-session-btn");
   if (startBtn) {
     startBtn.addEventListener("click", () => {
       sendStart();
@@ -189,7 +205,7 @@ function renderQuestion(app, state) {
       <div class="opts">
         ${state.question.options.map((opt, i) => optionHtml(opt, i, null, state)).join("")}
       </div>
-      <div class="msg" id="msg">${icon("smartphone")} Responda pelo celular!</div>
+      <div class="msg" id="msg">${icon("laptop")} ${icon("smartphone")} Respondam pelo celular ou PC!</div>
     </div>
   `;
 
@@ -220,11 +236,11 @@ function renderReveal(app, state) {
         ${state.question.options.map((opt, i) => optionHtml(opt, i, state.reveal, state)).join("")}
       </div>
       <div class="msg" id="msg">${revealMessage(state)}</div>
-      <button id="mobile-next-btn" class="sec">${nextText}</button>
+      <button id="session-next-btn" class="sec">${nextText}</button>
     </div>
   `;
 
-  $("#mobile-next-btn").addEventListener("click", () => {
+  $("#session-next-btn").addEventListener("click", () => {
     sendNext();
   });
 }
@@ -264,25 +280,23 @@ function renderFinished(app, state, onBackToLobby) {
       <div class="score">
         ${state.teams.map((t) => `<div class="team">${esc(t.name)}<b>${t.score}</b></div>`).join("")}
       </div>
-      <div id="mobile-ranking-wrap"></div>
-      <button id="mobile-again-btn">Nova Partida</button>
+      <div id="session-ranking-wrap"></div>
+      <button id="session-again-btn">Nova Partida</button>
     </div>
   `;
 
   api
     .get("/api/ranking?limit=5")
     .then((ranking) => {
-      const wrap = $("#mobile-ranking-wrap");
+      const wrap = $("#session-ranking-wrap");
       if (wrap) {
         wrap.innerHTML = rankingHtml(ranking);
       }
     })
     .catch(() => {});
 
-  $("#mobile-again-btn").addEventListener("click", () => {
-    if (hostSocket) {
-      hostSocket.close();
-    }
+  $("#session-again-btn").addEventListener("click", () => {
+    detachHostSession();
     onBackToLobby();
   });
 }

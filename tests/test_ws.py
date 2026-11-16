@@ -16,7 +16,7 @@ def test_full_websocket_match_flow(client: TestClient) -> None:
     res = client.post(
         "/api/rooms",
         json={
-            "mode": "mobile",
+            "mode": "session",
             "team_names": ["Equipe Alfa", "Equipe Beta"],
             "theme_id": "jogos",
             "n": 2,
@@ -160,7 +160,7 @@ def test_full_websocket_match_flow(client: TestClient) -> None:
 def test_player_reconnection(client: TestClient) -> None:
     res = client.post(
         "/api/rooms",
-        json={"mode": "mobile", "team_names": ["A", "B"], "n": 2},
+        json={"mode": "session", "team_names": ["A", "B"], "n": 2},
     )
     code = res.json()["code"]
     host_token = res.json()["host_token"]
@@ -195,7 +195,7 @@ def test_player_reconnection(client: TestClient) -> None:
 def test_ws_rejects_invalid_tokens_or_rooms(client: TestClient) -> None:
     res = client.post(
         "/api/rooms",
-        json={"mode": "mobile", "team_names": ["A", "B"], "n": 2},
+        json={"mode": "session", "team_names": ["A", "B"], "n": 2},
     )
     code = res.json()["code"]
 
@@ -215,7 +215,7 @@ def test_ws_rejects_invalid_tokens_or_rooms(client: TestClient) -> None:
 def test_ws_host_next_in_lobby_returns_error_and_keeps_lobby(client: TestClient) -> None:
     res = client.post(
         "/api/rooms",
-        json={"mode": "mobile", "team_names": ["A", "B"], "n": 2},
+        json={"mode": "session", "team_names": ["A", "B"], "n": 2},
     )
     code = res.json()["code"]
     host_token = res.json()["host_token"]
@@ -236,7 +236,7 @@ def test_ws_host_next_in_lobby_returns_error_and_keeps_lobby(client: TestClient)
 def test_ws_host_start_without_players_is_rejected(client: TestClient) -> None:
     res = client.post(
         "/api/rooms",
-        json={"mode": "mobile", "team_names": ["A", "B"], "n": 2},
+        json={"mode": "session", "team_names": ["A", "B"], "n": 2},
     )
     code = res.json()["code"]
     host_token = res.json()["host_token"]
@@ -257,7 +257,7 @@ def test_ws_host_start_without_players_is_rejected(client: TestClient) -> None:
 def test_same_team_two_players_second_does_not_score_twice(client: TestClient) -> None:
     res = client.post(
         "/api/rooms",
-        json={"mode": "mobile", "team_names": ["Time 1", "Time 2"], "n": 2},
+        json={"mode": "session", "team_names": ["Time 1", "Time 2"], "n": 2},
     )
     code = res.json()["code"]
     host_token = res.json()["host_token"]
@@ -297,7 +297,7 @@ def test_same_team_two_players_second_does_not_score_twice(client: TestClient) -
 def test_ws_player_reconnection_in_reveal_and_finished(client: TestClient) -> None:
     res = client.post(
         "/api/rooms",
-        json={"mode": "mobile", "team_names": ["Time 1", "Time 2"], "n": 1},
+        json={"mode": "session", "team_names": ["Time 1", "Time 2"], "n": 1},
     )
     code = res.json()["code"]
     host_token = res.json()["host_token"]
@@ -348,7 +348,7 @@ def test_ws_player_reconnection_in_reveal_and_finished(client: TestClient) -> No
 def test_ws_automatic_timeout_reveal_and_persist(client: TestClient) -> None:
     res = client.post(
         "/api/rooms",
-        json={"mode": "mobile", "team_names": ["Time X", "Time Y"], "n": 1},
+        json={"mode": "session", "team_names": ["Time X", "Time Y"], "n": 1},
     )
     code = res.json()["code"]
     host_token = res.json()["host_token"]

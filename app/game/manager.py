@@ -46,11 +46,6 @@ class RoomManager:
         return self._room_locks[normalized]
 
     async def create(self, request: CreateRoomRequest) -> tuple[str, str, RoomSnapshotDict]:
-        if request.mode is Mode.MOBILE:
-            answer_mode = AnswerMode.SIMULTANEOUS
-        else:
-            answer_mode = request.answer_mode or AnswerMode.ALTERNATE
-
         if request.generated_questions:
             questions: list[Question] = []
             for i, item in enumerate(request.generated_questions):
@@ -99,8 +94,8 @@ class RoomManager:
             room = Room(
                 code=code,
                 host_token=host_token,
-                mode=request.mode,
-                answer_mode=answer_mode,
+                mode=Mode.SESSION,
+                answer_mode=AnswerMode.SIMULTANEOUS,
                 teams=teams,
                 questions=questions,
                 theme=theme_name,
@@ -124,23 +119,6 @@ class RoomManager:
 
     def state(self, code: str) -> RoomSnapshotDict:
         return self.get(code).snapshot()
-
-    def answer(
-        self,
-        code: str,
-        host_token: str,
-        team_id: str,
-        option_id: str,
-        player_id: str | None = None,
-    ) -> RoomSnapshotDict:
-        engine = self.get(code, host_token)
-        return engine.answer(team_id, option_id, player_id=player_id)
-
-    def next_question(self, code: str, host_token: str) -> RoomSnapshotDict:
-        engine = self.get(code, host_token)
-        state = engine.next_question()
-        self._persist_if_finished(engine)
-        return state
 
     def start_game(self, code: str, host_token: str) -> RoomSnapshotDict:
         engine = self.get(code, host_token)

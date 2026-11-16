@@ -15,7 +15,7 @@ def room(client):
     response = client.post(
         "/api/rooms",
         json={
-            "mode": "local",
+            "mode": "session",
             "team_names": ["Alpha", "Beta"],
             "theme_id": "",
             "n": 2,
@@ -31,6 +31,17 @@ def test_health(client):
     assert body["database"] is True
 
 
+def test_create_room_returns_session_lobby(client, room):
+    assert room["join_url"].endswith("/play")
+
+    state = room["state"]
+    assert state["mode"] == "session"
+    assert state["answer_mode"] == "simultaneous"
+    assert state["phase"] == "lobby"
+    assert state["question"] is None
+    assert state["seconds_left"] == 0
+
+
 def test_themes_are_listed(client):
     themes = client.get("/api/themes").json()
     ids = {theme["id"] for theme in themes}
@@ -38,70 +49,121 @@ def test_themes_are_listed(client):
 
 
 def test_question_payload_does_not_leak_answer(client, room):
-    state = room["state"]
+    code = room["code"]
+    host_token = room["host_token"]
+    team_id = room["state"]["teams"][0]["id"]
+
+    player_res = client.post(
+        f"/api/rooms/{code}/players",
+        json={"nickname": "Ana", "team_id": team_id},
+    )
+    assert player_res.status_code == 201
+
+    with client.websocket_connect(f"/ws/host?room={code}&token={host_token}") as host_ws:
+        assert host_ws.receive_json()["phase"] == "lobby"
+
+        host_ws.send_json({"type": "start"})
+        state = host_ws.receive_json()
+
     assert state["phase"] == "question"
     assert state["reveal"] is None
     assert "correct_option_id" not in state["question"]
-
-
-def test_answer_requires_host_token(client, room):
-    state = room["state"]
-    response = client.post(
-        f"/api/rooms/{room['code']}/answer",
-        json={
-            "team_id": state["turn_team_id"],
-            "option_id": state["question"]["options"][0]["id"],
-        },
-    )
-    assert response.status_code == 403
 
 
 def test_full_match_persists_ranking(client):
     response = client.post(
         "/api/rooms",
         json={
-            "mode": "local",
+            "mode": "session",
             "team_names": ["Gama", "Delta"],
             "theme_id": "",
             "n": 2,
         },
     )
+    assert response.status_code == 201, response.text
     data = response.json()
-    code, token = data["code"], data["host_token"]
-    headers = {"X-Host-Token": token}
-    state = data["state"]
+    code, host_token = data["code"], data["host_token"]
+    team_1, team_2 = data["state"]["teams"][0]["id"], data["state"]["teams"][1]["id"]
 
-    for _ in range(100):
-        if state["phase"] == "finished":
-            break
-        if state["phase"] == "question":
-            result = client.post(
-                f"/api/rooms/{code}/answer",
-                json={
-                    "team_id": state["turn_team_id"],
-                    "option_id": state["question"]["options"][0]["id"],
-                },
-                headers=headers,
-            )
-        else:
-            result = client.post(f"/api/rooms/{code}/next", headers=headers)
-        assert result.status_code == 200, result.text
-        state = result.json()
+    player_1 = client.post(
+        f"/api/rooms/{code}/players",
+        json={"nickname": "Gama 1", "team_id": team_1},
+    ).json()
+    player_2 = client.post(
+        f"/api/rooms/{code}/players",
+        json={"nickname": "Delta 1", "team_id": team_2},
+    ).json()
 
-    assert state["phase"] == "finished"
-    assert state["winners"]
+    with client.websocket_connect(f"/ws/host?room={code}&token={host_token}") as host_ws:
+        assert host_ws.receive_json()["phase"] == "lobby"
+
+        with client.websocket_connect(
+            f"/ws/player?room={code}&token={player_1['player_token']}"
+        ) as player_1_ws:
+            _ = player_1_ws.receive_json()
+
+            with client.websocket_connect(
+                f"/ws/player?room={code}&token={player_2['player_token']}"
+            ) as player_2_ws:
+                _ = player_2_ws.receive_json()
+
+                for index in range(2):
+                    host_ws.send_json({"type": "start" if index == 0 else "next"})
+                    host_state = host_ws.receive_json()
+                    assert host_state["phase"] == "question"
+
+                    player_1_question = player_1_ws.receive_json()
+                    _ = player_2_ws.receive_json()
+
+                    player_1_ws.send_json(
+                        {
+                            "type": "answer",
+                            "option_id": player_1_question["options"][0]["id"],
+                        }
+                    )
+                    _ = player_1_ws.receive_json()
+                    _ = player_2_ws.receive_json()
+                    _ = host_ws.receive_json()
+
+                    player_2_ws.send_json(
+                        {
+                            "type": "answer",
+                            "option_id": player_1_question["options"][1]["id"],
+                        }
+                    )
+                    _ = player_1_ws.receive_json()
+                    _ = player_2_ws.receive_json()
+                    _ = player_1_ws.receive_json()
+                    _ = player_2_ws.receive_json()
+                    assert host_ws.receive_json()["phase"] == "reveal"
+
+                host_ws.send_json({"type": "next"})
+                finished_state = host_ws.receive_json()
+
+    assert finished_state["phase"] == "finished"
+    assert finished_state["winners"]
 
     ranking = client.get("/api/ranking").json()
     assert any(entry["name"] in {"Gama", "Delta"} for entry in ranking)
 
 
-def test_theme_with_few_questions_is_not_padded(client):
+def test_theme_with_few_questions_is_not_padded(client, monkeypatch):
+    sample = [
+        {
+            "category": "Curto",
+            "prompt": f"Pergunta {i}?",
+            "correct": "Certa",
+            "distractors": ["E1", "E2", "E3"],
+        }
+        for i in range(3)
+    ]
+    monkeypatch.setattr("app.quiz.bank.theme_questions", lambda _s, _t: (sample, "Curto"))
     response = client.post(
         "/api/rooms",
         json={
-            "mode": "local",
+            "mode": "session",
             "team_names": ["Um", "Dois"],
-            "theme_id": "anime",
+            "theme_id": "curto",
             "n": 10,
         },
     )
@@ -113,7 +175,7 @@ def test_unknown_theme_is_rejected(client):
     response = client.post(
         "/api/rooms",
         json={
-            "mode": "local",
+            "mode": "session",
             "team_names": ["Um", "Dois"],
             "theme_id": "inexistente",
             "n": 5,
