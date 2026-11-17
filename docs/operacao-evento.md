@@ -109,7 +109,95 @@ Realize estes passos antes de ir para o local da apresentação:
 
 ---
 
-## 4. Conduzindo a partida (sessão)
+## 4. Acesso remoto com túnel Cloudflare (jogadores fora da rede local)
+
+Use quando os jogadores não estão na mesma rede do notebook: Wi-Fi com
+isolamento de clientes, celulares no 4G, etc. Arquitetura com dois notebooks:
+
+```
+Notebook Windows (modelo)                 Notebook da aplicação
+  Ollama em 127.0.0.1:11434                 uvicorn em 0.0.0.0:8000
+        │                                         │
+  cloudflared tunnel                        cloudflared tunnel
+        │                                         │
+        ▼                                         ▼
+  https://modelo-xyz.trycloudflare.com      https://quiz-xyz.trycloudflare.com
+        ▲                                         ▲
+        │                                         │
+  OLLAMA_BASE_URL no .env da aplicação    QR Code / jogadores (qualquer rede)
+```
+
+Só a aplicação precisa ser alcançada pelos jogadores. O túnel do modelo é
+usado apenas pela aplicação (servidor a servidor); jogador nunca acessa o
+modelo diretamente. Os dois notebooks precisam de internet.
+
+### 4.1 Notebook Windows (modelo)
+
+1. Instale o Ollama e baixe o modelo (`ollama pull <modelo>`).
+2. No PowerShell, na raiz do projeto:
+   ```powershell
+   .\scripts\tunnel-ollama.ps1
+   ```
+   O script garante o Ollama rodando, baixa o `cloudflared.exe` se necessário,
+   sobe o túnel apontando para `127.0.0.1:11434`, testa a URL pública e lista
+   os modelos disponíveis.
+3. Anote a URL gerada (`https://<algo>.trycloudflare.com`).
+
+Observações:
+- Com o Ollama já rodando na bandeja, o túnel para `127.0.0.1` funciona sem
+  mudar nada. Se o túnel apontar para o IP da LAN (ou rodar em outra máquina),
+  o Ollama precisa escutar em todas as interfaces: defina `OLLAMA_HOST=0.0.0.0`
+  nas variáveis de ambiente do Windows e reinicie o Ollama (o Firewall pode
+  pedir permissão). Esse é o motivo mais comum de "modelo funciona na máquina
+  mas não conecta de fora".
+- Quick tunnel gera URL nova a cada execução. Para URL fixa, use um named
+  tunnel (`cloudflared tunnel login` / `create` / `route dns`; requer conta
+  Cloudflare e domínio próprio).
+
+### 4.2 Notebook da aplicação
+
+1. Ajuste o `.env`:
+   ```ini
+   LLM_PROVIDER=local
+   OLLAMA_BASE_URL=https://<URL do túnel do Windows>
+   OLLAMA_MODEL=<nome exato em `ollama list` no Windows>
+   OLLAMA_TIMEOUT=420
+   ```
+2. Suba a aplicação já com túnel:
+   ```bash
+   ./scripts/tunnel-app.sh
+   ```
+   O script sobe o túnel, grava a URL pública em `PUBLIC_URL` no `.env` e
+   inicia o servidor. **`PUBLIC_URL` é o que faz o QR Code apontar para o
+   túnel**; com ele vazio, o QR é gerado com o IP da LAN e só funciona na
+   mesma rede.
+3. Abra o host em `http://localhost:8000` e crie a sessão. O QR Code projetado
+   apontará para `https://<túnel-da-app>/play?room=CODIGO`.
+
+### 4.3 Validação antes de abrir ao público
+
+- Num celular **com Wi-Fi desligado (4G)**, abra a URL do túnel e
+  `/api/health`. Se só funcionar no Wi-Fi, o QR ainda aponta para a LAN:
+  confira `PUBLIC_URL` e recrie a sessão.
+- Gere um tema de teste pelo host e acompanhe o job até `done`. A geração via
+  Ollama usa streaming justamente para sobreviver ao limite de ~100 s do
+  Cloudflare sem tráfego (erro 524); ainda assim, prefira temas pré-gerados.
+- Escaneie o QR projetado com o celular no 4G e entre na sala.
+
+### 4.4 Limitações e contingência
+
+- Sem internet nos notebooks, o túnel cai. Nesse caso volte ao modo
+  LAN/hotspot (seção 6, Falha 1) com temas pré-gerados e
+  `LLM_PROVIDER=offline` — o jogo funciona 100% offline.
+- Não reinicie os túneis durante a partida: a URL muda, o QR antigo morre e
+  os sockets dos jogadores caem (a página reconecta, mas para a URL antiga).
+- Quick tunnels são efêmeros e sem garantia de disponibilidade; para o evento,
+  o mais seguro é pré-gerar os temas na véspera e eliminar a dependência do
+  túnel do modelo durante a apresentação.
+
+---
+
+## 5. Conduzindo a partida (sessão)
 
 1. **Criar a sessão:**
    Na tela inicial do host, clique para criar uma nova sessão.
@@ -131,7 +219,7 @@ Realize estes passos antes de ir para o local da apresentação:
 
 ---
 
-## 5. Contingência e resiliência
+## 6. Contingência e resiliência
 
 ### Falha 1: Client isolation no Wi-Fi do campus
 - **Sintoma:** Os celulares conectam ao Wi-Fi da universidade, mas ao ler o QR Code a página não carrega (timeout ou conexão recusada).
@@ -161,7 +249,7 @@ Realize estes passos antes de ir para o local da apresentação:
 
 ---
 
-## 6. O que fazer durante a partida
+## 7. O que fazer durante a partida
 
 1. **Se a rede oscilar momentaneamente:**
    O motor do jogo e a contagem de tempo são mantidos no servidor (relógio monotônico). Quando os sockets reconectarem, o estado sincroniza automaticamente.
@@ -172,7 +260,7 @@ Realize estes passos antes de ir para o local da apresentação:
 
 ---
 
-## 7. Procedimentos após o evento
+## 8. Procedimentos após o evento
 
 1. **Backup do banco de dados:**
    O arquivo SQLite em `data/quiz.db` contém todo o histórico de partidas e pontuações do evento. Faça uma cópia de segurança:
@@ -193,7 +281,7 @@ Realize estes passos antes de ir para o local da apresentação:
 
 ---
 
-## 8. Checklist operacional
+## 9. Checklist operacional
 
 ### Pré-evento
 - [ ] Dependências sincronizadas (`uv sync` executado com sucesso).
@@ -201,6 +289,8 @@ Realize estes passos antes de ir para o local da apresentação:
 - [ ] Ollama em execução com o modelo baixado e testado (se `LLM_PROVIDER=local`).
 - [ ] Temas curados pré-gerados com `scripts/gerar_temas.py` em `data/temas/`.
 - [ ] Teste de leitura de QR Code efetuado com celular teste.
+- [ ] Se for usar túnel: `scripts/tunnel-ollama.ps1` rodando no Windows e `OLLAMA_BASE_URL` apontando para a URL do túnel.
+- [ ] Se for usar túnel: `scripts/tunnel-app.sh` rodando e QR Code testado em celular no 4G (Wi-Fi desligado).
 - [ ] Bateria do notebook 100% carregada e fonte na bolsa.
 - [ ] Hotspot 4G/5G do celular testado como plano de contingência.
 
@@ -224,11 +314,15 @@ Realize estes passos antes de ir para o local da apresentação:
 
 ---
 
-## 9. Troubleshooting
+## 10. Troubleshooting
 
 | Sintoma | Causa provável | Ação recomendada |
 |---|---|---|
 | Celular lê o QR Code mas a página não carrega | Wi-Fi do campus com isolamento de clientes (client isolation) | Ligar o hotspot do notebook ou celular, conectar ambos nele e reiniciar o serviço |
+| QR Code / link só abre em quem está no mesmo Wi-Fi | `PUBLIC_URL` vazio: QR gerado com o IP da LAN, não com a URL do túnel | Definir `PUBLIC_URL=https://<túnel>` no `.env` (ou usar `scripts/tunnel-app.sh`) e recriar a sessão |
+| Geração via túnel falha após ~100 s (HTTP 524) | Resposta sem tráfego cortada pelo Cloudflare | O provedor `local` já usa streaming; confirme que o código está atualizado e que `OLLAMA_BASE_URL` aponta para o túnel |
+| Modelo funciona no Windows mas a aplicação não conecta | Ollama escuta só em `127.0.0.1` e o túnel aponta para o IP da LAN; ou `OLLAMA_BASE_URL` ainda é o IP da LAN | Apontar o túnel para `http://127.0.0.1:11434` no mesmo notebook, ou definir `OLLAMA_HOST=0.0.0.0` e reiniciar o Ollama; usar a URL do túnel em `OLLAMA_BASE_URL` |
+| URL do túnel parou de funcionar do nada | Quick tunnel reiniciado gera URL nova | Atualizar `PUBLIC_URL` / `OLLAMA_BASE_URL` com a nova URL e recriar a sessão; considerar named tunnel para URL fixa |
 | Erro `connection refused` ao tentar acessar `http://localhost:8000` | Servidor não foi iniciado ou a porta 8000 está ocupada | Rodar `./run.sh` e checar se outro processo usa a porta 8000 |
 | Falha ao gerar perguntas ou demora excessiva | API externa com timeout, sem internet ou sem chave configurada | Mudar no `.env` para `LLM_PROVIDER=offline` e usar temas prontos; o motivo exato aparece na mensagem do host |
 | Mensagem `429 RESOURCE_EXHAUSTED` na geração | Cota gratuita do Gemini esgotada (20 requisições/dia por modelo) | Trocar de chave/projeto, aguardar o reset da cota ou usar tema pronto/offline |

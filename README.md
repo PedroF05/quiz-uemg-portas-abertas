@@ -40,6 +40,21 @@ docker compose --profile local-llm up --build
 
 A aplicação fica acessível em <http://localhost:8000> com dados persistidos em `./data`.
 
+### Acesso remoto (túnel Cloudflare)
+
+Para jogadores fora da rede local (4G, Wi-Fi com isolamento de clientes):
+
+```bash
+./scripts/tunnel-app.sh
+```
+
+O script sobe um túnel Cloudflare, grava a URL pública em `PUBLIC_URL` no
+`.env` (o QR Code passa a apontar para o túnel, não para o IP da LAN) e inicia
+o servidor. Com o Ollama em outro notebook Windows, rode lá o
+`scripts/tunnel-ollama.ps1` e aponte `OLLAMA_BASE_URL` no `.env` para a URL
+gerada. O passo a passo completo está em
+[`docs/operacao-evento.md`](docs/operacao-evento.md) (seção 4).
+
 ## Como jogar
 
 1. No notebook do apresentador, abra o host e crie uma **sessão**: o sistema gera um QR Code
@@ -90,7 +105,7 @@ Copie `.env.example` para `.env`. As variáveis principais:
 | `OLLAMA_MODEL` | modelo local via Ollama (ex.: `qwen2.5:3b-instruct` ou `qwen3:4b`) |
 | `OLLAMA_NUM_CTX` | contexto do Ollama (padrão 4096; 2048 cabe até ~10 perguntas) |
 | `OLLAMA_THINK` | `false` desliga o raciocínio do Qwen3 e acelera a resposta |
-| `PUBLIC_URL` | URL usada no QR code; vazio = IP da LAN |
+| `PUBLIC_URL` | URL usada no QR code; vazio = IP da LAN. Com túnel Cloudflare, use a URL do túnel (`scripts/tunnel-app.sh` preenche automaticamente) |
 | `QUESTION_TIME` | segundos por pergunta (padrão 20) |
 
 O `.env` nunca vai para o Git. A chave fica só no servidor.
