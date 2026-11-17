@@ -18,3 +18,12 @@ def test_no_points_after_limit():
 def test_custom_values():
     assert points_for(1, 10, base=5, bonus=2) == 7
     assert points_for(8, 10, base=5, bonus=2) == 5
+
+
+def test_difficulty_weights_multiply_points():
+    assert points_for(5, 20, weight=1) == 15
+    assert points_for(15, 20, weight=1) == 10
+    assert points_for(5, 20, weight=2) == 30
+    assert points_for(15, 20, weight=2) == 20
+    assert points_for(5, 20, weight=3) == 45
+    assert points_for(15, 20, weight=3) == 30

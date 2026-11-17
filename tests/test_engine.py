@@ -157,3 +157,20 @@ def test_snapshot_hides_correct_option_while_question_is_open():
     assert "turn_team_id" not in state
     assert "correct_option_id" not in state["question"]
     assert len(state["question"]["options"]) == 4
+
+
+def test_weighted_questions_and_balanced_selection():
+    from app.config import settings
+    from app.quiz.bank import build_questions
+
+    questions, _ = build_questions(settings, "jogos", 6)
+    assert len(questions) == 6
+    assert [q.difficulty.value for q in questions] == [
+        "facil",
+        "facil",
+        "medio",
+        "medio",
+        "dificil",
+        "dificil",
+    ]
+    assert [q.weight for q in questions] == [1, 1, 2, 2, 3, 3]

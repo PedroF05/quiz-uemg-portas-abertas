@@ -29,6 +29,8 @@ class QuestionSnapshot(BaseModel):
     category: str
     prompt: str
     options: list[OptionSnapshot]
+    difficulty: str = "facil"
+    weight: int = 1
 
 
 class AnswerSnapshot(BaseModel):
@@ -110,6 +112,8 @@ class PlayerQuestionMessage(BaseModel):
     prompt: str
     options: list[OptionSnapshot]
     seconds_left: float
+    difficulty: str = "facil"
+    weight: int = 1
 
 
 class PlayerTeamLockedMessage(BaseModel):

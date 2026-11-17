@@ -5,12 +5,16 @@ from pathlib import Path
 
 from pydantic import BaseModel, Field
 
+from ..domain.models import resolve_difficulty_and_weight
+
 
 class RawQuestion(BaseModel):
     category: str = ""
     prompt: str
     correct: str
     distractors: list[str] = Field(default_factory=list)
+    difficulty: str = "facil"
+    weight: int | None = None
 
 
 class QuestionBatch(BaseModel):
@@ -22,6 +26,8 @@ class GeneratedQuestion(BaseModel):
     prompt: str
     correct: str
     distractors: list[str]
+    difficulty: str = "facil"
+    weight: int = 1
 
 
 class ValidationError(Exception):
@@ -79,6 +85,9 @@ def validate_single_question(
         return None
 
     category = question.category.strip() or theme.strip() or "Geral"
+    difficulty, weight = resolve_difficulty_and_weight(
+        question.difficulty, question.weight
+    )
 
     seen_prompts.add(normalized_prompt)
     return GeneratedQuestion(
@@ -86,6 +95,8 @@ def validate_single_question(
         prompt=prompt,
         correct=correct,
         distractors=trimmed_distractors,
+        difficulty=difficulty.value,
+        weight=weight,
     )
 
 

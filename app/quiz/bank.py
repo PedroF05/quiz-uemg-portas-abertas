@@ -6,7 +6,12 @@ import uuid
 from pathlib import Path
 
 from ..config import Settings
-from ..domain.models import Option, Question
+from ..domain.models import (
+    Difficulty,
+    Option,
+    Question,
+    resolve_difficulty_and_weight,
+)
 
 
 class BankError(Exception):
@@ -82,23 +87,63 @@ def _is_valid(item: dict) -> bool:
     return len(texts) == 4
 
 
+def _select_balanced_questions(
+    valid: list[dict],
+    target: int,
+    rng: random.Random,
+) -> list[dict]:
+    """Sorteia perguntas de forma equilibrada entre fácil, médio e difícil, ordenadas por peso."""
+    levels = (Difficulty.FACIL, Difficulty.MEDIO, Difficulty.DIFICIL)
+    buckets: dict[Difficulty, list[dict]] = {level: [] for level in levels}
+    for item in valid:
+        diff, _ = resolve_difficulty_and_weight(item.get("difficulty"), item.get("weight"))
+        buckets[diff].append(item)
+
+    for bucket in buckets.values():
+        rng.shuffle(bucket)
+
+    base_quota, remainder = divmod(target, len(levels))
+    chosen: list[dict] = []
+    leftovers: list[dict] = []
+
+    for idx, level in enumerate(levels):
+        quota = base_quota + (1 if idx < remainder else 0)
+        bucket = buckets[level]
+        chosen.extend(bucket[:quota])
+        leftovers.extend(bucket[quota:])
+
+    if len(chosen) < target and leftovers:
+        rng.shuffle(leftovers)
+        chosen.extend(leftovers[: target - len(chosen)])
+
+    chosen.sort(
+        key=lambda item: resolve_difficulty_and_weight(
+            item.get("difficulty"), item.get("weight")
+        )[1]
+    )
+    return chosen
+
+
 def build_questions(
     settings: Settings,
     theme_id: str,
     n: int,
     rng: random.Random | None = None,
 ) -> tuple[list[Question], str]:
-    """Sorteia n perguntas do tema e embaralha as opções de cada uma."""
+    """Sorteia n perguntas do tema equilibradas por dificuldade e embaralha as opções."""
     raw, theme_name = theme_questions(settings, theme_id)
     valid = [item for item in raw if _is_valid(item)]
     if not valid:
         raise BankError("O tema não tem perguntas válidas.")
 
     rng = rng or random.Random()
-    chosen = rng.sample(valid, k=min(n, len(valid)))
+    chosen = _select_balanced_questions(valid, min(n, len(valid)), rng)
 
     questions: list[Question] = []
     for item in chosen:
+        difficulty, weight = resolve_difficulty_and_weight(
+            item.get("difficulty"), item.get("weight")
+        )
         texts = [item["correct"], *item["distractors"]]
         rng.shuffle(texts)
         options = [Option(id=uuid.uuid4().hex, text=text) for text in texts]
@@ -110,6 +155,8 @@ def build_questions(
                 prompt=item["prompt"],
                 options=options,
                 correct_option_id=correct,
+                difficulty=difficulty,
+                weight=weight,
             )
         )
 

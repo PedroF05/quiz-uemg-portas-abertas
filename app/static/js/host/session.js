@@ -3,6 +3,18 @@ import { $, esc, icon } from "../core/dom.js";
 import { QuizSocket } from "../core/ws.js";
 
 const LETTERS = ["A", "B", "C", "D"];
+const DIFFICULTY_LABELS = {
+  facil: "Fácil",
+  medio: "Médio",
+  dificil: "Difícil",
+};
+
+function difficultyTag(question) {
+  const diff = question?.difficulty || "facil";
+  const weight = question?.weight || 1;
+  const label = DIFFICULTY_LABELS[diff] || "Fácil";
+  return `${label} (${weight}x)`;
+}
 let clockAnimation = 0;
 let hostSocket = null;
 let currentGameState = null;
@@ -199,7 +211,7 @@ function renderQuestion(app, state) {
   app.innerHTML = `
     <div class="game-screen">
       ${scoreboard(state)}
-      <div class="cat">${esc(state.question.category)} · Rodada Simultânea</div>
+      <div class="cat">${esc(state.question.category)} · ${esc(difficultyTag(state.question))} · Rodada Simultânea</div>
       <div class="q">${esc(state.question.prompt)}</div>
       <div class="bar"><div id="clock"></div></div>
       <div class="opts">
@@ -229,7 +241,7 @@ function renderReveal(app, state) {
   app.innerHTML = `
     <div class="game-screen">
       ${scoreboard(state)}
-      <div class="cat">${esc(state.question.category)}</div>
+      <div class="cat">${esc(state.question.category)} · ${esc(difficultyTag(state.question))}</div>
       <div class="q">${esc(state.question.prompt)}</div>
       <div class="bar"><div id="clock" style="width:0%;"></div></div>
       <div class="opts">

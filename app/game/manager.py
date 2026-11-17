@@ -20,6 +20,7 @@ from ..domain.models import (
     Question,
     Room,
     Team,
+    resolve_difficulty_and_weight,
 )
 from ..quiz import bank
 from .engine import EngineError, GameEngine, RoomSnapshotDict
@@ -61,6 +62,9 @@ class RoomManager:
                     options.append(Option(id=option_id, text=text))
                     if is_correct:
                         correct_id = option_id
+                difficulty, weight = resolve_difficulty_and_weight(
+                    item.difficulty, item.weight
+                )
                 questions.append(
                     Question(
                         id=qid,
@@ -68,8 +72,11 @@ class RoomManager:
                         prompt=item.prompt,
                         options=options,
                         correct_option_id=correct_id,
+                        difficulty=difficulty,
+                        weight=weight,
                     )
                 )
+            questions.sort(key=lambda q: q.weight)
             theme_name = request.theme_id.strip() or "Tema Livre"
         else:
             questions, theme_name = bank.build_questions(

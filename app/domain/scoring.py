@@ -6,14 +6,14 @@ def points_for(
     time_limit: float,
     base: int = 10,
     bonus: int = 5,
+    weight: int = 1,
 ) -> int:
-    """10 pontos por acerto + 5 se responder na primeira metade do tempo.
+    """Pontuação base (10 + 5 de velocidade) multiplicada pelo peso (1, 2 ou 3).
 
     Resposta correta após o limite não pontua (o engine já rejeita, mas a
     função é defensiva para uso direto).
     """
-    if elapsed_seconds > time_limit:
+    if elapsed_seconds > time_limit or weight <= 0:
         return 0
-    if elapsed_seconds <= time_limit / 2:
-        return base + bonus
-    return base
+    raw = base + bonus if elapsed_seconds <= time_limit / 2 else base
+    return raw * weight

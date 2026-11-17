@@ -49,7 +49,9 @@ A aplicação fica acessível em <http://localhost:8000> com dados persistidos e
 3. Na tela do jogador, escolha sua equipe e informe o apelido.
 4. Com as equipes preenchidas, o host clica em "Começar" e sorteia as perguntas.
 5. Cada rodada tem 20 segundos; a primeira resposta enviada pela equipe trava a rodada.
-   Acertou = 10 pontos, +5 se responder na primeira metade do tempo.
+   Acertou = 10 pontos (+5 se responder na primeira metade do tempo), multiplicados pelo
+   peso da questão (`facil` = 1x, `medio` = 2x, `dificil` = 3x). As perguntas são
+   sorteadas de forma equilibrada e ordenadas em progressão (`facil` → `medio` → `dificil`).
 6. No PC, as teclas `1`–`4` respondem; no host, `Espaço` avança e `F` alterna tela cheia.
 7. O ranking fica no SQLite do servidor (`data/quiz.db`).
 
@@ -102,7 +104,9 @@ O banco curado fica em `data/perguntas.json`:
   "category": "Jogos",
   "prompt": "Pergunta?",
   "correct": "Resposta certa",
-  "distractors": ["errada 1", "errada 2", "errada 3"]
+  "distractors": ["errada 1", "errada 2", "errada 3"],
+  "difficulty": "facil",
+  "weight": 1
 }
 ```
 

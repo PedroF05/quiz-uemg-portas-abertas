@@ -30,6 +30,8 @@ class QuestionDict(TypedDict):
     category: str
     prompt: str
     options: list[OptionDict]
+    difficulty: str
+    weight: int
 
 
 class PlayerDict(TypedDict):
@@ -149,6 +151,7 @@ class GameEngine:
                 room.question_time,
                 base=self.settings.base_points,
                 bonus=self.settings.speed_bonus,
+                weight=question.weight,
             )
             if correct
             else 0
@@ -213,6 +216,8 @@ class GameEngine:
                 "options": [
                     {"id": o.id, "text": o.text} for o in question.options
                 ],
+                "difficulty": question.difficulty.value,
+                "weight": question.weight,
             }
 
         teams_data: list[TeamDict] = [

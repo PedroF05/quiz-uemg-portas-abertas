@@ -1,6 +1,18 @@
 import { $, esc, icon } from "../core/dom.js";
 
 const LETTERS = ["A", "B", "C", "D"];
+const DIFFICULTY_LABELS = {
+  facil: "Fácil",
+  medio: "Médio",
+  dificil: "Difícil",
+};
+
+function difficultyLabel(questionMsg) {
+  const diff = questionMsg?.difficulty || "facil";
+  const weight = questionMsg?.weight || 1;
+  const label = DIFFICULTY_LABELS[diff] || "Fácil";
+  return `${label} · ${weight}x`;
+}
 let clockAnimation = 0;
 let keydownHandler = null;
 
@@ -34,7 +46,7 @@ export function renderQuestion(container, session, questionMsg, onAnswer) {
   container.innerHTML = `
     <div class="play-container">
       <div class="row" style="width:100%; justify-content:space-between;">
-        <div class="badge">${esc(questionMsg.category || "Quiz")}</div>
+        <div class="badge">${esc(questionMsg.category || "Quiz")} · ${esc(difficultyLabel(questionMsg))}</div>
         <div class="badge" style="background:var(--azul-medio);">${esc(session.team_name)}</div>
       </div>
 

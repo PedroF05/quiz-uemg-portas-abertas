@@ -13,7 +13,10 @@ SYSTEM_PROMPT = (
     "3. Devem existir exatamente 3 alternativas erradas ('distractors'), plausíveis, "
     "cada uma com no máximo 40 caracteres.\n"
     "4. Todas as 4 alternativas precisam ser distintas entre si.\n"
-    "5. O campo 'category' deve indicar o tema da pergunta."
+    "5. O campo 'category' deve indicar o tema da pergunta.\n"
+    "6. Classifique cada pergunta com 'difficulty' ('facil', 'medio' ou 'dificil') "
+    "e 'weight' correspondente (1 para facil, 2 para medio, 3 para dificil), "
+    "distribuindo de forma equilibrada entre os três níveis."
 )
 
 

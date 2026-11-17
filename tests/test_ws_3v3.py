@@ -200,7 +200,7 @@ def test_full_websocket_3v3_match_flow(client: TestClient) -> None:
 
         scores_q2: dict[str, int] = {t["id"]: t["score"] for t in host_reveal_2["teams"]}
         assert scores_q2[t1_id] == 15
-        assert scores_q2[t2_id] == 15
+        assert scores_q2[t2_id] == 30
 
         host_ws.send_json({"type": "next"})
         host_finished = host_ws.receive_json()

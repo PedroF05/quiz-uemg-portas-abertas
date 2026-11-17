@@ -26,6 +26,57 @@ class Phase(str, Enum):
     FINISHED = "finished"
 
 
+class Difficulty(str, Enum):
+    """Nível de dificuldade da pergunta."""
+
+    FACIL = "facil"
+    MEDIO = "medio"
+    DIFICIL = "dificil"
+
+
+DIFFICULTY_WEIGHTS: dict[Difficulty, int] = {
+    Difficulty.FACIL: 1,
+    Difficulty.MEDIO: 2,
+    Difficulty.DIFICIL: 3,
+}
+
+WEIGHT_TO_DIFFICULTY: dict[int, Difficulty] = {
+    1: Difficulty.FACIL,
+    2: Difficulty.MEDIO,
+    3: Difficulty.DIFICIL,
+}
+
+_DIFFICULTY_ALIASES: dict[str, Difficulty] = {
+    "facil": Difficulty.FACIL,
+    "fácil": Difficulty.FACIL,
+    "medio": Difficulty.MEDIO,
+    "médio": Difficulty.MEDIO,
+    "dificil": Difficulty.DIFICIL,
+    "difícil": Difficulty.DIFICIL,
+}
+
+
+def resolve_difficulty_and_weight(
+    difficulty: str | Difficulty | None = None,
+    weight: int | None = None,
+) -> tuple[Difficulty, int]:
+    """Normaliza dificuldade e peso (1=facil, 2=medio, 3=dificil)."""
+    resolved_diff: Difficulty | None = None
+    if isinstance(difficulty, Difficulty):
+        resolved_diff = difficulty
+    elif isinstance(difficulty, str) and difficulty.strip():
+        resolved_diff = _DIFFICULTY_ALIASES.get(difficulty.strip().casefold())
+
+    if resolved_diff is not None:
+        return resolved_diff, DIFFICULTY_WEIGHTS[resolved_diff]
+
+    if isinstance(weight, int) and weight in WEIGHT_TO_DIFFICULTY:
+        resolved_diff = WEIGHT_TO_DIFFICULTY[weight]
+        return resolved_diff, weight
+
+    return Difficulty.FACIL, 1
+
+
 class Option(BaseModel):
     id: str
     text: str
@@ -39,6 +90,8 @@ class Question(BaseModel):
     prompt: str
     options: list[Option]
     correct_option_id: str
+    difficulty: Difficulty = Difficulty.FACIL
+    weight: int = 1
 
 
 class PlayerSummary(BaseModel):
@@ -84,6 +137,8 @@ class GeneratedQuestionInput(BaseModel):
     prompt: str = Field(min_length=1, max_length=200)
     correct: str = Field(min_length=1, max_length=40)
     distractors: list[DistractorStr] = Field(min_length=3, max_length=3)
+    difficulty: Difficulty = Difficulty.FACIL
+    weight: int = Field(default=1, ge=1, le=3)
 
 
 class Room:

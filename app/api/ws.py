@@ -135,6 +135,8 @@ class WebSocketHub:
                 for o in question.options
             ],
             seconds_left=float(engine.room.question_time),
+            difficulty=question.difficulty.value,
+            weight=question.weight,
         ).model_dump_json()
         for ws in list(player_map.values()):
             try:
@@ -369,6 +371,8 @@ async def ws_player(websocket: WebSocket, room: str = "", token: str = "") -> No
                 prompt=q.prompt,
                 options=[OptionSnapshot(id=o.id, text=o.text) for o in q.options],
                 seconds_left=round(seconds_left, 2),
+                difficulty=q.difficulty.value,
+                weight=q.weight,
             )
             await websocket.send_text(msg_q.model_dump_json())
             team = engine.room.team(player.team_id)
