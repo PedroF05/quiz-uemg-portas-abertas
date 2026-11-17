@@ -1,0 +1,6002 @@
+[
+  {
+    "category": "Jogos",
+    "prompt": "Qual é o nome da inteligência artificial que acompanha Master Chief em Halo?",
+    "correct": "Cortana",
+    "distractors": [
+      "Siri",
+      "GLaDOS",
+      "EDI"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em The Witcher 3, qual é o nome da filha adotiva de Geralt de Rívia?",
+    "correct": "Ciri",
+    "distractors": [
+      "Yennefer",
+      "Triss",
+      "Keira"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual empresa desenvolveu o jogo Elden Ring?",
+    "correct": "FromSoftware",
+    "distractors": [
+      "Capcom",
+      "Square Enix",
+      "Ubisoft"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em God of War (2018), qual é o nome do filho de Kratos?",
+    "correct": "Atreus",
+    "distractors": [
+      "Baldur",
+      "Deimos",
+      "Ares"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual é o nome do criador original de Tetris?",
+    "correct": "Alexey Pajitnov",
+    "distractors": [
+      "Shigeru Miyamoto",
+      "Hideo Kojima",
+      "Gabe Newell"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Red Dead Redemption 2, quem é o protagonista principal?",
+    "correct": "Arthur Morgan",
+    "distractors": [
+      "John Marston",
+      "Dutch van der Linde",
+      "Micah Bell"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual é a cor do fantasma Blinky em Pac-Man?",
+    "correct": "Vermelho",
+    "distractors": [
+      "Azul",
+      "Rosa",
+      "Laranja"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em League of Legends, qual é o nome do mapa principal de 5v5?",
+    "correct": "Summoner's Rift",
+    "distractors": [
+      "Howling Abyss",
+      "Twisted Treeline",
+      "Crystal Scar"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual é o nome da cidade subaquática do primeiro BioShock?",
+    "correct": "Rapture",
+    "distractors": [
+      "Columbia",
+      "City 17",
+      "Midgar"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Quem é o criador da franquia Metal Gear Solid?",
+    "correct": "Hideo Kojima",
+    "distractors": [
+      "Shinji Mikami",
+      "Hideki Kamiya",
+      "Tetsuya Nomura"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Overwatch, qual personagem diz a frase 'O mundo sempre precisa de mais heróis'?",
+    "correct": "Tracer",
+    "distractors": [
+      "Mercy",
+      "Widowmaker",
+      "D.Va"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual recurso é usado para domesticar lobos no Minecraft?",
+    "correct": "Osso",
+    "distractors": [
+      "Carne podre",
+      "Peixe cru",
+      "Maçã"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual é o nome do irmão mais novo e alto de Mario?",
+    "correct": "Luigi",
+    "distractors": [
+      "Waluigi",
+      "Toad",
+      "Yoshi"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em The Last of Us, qual fungo causa a pandemia?",
+    "correct": "Cordyceps",
+    "distractors": [
+      "Aspergillus",
+      "Candida",
+      "Penicillium"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual é o nome da protagonista de Horizon Zero Dawn?",
+    "correct": "Aloy",
+    "distractors": [
+      "Ellie",
+      "Lara Croft",
+      "Jill Valentine"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Street Fighter, qual lutador é conhecido pelo golpe 'Hadouken'?",
+    "correct": "Ryu",
+    "distractors": [
+      "Guile",
+      "Zangief",
+      "Dhalsim"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual console da Sony foi o primeiro a usar discos Blu-ray?",
+    "correct": "PlayStation 3",
+    "distractors": [
+      "PlayStation 2",
+      "PlayStation 4",
+      "PSP"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Portal, qual é o nome da inteligência artificial antagonista?",
+    "correct": "GLaDOS",
+    "distractors": [
+      "SHODAN",
+      "HAL 9000",
+      "Cortana"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual é o idioma fictício falado pelos personagens em The Sims?",
+    "correct": "Simlish",
+    "distractors": [
+      "Hylian",
+      "Dovahzul",
+      "Al Bhed"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Valorant, quantos jogadores compõem cada equipe em uma partida padrão?",
+    "correct": "5",
+    "distractors": [
+      "4",
+      "6",
+      "7"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual é o nome da espada lendária de Cloud Strife em Final Fantasy VII?",
+    "correct": "Buster Sword",
+    "distractors": [
+      "Master Sword",
+      "Gunblade",
+      "Keyblade"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Among Us, quem tenta sabotar a nave e eliminar a tripulação?",
+    "correct": "Impostor",
+    "distractors": [
+      "Traidor",
+      "Sabotador",
+      "Assassino"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual jogo indie de fazenda foi desenvolvido por apenas uma pessoa (ConcernedApe)?",
+    "correct": "Stardew Valley",
+    "distractors": [
+      "Harvest Moon",
+      "Animal Crossing",
+      "Terraria"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Skyrim, como são chamados os humanos capazes de absorver almas de dragões?",
+    "correct": "Dragonborn",
+    "distractors": [
+      "Tarnished",
+      "Witcher",
+      "Chosen Undead"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual é o nome do ouriço azul mascote da Sega?",
+    "correct": "Sonic",
+    "distractors": [
+      "Tails",
+      "Knuckles",
+      "Shadow"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Resident Evil 2, qual é o nome da delegacia onde grande parte do jogo acontece?",
+    "correct": "R.P.D. (Raccoon Police Department)",
+    "distractors": [
+      "S.T.A.R.S. HQ",
+      "Umbrella Lab",
+      "Spencer Mansion"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual jogo ganhou o prêmio de Jogo do Ano no The Game Awards 2023?",
+    "correct": "Baldur's Gate 3",
+    "distractors": [
+      "Alan Wake 2",
+      "The Legend of Zelda: Tears of the Kingdom",
+      "Spider-Man 2"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Mortal Kombat, qual ninja usa uma lança com corrente e grita 'Get over here!'?",
+    "correct": "Scorpion",
+    "distractors": [
+      "Sub-Zero",
+      "Reptile",
+      "Noob Saibot"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual é o nome da moeda usada em Animal Crossing?",
+    "correct": "Bells",
+    "distractors": [
+      "Gil",
+      "Rupees",
+      "Gold"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Cuphead, com quem os irmãos Cuphead e Mugman fazem uma aposta arriscada?",
+    "correct": "O Diabo",
+    "distractors": [
+      "Rei Dado",
+      "Cagney Carnation",
+      "Doutor Kahl"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Quem dirigiu o filme 'A Origem' (Inception)?",
+    "correct": "Christopher Nolan",
+    "distractors": [
+      "Steven Spielberg",
+      "Denis Villeneuve",
+      "Quentin Tarantino"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em O Senhor dos Anéis, onde o Um Anel precisa ser destruído?",
+    "correct": "Montanha da Perdição",
+    "distractors": [
+      "Abismo de Helm",
+      "Minas Tirith",
+      "Valfenda"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual filme sul-coreano venceu o Oscar de Melhor Filme em 2020?",
+    "correct": "Parasita",
+    "distractors": [
+      "Oldboy",
+      "Invasão Zumbi",
+      "A Criada"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Quem interpreta o personagem Jack Sparrow na franquia Piratas do Caribe?",
+    "correct": "Johnny Depp",
+    "distractors": [
+      "Orlando Bloom",
+      "Geoffrey Rush",
+      "Javier Bardem"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em De Volta para o Futuro, qual carro é transformado em máquina do tempo?",
+    "correct": "DeLorean",
+    "distractors": [
+      "Mustang",
+      "Camaro",
+      "Corvette"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual é o nome do ogro verde protagonista de uma famosa animação da DreamWorks?",
+    "correct": "Shrek",
+    "distractors": [
+      "Fiona",
+      "Hulk",
+      "Sulley"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Quem dirigiu o clássico 'Pulp Fiction: Tempo de Violência'?",
+    "correct": "Quentin Tarantino",
+    "distractors": [
+      "Martin Scorsese",
+      "Guy Ritchie",
+      "David Fincher"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Titanic, qual é o nome do valioso colar usado por Rose?",
+    "correct": "Coração do Oceano",
+    "distractors": [
+      "Estrela do Mar",
+      "Lágrima Azul",
+      "Diamante Eterno"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual é o nome do planeta desértico onde se passa a maior parte de Duna?",
+    "correct": "Arrakis",
+    "distractors": [
+      "Tatooine",
+      "Pandora",
+      "Krypton"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Quem compôs a trilha sonora icônica de Tubarão, Star Wars e Jurassic Park?",
+    "correct": "John Williams",
+    "distractors": [
+      "Hans Zimmer",
+      "Danny Elfman",
+      "Ennio Morricone"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Divertida Mente, qual emoção tem a pele azul e usa óculos?",
+    "correct": "Tristeza",
+    "distractors": [
+      "Alegria",
+      "Medo",
+      "Nojinho"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual é o nome do hotel isolado em 'O Iluminado'?",
+    "correct": "Hotel Overlook",
+    "distractors": [
+      "Hotel Bates",
+      "Hotel Continental",
+      "Hotel Transilvânia"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em O Rei Leão, quem é o tio vilão de Simba?",
+    "correct": "Scar",
+    "distractors": [
+      "Mufasa",
+      "Zazu",
+      "Rafiki"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual ator interpretou o Coringa em 'Batman: O Cavaleiro das Trevas' (2008)?",
+    "correct": "Heath Ledger",
+    "distractors": [
+      "Joaquin Phoenix",
+      "Jack Nicholson",
+      "Jared Leto"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Cidade de Deus, qual é o apelido do fotógrafo protagonista?",
+    "correct": "Buscapé",
+    "distractors": [
+      "Zé Pequeno",
+      "Bené",
+      "Mané Galinha"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual é o nome da inteligência artificial rebelde em '2001: Uma Odisseia no Espaço'?",
+    "correct": "HAL 9000",
+    "distractors": [
+      "Skynet",
+      "Ultron",
+      "JARVIS"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Pantera Negra, qual é o nome do metal fictício encontrado em Wakanda?",
+    "correct": "Vibranium",
+    "distractors": [
+      "Adamantium",
+      "Uru",
+      "Kryptonita"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual filme de animação da Disney se passa na Colômbia e fala sobre a família Madrigal?",
+    "correct": "Encanto",
+    "distractors": [
+      "Viva: A Vida é uma Festa",
+      "Moana",
+      "Valente"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Clube da Luta, qual é a primeira regra do Clube da Luta?",
+    "correct": "Você não fala sobre o Clube da Luta",
+    "distractors": [
+      "Apenas dois homens por luta",
+      "Sem camisas, sem sapatos",
+      "Uma luta de cada vez"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Quem interpreta a personagem Katniss Everdeen em Jogos Vorazes?",
+    "correct": "Jennifer Lawrence",
+    "distractors": [
+      "Emma Stone",
+      "Shailene Woodley",
+      "Scarlett Johansson"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Interestelar, quantos anos na Terra equivalem a uma hora no planeta de Miller?",
+    "correct": "7 anos",
+    "distractors": [
+      "1 ano",
+      "23 anos",
+      "50 anos"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual é o nome do ratinho chef em Ratatouille?",
+    "correct": "Remy",
+    "distractors": [
+      "Emile",
+      "Linguini",
+      "Stuart"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Quem dirigiu 'O Auto da Compadecida' (2000)?",
+    "correct": "Guel Arraes",
+    "distractors": [
+      "Fernando Meirelles",
+      "Walter Salles",
+      "José Padilha"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Forrest Gump, a mãe de Forrest compara a vida a quê?",
+    "correct": "Uma caixa de bombons",
+    "distractors": [
+      "Uma pena ao vento",
+      "Uma corrida sem fim",
+      "Um barco no mar"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual é o nome da nave espacial capitaneada por Han Solo?",
+    "correct": "Millennium Falcon",
+    "distractors": [
+      "Enterprise",
+      "X-Wing",
+      "Nostromo"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Mad Max: Estrada da Fúria, quem interpreta a Imperatriz Furiosa?",
+    "correct": "Charlize Theron",
+    "distractors": [
+      "Emily Blunt",
+      "Anya Taylor-Joy",
+      "Margot Robbie"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual é o verdadeiro nome do Homem de Ferro no Universo Cinematográfico Marvel?",
+    "correct": "Tony Stark",
+    "distractors": [
+      "Bruce Wayne",
+      "Steve Rogers",
+      "Bruce Banner"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em O Poderoso Chefão, qual é o sobrenome da família mafiosa protagonista?",
+    "correct": "Corleone",
+    "distractors": [
+      "Soprano",
+      "Tattaglia",
+      "Barzini"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual filme de Hayao Miyazaki ganhou o Oscar de Melhor Animação em 2003?",
+    "correct": "A Viagem de Chihiro",
+    "distractors": [
+      "Meu Amigo Totoro",
+      "O Castelo Animado",
+      "Princesa Mononoke"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Shrek, qual é o nome do melhor amigo falante do ogro?",
+    "correct": "Burro",
+    "distractors": [
+      "Gato de Botas",
+      "Biscoito",
+      "Pinóquio"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em The Office (EUA), qual é o nome da empresa de papel onde os personagens trabalham?",
+    "correct": "Dunder Mifflin",
+    "distractors": [
+      "Wernham Hogg",
+      "Sterling Cooper",
+      "Vought International"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome do barco de Dexter Morgan na série Dexter?",
+    "correct": "Slice of Life",
+    "distractors": [
+      "Dark Passenger",
+      "Miami Vice",
+      "Sea Wolf"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em Dark, de quantos em quantos anos o ciclo temporal se repete?",
+    "correct": "33 anos",
+    "distractors": [
+      "10 anos",
+      "25 anos",
+      "50 anos"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome do grupo de super-heróis corruptos em The Boys?",
+    "correct": "Os Sete",
+    "distractors": [
+      "Os Vingadores",
+      "A Liga",
+      "Os Guardiões"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em Sherlock (BBC), qual é o endereço onde Sherlock Holmes e John Watson moram?",
+    "correct": "221B Baker Street",
+    "distractors": [
+      "742 Evergreen Terrace",
+      "10 Downing Street",
+      "4 Privet Drive"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome do advogado protagonista do spin-off de Breaking Bad?",
+    "correct": "Saul Goodman",
+    "distractors": [
+      "Hank Schrader",
+      "Jesse Pinkman",
+      "Gustavo Fring"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em Peaky Blinders, em qual cidade inglesa a família Shelby opera principalmente?",
+    "correct": "Birmingham",
+    "distractors": [
+      "Londres",
+      "Manchester",
+      "Liverpool"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome do bebê da espécie de Yoda em The Mandalorian?",
+    "correct": "Grogu",
+    "distractors": [
+      "Yaddle",
+      "Mando",
+      "Boba"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em Brooklyn Nine-Nine, quem é o capitão inicialmente sério e inexpressivo da 99ª delegacia?",
+    "correct": "Raymond Holt",
+    "distractors": [
+      "Terry Jeffords",
+      "Jake Peralta",
+      "Charles Boyle"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual série antológica da Netflix explora o lado sombrio da tecnologia na sociedade?",
+    "correct": "Black Mirror",
+    "distractors": [
+      "Love, Death & Robots",
+      "Westworld",
+      "Severance"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em How I Met Your Mother, qual instrumento musical Ted rouba para Robin?",
+    "correct": "Trompa azul",
+    "distractors": [
+      "Guarda-chuva amarelo",
+      "Saxofone dourado",
+      "Violão vermelho"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome da família bilionária dona do conglomerado Waystar Royco em Succession?",
+    "correct": "Roy",
+    "distractors": [
+      "Murdoch",
+      "Lannister",
+      "Dutton"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em Wandinha (Wednesday), qual é o nome da escola para excluídos que ela frequenta?",
+    "correct": "Escola Nunca Mais",
+    "distractors": [
+      "Hogwarts",
+      "Xavier Institute",
+      "Brakebills"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome do voo que cai na ilha misteriosa em Lost?",
+    "correct": "Oceanic 815",
+    "distractors": [
+      "Ajira 316",
+      "Montego 828",
+      "Pan Am 103"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em The Walking Dead, qual era o cargo de Rick Grimes na polícia antes do apocalipse?",
+    "correct": "Vice-xerife (deputy sheriff)",
+    "distractors": [
+      "Bombeiro",
+      "Médico",
+      "Professor"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome do jogo de RPG de mesa que os garotos jogam em Stranger Things?",
+    "correct": "Dungeons & Dragons",
+    "distractors": [
+      "Magic: The Gathering",
+      "Warhammer",
+      "Pathfinder"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em La Casa de Papel, qual é o alvo do primeiro grande assalto do grupo?",
+    "correct": "Casa da Moeda da Espanha",
+    "distractors": [
+      "Banco da Espanha",
+      "Museu do Prado",
+      "Reserva Federal"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Quem interpreta a Rainha Elizabeth II nas duas primeiras temporadas de The Crown?",
+    "correct": "Claire Foy",
+    "distractors": [
+      "Olivia Colman",
+      "Imelda Staunton",
+      "Helena Bonham Carter"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em Chaves, qual é o número da casa onde o Chaves diz morar?",
+    "correct": "8",
+    "distractors": [
+      "14",
+      "71",
+      "72"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome da rede de fast-food usada como fachada por Gustavo Fring em Breaking Bad?",
+    "correct": "Los Pollos Hermanos",
+    "distractors": [
+      "Big Kahuna Burger",
+      "Krusty Burger",
+      "Good Burger"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em Supernatural, qual é o modelo do carro clássico dirigido por Dean Winchester?",
+    "correct": "Chevrolet Impala 1967",
+    "distractors": [
+      "Ford Mustang 1969",
+      "Dodge Charger 1970",
+      "Pontiac Firebird 1977"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome da mãe dos dragões em Game of Thrones?",
+    "correct": "Daenerys Targaryen",
+    "distractors": [
+      "Cersei Lannister",
+      "Sansa Stark",
+      "Arya Stark"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em The Big Bang Theory, qual é o bordão famoso de Sheldon Cooper?",
+    "correct": "Bazinga!",
+    "distractors": [
+      "D'oh!",
+      "Cowabunga!",
+      "Eureka!"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual série acompanha o técnico de futebol americano Ted Lasso treinando um time inglês?",
+    "correct": "Ted Lasso",
+    "distractors": [
+      "Welcome to Wrexham",
+      "Friday Night Lights",
+      "Ballers"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em Severance (Ruptura), os funcionários passam por um procedimento que separa quais memórias?",
+    "correct": "Trabalho e vida pessoal",
+    "distractors": [
+      "Infância e vida adulta",
+      "Sonhos e realidade",
+      "Alegria e tristeza"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o primeiro nome do personagem principal de Todo Mundo Odeia o Chris?",
+    "correct": "Chris",
+    "distractors": [
+      "Julius Rock",
+      "Drew Rock",
+      "Greg Wuliger"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em The Witcher (Netflix), quem interpreta Geralt de Rívia nas três primeiras temporadas?",
+    "correct": "Henry Cavill",
+    "distractors": [
+      "Liam Hemsworth",
+      "Mads Mikkelsen",
+      "Viggo Mortensen"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome do criador de The Simpsons?",
+    "correct": "Matt Groening",
+    "distractors": [
+      "Seth MacFarlane",
+      "Trey Parker",
+      "Mike Judge"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Séries",
+    "prompt": "Quais são as duas especialidades médicas de Dr. Gregory House em House M.D.?",
+    "correct": "Nefrologia e infectologia",
+    "distractors": [
+      "Neurocirurgia",
+      "Cardiologia",
+      "Pediatria"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em Bridgerton, qual é o pseudônimo da autora das colunas de fofoca da alta sociedade?",
+    "correct": "Lady Whistledown",
+    "distractors": [
+      "Lady Danbury",
+      "Rainha Charlotte",
+      "Lady Featherington"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Death Note, qual é o nome verdadeiro do detetive L?",
+    "correct": "L Lawliet",
+    "distractors": [
+      "Light Yagami",
+      "Nate River",
+      "Mihael Keehl"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome da espada de Ichigo Kurosaki em Bleach?",
+    "correct": "Zangetsu",
+    "distractors": [
+      "Benihime",
+      "Senbonzakura",
+      "Ryujin Jakka"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Fullmetal Alchemist: Brotherhood, qual princípio fundamental rege a alquimia?",
+    "correct": "Troca Equivalente",
+    "distractors": [
+      "Conservação de Mana",
+      "Equilíbrio Espiritual",
+      "Lei da Transmutação"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do poder ocular possuído pelo clã Uchiha em Naruto?",
+    "correct": "Sharingan",
+    "distractors": [
+      "Byakugan",
+      "Rinnegan",
+      "Tenseigan"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Attack on Titan, qual é o nome do Titã herdado por Eren Yeager no início da história?",
+    "correct": "Titã de Ataque",
+    "distractors": [
+      "Titã Colossal",
+      "Titã Blindado",
+      "Titã Bestial"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do caderno usado por Light Yagami para matar pessoas?",
+    "correct": "Death Note",
+    "distractors": [
+      "Life Note",
+      "Soul Book",
+      "Shinigami Diary"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Demon Slayer (Kimetsu no Yaiba), qual é o nome da irmã de Tanjiro?",
+    "correct": "Nezuko",
+    "distractors": [
+      "Kanao",
+      "Shinobu",
+      "Mitsuri"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do mestre que treinou Goku na infância em Dragon Ball?",
+    "correct": "Mestre Kame",
+    "distractors": [
+      "Mestre Karin",
+      "Senhor Kaioh",
+      "Piccolo"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em My Hero Academia, qual é o nome da individualidade (Quirk) herdada por Izuku Midoriya?",
+    "correct": "One For All",
+    "distractors": [
+      "All For One",
+      "Explosion",
+      "Half-Cold Half-Hot"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do navio atual dos Piratas do Chapéu de Palha em One Piece?",
+    "correct": "Thousand Sunny",
+    "distractors": [
+      "Going Merry",
+      "Moby Dick",
+      "Red Force"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Jujutsu Kaisen, quem é o feiticeiro considerado o mais forte da atualidade?",
+    "correct": "Satoru Gojo",
+    "distractors": [
+      "Suguru Geto",
+      "Kento Nanami",
+      "Megumi Fushiguro"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do protagonista de Cowboy Bebop?",
+    "correct": "Spike Spiegel",
+    "distractors": [
+      "Jet Black",
+      "Vicious",
+      "Gene Starwind"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Hunter x Hunter, qual é o tipo de Nen de Gon Freecss?",
+    "correct": "Reforço (Intensificação)",
+    "distractors": [
+      "Transmutação",
+      "Materialização",
+      "Especialização"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual anime acompanha o protagonista Saitama derrotando qualquer inimigo com um único golpe?",
+    "correct": "One Punch Man",
+    "distractors": [
+      "Mob Psycho 100",
+      "Baki",
+      "Hajime no Ippo"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do jogo de realidade virtual em que os jogadores ficam presos no início de Sword Art Online?",
+    "correct": "Sword Art Online",
+    "distractors": [
+      "Alfheim Online",
+      "Gun Gale Online",
+      "Underworld"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do robô gigante pilotado por Shinji Ikari em Neon Genesis Evangelion?",
+    "correct": "EVA-01",
+    "distractors": [
+      "Gundam RX-78",
+      "Gurren Lagann",
+      "Lancelot"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Tokyo Ghoul, qual órgão humano os Ghouls precisam consumir para sobreviver?",
+    "correct": "Carne humana",
+    "distractors": [
+      "Apenas sangue",
+      "Almas",
+      "Energia vital"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do gato falante que acompanha a equipe Rocket em Pokémon?",
+    "correct": "Meowth",
+    "distractors": [
+      "Persian",
+      "Skitty",
+      "Purrloin"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Cavaleiros do Zodíaco, qual é a armadura de bronze usada por Seiya?",
+    "correct": "Pégaso",
+    "distractors": [
+      "Dragão",
+      "Cisne",
+      "Fênix"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do criador do mangá Berserk?",
+    "correct": "Kentaro Miura",
+    "distractors": [
+      "Eiichiro Oda",
+      "Masashi Kishimoto",
+      "Akira Toriyama"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Chainsaw Man, qual é o nome do demônio-motosserra que se funde com Denji?",
+    "correct": "Pochita",
+    "distractors": [
+      "Makima",
+      "Power",
+      "Aki"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do esporte praticado em Haikyuu!!?",
+    "correct": "Vôlei",
+    "distractors": [
+      "Basquete",
+      "Futebol",
+      "Tênis"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Steins;Gate, qual aparelho é modificado para enviar mensagens ao passado?",
+    "correct": "Forno de micro-ondas",
+    "distractors": [
+      "Relógio de bolso",
+      "Cabine telefônica",
+      "Computador antigo"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do shinigami que deixa o Death Note cair no mundo humano?",
+    "correct": "Ryuk",
+    "distractors": [
+      "Rem",
+      "Gelus",
+      "Sidoh"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em JoJo's Bizarre Adventure, como são chamadas as manifestações espirituais de poder a partir da Parte 3?",
+    "correct": "Stands",
+    "distractors": [
+      "Hamon",
+      "Nen",
+      "Chakra"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome da organização criminosa de ninjas renegados em Naruto?",
+    "correct": "Akatsuki",
+    "distractors": [
+      "Anbu",
+      "Kara",
+      "Espada"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Spy x Family, qual é a habilidade secreta da pequena Anya Forger?",
+    "correct": "Telepatia (ler mentes)",
+    "distractors": [
+      "Invisibilidade",
+      "Superforça",
+      "Prever o futuro"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do golpe assinatura de Goku em Dragon Ball?",
+    "correct": "Kamehameha",
+    "distractors": [
+      "Galick Ho",
+      "Final Flash",
+      "Makankosappo"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Mob Psycho 100, o que acontece quando o medidor emocional de Mob chega a 100%?",
+    "correct": "Seus poderes psíquicos explodem ao máximo",
+    "distractors": [
+      "Ele perde a memória",
+      "Ele adormece imediatamente",
+      "Ele fica sem poderes"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Yu-Gi-Oh!, qual é a carta favorita de Yugi Muto?",
+    "correct": "Mago Negro",
+    "distractors": [
+      "Dragão Branco de Olhos Azuis",
+      "Exodia",
+      "Dragão Negro de Olhos Vermelhos"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "O que significa a sigla HTML?",
+    "correct": "HyperText Markup Language",
+    "distractors": [
+      "HighTech Machine Learning",
+      "Hyperlink Text Management Language",
+      "Home Tool Markup Language"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual protocolo é utilizado para transferir páginas web de forma criptografada?",
+    "correct": "HTTPS",
+    "distractors": [
+      "HTTP",
+      "FTP",
+      "SMTP"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Quem criou o kernel do sistema operacional Linux em 1991?",
+    "correct": "Linus Torvalds",
+    "distractors": [
+      "Richard Stallman",
+      "Bill Gates",
+      "Ken Thompson"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual estrutura de dados segue o princípio LIFO (Last In, First Out)?",
+    "correct": "Pilha (Stack)",
+    "distractors": [
+      "Fila (Queue)",
+      "Árvore Binária",
+      "Lista Ligada"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "O que significa a sigla SQL?",
+    "correct": "Structured Query Language",
+    "distractors": [
+      "Simple Question Language",
+      "System Quality Logic",
+      "Standard Query List"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual componente de hardware é responsável pelo processamento gráfico em computadores?",
+    "correct": "GPU",
+    "distractors": [
+      "RAM",
+      "SSD",
+      "PSU"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual sistema de controle de versão distribuído foi criado por Linus Torvalds?",
+    "correct": "Git",
+    "distractors": [
+      "Subversion (SVN)",
+      "Mercurial",
+      "CVS"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "O que significa a sigla DNS na arquitetura da internet?",
+    "correct": "Domain Name System",
+    "distractors": [
+      "Digital Network Security",
+      "Data Node Server",
+      "Dynamic Name Service"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual linguagem de programação é executada nativamente nos navegadores web para interatividade?",
+    "correct": "JavaScript",
+    "distractors": [
+      "C#",
+      "PHP",
+      "Swift"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual tipo de memória é volátil e perde seus dados quando o computador é desligado?",
+    "correct": "Memória RAM",
+    "distractors": [
+      "SSD",
+      "HD",
+      "Memória ROM"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "O que significa a sigla API?",
+    "correct": "Application Programming Interface",
+    "distractors": [
+      "Automated Process Integration",
+      "Advanced Protocol Internet",
+      "Application Performance Index"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual é o nome do pinguim mascote oficial do Linux?",
+    "correct": "Tux",
+    "distractors": [
+      "Pingu",
+      "Gopher",
+      "Octocat"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual técnica de ataque cibernético engana usuários para roubar senhas por meio de mensagens falsas?",
+    "correct": "Phishing",
+    "distractors": [
+      "DDoS",
+      "SQL Injection",
+      "Brute Force"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual formato de troca de dados leve é baseado em pares de chave-valor e muito usado em APIs?",
+    "correct": "JSON",
+    "distractors": [
+      "CSV",
+      "YAML",
+      "SOAP"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual comando Git é utilizado para enviar commits locais para um repositório remoto?",
+    "correct": "git push",
+    "distractors": [
+      "git pull",
+      "git fetch",
+      "git clone"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Quantos bits possui um endereço IPv4 padrão?",
+    "correct": "32 bits",
+    "distractors": [
+      "16 bits",
+      "64 bits",
+      "128 bits"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual plataforma de containerização empacota aplicações e suas dependências em containers?",
+    "correct": "Docker",
+    "distractors": [
+      "Ansible",
+      "Terraform",
+      "Jenkins"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "O que significa a sigla CSS no desenvolvimento web?",
+    "correct": "Cascading Style Sheets",
+    "distractors": [
+      "Computer Style System",
+      "Creative Screen Styling",
+      "Central Script Syntax"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual banco de dados NoSQL armazena dados em documentos semelhantes a JSON?",
+    "correct": "MongoDB",
+    "distractors": [
+      "PostgreSQL",
+      "MySQL",
+      "Oracle Database"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Quem é considerada a primeira programadora da história por seu trabalho na Máquina Analítica?",
+    "correct": "Ada Lovelace",
+    "distractors": [
+      "Grace Hopper",
+      "Margaret Hamilton",
+      "Katherine Johnson"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual código de status HTTP indica que uma página não foi encontrada?",
+    "correct": "404",
+    "distractors": [
+      "200",
+      "500",
+      "403"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual tecnologia descentralizada serve de base para criptomoedas como o Bitcoin?",
+    "correct": "Blockchain",
+    "distractors": [
+      "Cloud Computing",
+      "Edge Computing",
+      "Big Data"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "O que significa a sigla VPN?",
+    "correct": "Virtual Private Network",
+    "distractors": [
+      "Verified Public Node",
+      "Virtual Protocol Navigation",
+      "Visual Private Network"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual estrutura de dados segue o princípio FIFO (First In, First Out)?",
+    "correct": "Fila (Queue)",
+    "distractors": [
+      "Pilha (Stack)",
+      "Grafo",
+      "Tabela Hash"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual linguagem de programação foi desenvolvida pela Apple para substituir o Objective-C?",
+    "correct": "Swift",
+    "distractors": [
+      "Kotlin",
+      "Dart",
+      "Rust"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "O que significa a sigla IoT?",
+    "correct": "Internet das Coisas (Internet of Things)",
+    "distractors": [
+      "Integração de Operações Técnicas",
+      "Interface Online de Transmissão",
+      "Internet Otimizada Total"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual comando Linux lista os arquivos e diretórios da pasta atual?",
+    "correct": "ls",
+    "distractors": [
+      "cd",
+      "mkdir",
+      "rm"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual arquitetura de aprendizado profundo revolucionou os modelos de linguagem modernos (LLMs)?",
+    "correct": "Transformer",
+    "distractors": [
+      "Perceptron Simples",
+      "Máquina de Vetores de Suporte",
+      "Árvore de Decisão"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "O que significa a sigla SSD?",
+    "correct": "Solid State Drive",
+    "distractors": [
+      "System Storage Disk",
+      "Super Speed Data",
+      "Static Software Drive"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual protocolo é comumente usado para envio de e-mails entre servidores?",
+    "correct": "SMTP",
+    "distractors": [
+      "IMAP",
+      "POP3",
+      "SNMP"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "Em que ano foi promulgada a atual Constituição da República Federativa do Brasil?",
+    "correct": "1988",
+    "distractors": [
+      "1967",
+      "1946",
+      "1998"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual remédio constitucional protege o direito de locomoção contra ilegalidade ou abuso de poder?",
+    "correct": "Habeas Corpus",
+    "distractors": [
+      "Mandado de Segurança",
+      "Habeas Data",
+      "Ação Popular"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Segundo a Constituição Federal, quais são os três Poderes da União, independentes e harmônicos entre si?",
+    "correct": "Legislativo, Executivo e Judiciário",
+    "distractors": [
+      "Moderador, Executivo e Legislativo",
+      "Judiciário, Ministério Público e Executivo",
+      "Federal, Estadual e Municipal"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual princípio penal estabelece que não há crime sem lei anterior que o defina?",
+    "correct": "Princípio da legalidade (anterioridade da lei penal)",
+    "distractors": [
+      "Princípio da Insignificância",
+      "Princípio da Presunção de Inocência",
+      "Princípio da Proporcionalidade"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Com quantos anos se adquire a maioridade civil plena no Brasil segundo o Código Civil?",
+    "correct": "18 anos",
+    "distractors": [
+      "16 anos",
+      "21 anos",
+      "20 anos"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual remédio constitucional garante o acesso a informações pessoais constantes em registros públicos?",
+    "correct": "Habeas Data",
+    "distractors": [
+      "Habeas Corpus",
+      "Mandado de Injunção",
+      "Ação Civil Pública"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual declaração, adotada pela Assembleia Geral da ONU em 1948, estabeleceu um marco internacional para os direitos humanos?",
+    "correct": "Declaração Universal dos Direitos Humanos",
+    "distractors": [
+      "Pacto de San José da Costa Rica",
+      "Carta de Genebra",
+      "Tratado de Versalhes"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "No Direito Penal brasileiro, qual é a diferença básica entre dolo e culpa?",
+    "correct": "No dolo há intenção ou assunção do risco; na culpa há imprudência, negligência ou imperícia",
+    "distractors": [
+      "O dolo só se aplica a crimes contra a vida e a culpa a crimes patrimoniais",
+      "A culpa gera pena maior que o dolo",
+      "Não há diferença jurídica entre ambos"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual tribunal é o guardião da Constituição Federal no Brasil?",
+    "correct": "Supremo Tribunal Federal (STF)",
+    "distractors": [
+      "Superior Tribunal de Justiça (STJ)",
+      "Tribunal Superior Eleitoral (TSE)",
+      "Tribunal de Contas da União (TCU)"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "Como se chama a norma que regula as relações de trabalho no Brasil desde 1943?",
+    "correct": "Consolidação das Leis do Trabalho (CLT)",
+    "distractors": [
+      "Código Comercial",
+      "Estatuto do Servidor",
+      "Lei Pelé"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "No Código de Defesa do Consumidor, qual é o prazo para o direito de arrependimento em compras feitas fora do estabelecimento comercial?",
+    "correct": "7 dias",
+    "distractors": [
+      "15 dias",
+      "30 dias",
+      "3 dias"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual cláusula constitucional impede a abolição dos direitos e garantias individuais por emenda?",
+    "correct": "Cláusula Pétrea",
+    "distractors": [
+      "Cláusula de Barreira",
+      "Cláusula Rebus Sic Stantibus",
+      "Cláusula Penal"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "O que significa a expressão latina 'Pacta sunt servanda' no Direito Civil?",
+    "correct": "Os pactos (contratos) devem ser cumpridos",
+    "distractors": [
+      "A lei não retroage",
+      "Ninguém é obrigado a produzir prova contra si mesmo",
+      "Na dúvida, favorece-se o réu"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual crime consiste em subtrair coisa móvel alheia mediante grave ameaça ou violência à pessoa?",
+    "correct": "Roubo",
+    "distractors": [
+      "Furto",
+      "Estelionato",
+      "Apropriação indébita"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual órgão é responsável por fiscalizar a ordem jurídica, o regime democrático e os interesses sociais e individuais indisponíveis?",
+    "correct": "Ministério Público",
+    "distractors": [
+      "Defensoria Pública",
+      "Advocacia-Geral da União",
+      "Ordem dos Advogados do Brasil"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "No Direito Administrativo, quais são os cinco princípios expressos no caput do art. 37 da Constituição (LIMPE)?",
+    "correct": "Legalidade, Impessoalidade, Moralidade, Publicidade e Eficiência",
+    "distractors": [
+      "Liberdade, Igualdade, Moralidade, Probidade e Economia",
+      "Legalidade, Isonomia, Motivação, Proporcionalidade e Ética",
+      "Legitimidade, Imparcialidade, Modernidade, Publicidade e Eficácia"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "O que significa o princípio 'In dubio pro reo' no Processo Penal?",
+    "correct": "Na dúvida, decide-se a favor do réu",
+    "distractors": [
+      "Na dúvida, mantém-se a prisão",
+      "O réu deve provar sua inocência",
+      "A dúvida favorece a acusação"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual espécie normativa é editada pelo Presidente da República em caso de relevância e urgência, com força de lei?",
+    "correct": "Medida Provisória",
+    "distractors": [
+      "Decreto Legislativo",
+      "Portaria Ministerial",
+      "Resolução do Senado"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual é o nome do imposto municipal incidente sobre a propriedade predial e territorial urbana?",
+    "correct": "IPTU",
+    "distractors": [
+      "IPVA",
+      "ITR",
+      "ICMS"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "No Direito de Família, qual regime de bens vigora no Brasil caso os noivos não façam pacto antenupcial?",
+    "correct": "Comunhão parcial de bens",
+    "distractors": [
+      "Comunhão universal de bens",
+      "Separação total de bens",
+      "Participação final nos aquestos"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual tribunal julga os crimes dolosos contra a vida no ordenamento jurídico brasileiro?",
+    "correct": "Tribunal do Júri",
+    "distractors": [
+      "Juizado Especial Criminal",
+      "Tribunal Militar",
+      "Supremo Tribunal Federal"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual característica diferencia o furto, inclusive em suas formas qualificadas por abuso de confiança ou fraude, do roubo?",
+    "correct": "No furto não há violência ou grave ameaça contra a pessoa",
+    "distractors": [
+      "Uso de arma de fogo",
+      "Ocorrência apenas durante a noite",
+      "Valor superior a dez salários mínimos"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual lei brasileira regula o tratamento de dados pessoais, inclusive nos meios digitais?",
+    "correct": "Lei Geral de Proteção de Dados (LGPD)",
+    "distractors": [
+      "Marco Civil da Internet",
+      "Lei Carolina Dieckmann",
+      "Código de Defesa do Consumidor"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "No Direito do Trabalho, qual é o percentual mínimo de acréscimo da hora extra comum previsto na Constituição?",
+    "correct": "50%",
+    "distractors": [
+      "25%",
+      "100%",
+      "30%"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual conceito jurídico designa a extinção da pretensão pelo decurso do prazo previsto em lei?",
+    "correct": "Prescrição",
+    "distractors": [
+      "Preclusão",
+      "Perempção",
+      "Coisa julgada"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual instituição presta assistência jurídica integral e gratuita aos que comprovarem insuficiência de recursos?",
+    "correct": "Defensoria Pública",
+    "distractors": [
+      "Ministério Público",
+      "Procuradoria da Fazenda",
+      "Polícia Judiciária"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Segundo o Código Penal, são penalmente inimputáveis os menores de quantos anos?",
+    "correct": "18 anos",
+    "distractors": [
+      "16 anos",
+      "14 anos",
+      "21 anos"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual princípio tributário proíbe a cobrança de tributos no mesmo exercício financeiro em que haja sido publicada a lei que os instituiu?",
+    "correct": "Princípio da Anterioridade Anual",
+    "distractors": [
+      "Princípio da Capacidade Contributiva",
+      "Princípio do Não Confisco",
+      "Princípio da Seletividade"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual é o nome do recurso cabível contra sentença definitiva de primeiro grau no Processo Civil?",
+    "correct": "Apelação",
+    "distractors": [
+      "Agravo de Instrumento",
+      "Embargos de Declaração",
+      "Recurso Especial"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "O que significa a expressão 'Vacatio legis'?",
+    "correct": "Período entre a publicação de uma lei e sua entrada em vigor",
+    "distractors": [
+      "Revogação tácita de uma norma",
+      "Falta de quórum no Congresso",
+      "Suspensão de direitos políticos"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Quem é considerado o pai da Psicanálise?",
+    "correct": "Sigmund Freud",
+    "distractors": [
+      "Carl Jung",
+      "B. F. Skinner",
+      "Jean Piaget"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Na teoria psicanalítica de Freud, qual instância psíquica opera pelo princípio do prazer?",
+    "correct": "Id",
+    "distractors": [
+      "Ego",
+      "Superego",
+      "Self"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual pesquisador ficou famoso pelos experimentos de condicionamento clássico com cães e salivação?",
+    "correct": "Ivan Pavlov",
+    "distractors": [
+      "John B. Watson",
+      "Edward Thorndike",
+      "Albert Bandura"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "No Behaviorismo Radical de Skinner, o que significa 'reforço negativo'?",
+    "correct": "Aumentar a frequência de um comportamento pela remoção de um estímulo aversivo",
+    "distractors": [
+      "Aplicar uma punição física para extinguir um comportamento",
+      "Diminuir um comportamento retirando algo agradável",
+      "Ignorar completamente um comportamento indesejado"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Quem propôs a Hierarquia das Necessidades humanas, frequentemente representada como uma pirâmide?",
+    "correct": "Abraham Maslow",
+    "distractors": [
+      "Carl Rogers",
+      "Erik Erikson",
+      "Lev Vygotsky"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual conceito da Psicologia Analítica de Carl Jung refere-se às imagens primordiais herdadas pela humanidade?",
+    "correct": "Arquétipos",
+    "distractors": [
+      "Complexos",
+      "Pulsões",
+      "Esquemas cognitivos"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual abordagem terapêutica foi desenvolvida por Aaron Beck e foca na reestruturação de pensamentos automáticos disfuncionais?",
+    "correct": "Terapia Cognitivo-Comportamental (TCC)",
+    "distractors": [
+      "Gestalt-terapia",
+      "Logoterapia",
+      "Psicodrama"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Na teoria do desenvolvimento psicossocial de Erik Erikson, qual é o principal conflito da adolescência?",
+    "correct": "Identidade versus Confusão de Papéis",
+    "distractors": [
+      "Confiança versus Desconfiança",
+      "Intimidade versus Isolamento",
+      "Integridade versus Desespero"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Quem desenvolveu a Abordagem Centrada na Pessoa na Psicologia Humanista?",
+    "correct": "Carl Rogers",
+    "distractors": [
+      "Fritz Perls",
+      "Viktor Frankl",
+      "Rollo May"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "O que é 'dissonância cognitiva', conceito formulado por Leon Festinger?",
+    "correct": "Desconforto psicológico gerado por crenças ou atitudes contraditórias",
+    "distractors": [
+      "Incapacidade de reconhecer rostos familiares",
+      "Perda de memória recente após trauma",
+      "Excesso de confiança em decisões financeiras"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual neurotransmissor está fortemente associado aos circuitos cerebrais de recompensa e motivação?",
+    "correct": "Dopamina",
+    "distractors": [
+      "Melatonina",
+      "GABA",
+      "Acetilcolina"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual psicólogo conduziu o famoso experimento sobre obediência à autoridade usando choques elétricos simulados?",
+    "correct": "Stanley Milgram",
+    "distractors": [
+      "Philip Zimbardo",
+      "Solomon Asch",
+      "Kurt Lewin"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Na teoria de Sigmund Freud, qual mecanismo de defesa consiste em atribuir a outra pessoa seus próprios impulsos inaceitáveis?",
+    "correct": "Projeção",
+    "distractors": [
+      "Sublimação",
+      "Regressão",
+      "Formação reativa"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual é o foco principal da Logoterapia criada por Viktor Frankl?",
+    "correct": "A busca pelo sentido da vida",
+    "distractors": [
+      "A análise dos sonhos",
+      "O condicionamento operante",
+      "A dinâmica de grupos"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "O que caracteriza a memória de trabalho (operacional)?",
+    "correct": "Armazenamento e manipulação temporária de informações durante tarefas cognitivas",
+    "distractors": [
+      "Armazenamento permanente de habilidades motoras",
+      "Recordação autobiográfica da infância",
+      "Memória inconsciente de traumas"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual fenômeno social descreve a tendência das pessoas de não ajudarem uma vítima quando há outras testemunhas presentes?",
+    "correct": "Efeito Espectador",
+    "distractors": [
+      "Efeito Halo",
+      "Pensamento de Grupo",
+      "Facilitação Social"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual manual diagnóstico publicado pela Associação Americana de Psiquiatria classifica os transtornos mentais?",
+    "correct": "DSM (Manual Diagnóstico e Estatístico de Transtornos Mentais)",
+    "distractors": [
+      "CID-10 exclusivamente",
+      "WISC-IV",
+      "MMPI-2"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Na Psicologia da Gestalt, qual princípio explica nossa tendência de perceber formas incompletas como figuras inteiras?",
+    "correct": "Fechamento",
+    "distractors": [
+      "Proximidade",
+      "Semelhança",
+      "Continuidade"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Quem formulou a Teoria da Aprendizagem Social, demonstrada no experimento do boneco Bobo?",
+    "correct": "Albert Bandura",
+    "distractors": [
+      "Jerome Bruner",
+      "Howard Gardner",
+      "Donald Winnicott"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "O que significa 'resiliência' no contexto psicológico?",
+    "correct": "Capacidade de se adaptar e se recuperar diante de adversidades e estresse",
+    "distractors": [
+      "Ausência total de emoções negativas",
+      "Supressão consciente de memórias dolorosas",
+      "Tendência a evitar qualquer risco social"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual estrutura do sistema límbico desempenha papel central no processamento do medo e das respostas emocionais?",
+    "correct": "Amígdala",
+    "distractors": [
+      "Cerebelo",
+      "Corpo caloso",
+      "Bulbo raquidiano"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual conceito criado por Donald Winnicott descreve um objeto (como um paninho ou ursinho) que ajuda o bebê na separação da mãe?",
+    "correct": "Objeto transicional",
+    "distractors": [
+      "Objeto parcial",
+      "Ego auxiliar",
+      "Self falso"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "No experimento de conformidade de Solomon Asch, o que os participantes faziam diante da resposta errada unânime do grupo?",
+    "correct": "Frequentemente concordavam com o erro do grupo mesmo sendo evidente",
+    "distractors": [
+      "Sempre mantinham a resposta correta",
+      "Abandonavam a sala imediatamente",
+      "Puniam os demais participantes"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual é o nome do viés cognitivo em que buscamos apenas informações que confirmam nossas crenças prévias?",
+    "correct": "Viés de confirmação",
+    "distractors": [
+      "Viés de ancoragem",
+      "Heurística de disponibilidade",
+      "Efeito Dunning-Kruger"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual fase do sono está mais fortemente associada aos sonhos vívidos e ao processamento emocional?",
+    "correct": "Sono REM",
+    "distractors": [
+      "Estágio N1",
+      "Estágio N2",
+      "Sono de ondas lentas N3"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Quem propôs a Teoria das Inteligências Múltiplas?",
+    "correct": "Howard Gardner",
+    "distractors": [
+      "Daniel Goleman",
+      "Alfred Binet",
+      "Charles Spearman"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "O que é 'extinção' na análise do comportamento?",
+    "correct": "Redução gradual de um comportamento quando o reforço que o mantinha é suspenso",
+    "distractors": [
+      "Aplicação imediata de punição severa",
+      "Aprendizagem por observação direta",
+      "Generalização de estímulos semelhantes"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual é a diferença principal entre psicólogo e psiquiatra no Brasil?",
+    "correct": "O psiquiatra é formado em Medicina e pode prescrever medicamentos; o psicólogo é formado em Psicologia",
+    "distractors": [
+      "O psicólogo pode prescrever medicamentos e o psiquiatra não",
+      "Ambos têm exatamente a mesma graduação",
+      "O psiquiatra atua apenas em hospitais cirúrgicos"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Na teoria do apego de John Bowlby, qual estilo de apego resulta de cuidadores responsivos e consistentes?",
+    "correct": "Apego seguro",
+    "distractors": [
+      "Apego evitativo",
+      "Apego ambivalente",
+      "Apego desorganizado"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "O que designa o termo 'burnout' (síndrome do esgotamento profissional)?",
+    "correct": "Exaustão física e emocional crônica relacionada ao trabalho",
+    "distractors": [
+      "Fobia social específica em ambientes escolares",
+      "Transtorno alimentar compulsivo",
+      "Amnésia dissociativa aguda"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Quais são os três macronutrientes primários representados pela sigla NPK nos fertilizantes?",
+    "correct": "Nitrogênio, Fósforo e Potássio",
+    "distractors": [
+      "Níquel, Prata e Cálcio",
+      "Nitrogênio, Enxofre e Magnésio",
+      "Sódio, Fósforo e Zinco"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual prática agrícola consiste em aplicar calcário no solo para corrigir a acidez e neutralizar o alumínio tóxico?",
+    "correct": "Calagem",
+    "distractors": [
+      "Gessagem",
+      "Fosfatagem",
+      "Subsolagem"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual grupo de bactérias realiza a fixação biológica de nitrogênio em simbiose com leguminosas, como a soja?",
+    "correct": "Rizóbios, como Bradyrhizobium na soja",
+    "distractors": [
+      "Bacillus thuringiensis",
+      "Xanthomonas citri",
+      "Agrobacterium tumefaciens"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "O que é o sistema de Plantio Direto na palha?",
+    "correct": "Semeadura sem revolvimento prévio do solo, mantendo cobertura vegetal morta na superfície",
+    "distractors": [
+      "Aração profunda seguida de gradagem pesada",
+      "Cultivo exclusivo em estufas hidropônicas",
+      "Queima controlada da palhada antes do plantio"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual praga agrícola é conhecida como 'lagarta-do-cartucho' e ataca severamente a cultura do milho?",
+    "correct": "Spodoptera frugiperda",
+    "distractors": [
+      "Helicoverpa armigera",
+      "Bemisia tabaci",
+      "Euschistus heros"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual é a função principal da gessagem agrícola no perfil do solo?",
+    "correct": "Fornecer cálcio e enxofre em profundidade e reduzir a saturação por alumínio no subsolo",
+    "distractors": [
+      "Elevar rapidamente o pH da camada superficial",
+      "Eliminar nematoides por fumigação",
+      "Aumentar o teor de matéria orgânica"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "O que significa a sigla MIP no manejo fitossanitário?",
+    "correct": "Manejo Integrado de Pragas",
+    "distractors": [
+      "Monitoramento Intensivo de Pastagens",
+      "Método Industrial de Plantio",
+      "Manejo Irrigado de Precisão"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual propriedade física do solo refere-se às proporções relativas de areia, silte e argila?",
+    "correct": "Textura do solo",
+    "distractors": [
+      "Estrutura do solo",
+      "Porosidade total",
+      "Densidade aparente"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual doença fúngica causa severa desfolha precoce na cultura da soja, sendo causada por Phakopsora pachyrhizi?",
+    "correct": "Ferrugem-asiática da soja",
+    "distractors": [
+      "Mofo-branco",
+      "Antracnose",
+      "Oídio"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual método de irrigação aplica água diretamente na zona radicular das plantas em pequenas vazões e alta frequência?",
+    "correct": "Gotejamento",
+    "distractors": [
+      "Inundação",
+      "Sulcos abertos",
+      "Aspersão convencional"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual é o objetivo da rotação de culturas em uma propriedade agrícola?",
+    "correct": "Quebrar ciclos de pragas e doenças, melhorar a estrutura do solo e ciclagem de nutrientes",
+    "distractors": [
+      "Manter a mesma espécie indefinidamente na área",
+      "Aumentar a compactação superficial",
+      "Reduzir a biodiversidade microbiana"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "O que é evapotranspiração na agrometeorologia?",
+    "correct": "Soma da evaporação da água do solo com a transpiração das plantas",
+    "distractors": [
+      "Condensação do orvalho nas folhas à noite",
+      "Infiltração profunda de água no lençol freático",
+      "Escoamento superficial após chuva intensa"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual é o nome do indicador que mede a capacidade do solo em reter cátions trocáveis como Ca²⁺, Mg²⁺ e K⁺?",
+    "correct": "Capacidade de Troca Catiônica (CTC)",
+    "distractors": [
+      "Saturação por Alumínio (m%)",
+      "Condutividade Hidráulica",
+      "Índice de Plasticidade"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual técnica de conservação do solo consiste em construir barreiras físicas transversais ao declive para conter a erosão hídrica?",
+    "correct": "Terraceamento",
+    "distractors": [
+      "Subsolagem",
+      "Escarificação",
+      "Aração morro abaixo"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual inseto é o principal vetor da bactéria causadora do Greening (HLB) nos citros?",
+    "correct": "Psilídeo (Diaphorina citri)",
+    "distractors": [
+      "Mosca-branca",
+      "Pulgão-preto",
+      "Broca-do-café"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "O que é o sistema ILPF na agropecuária sustentável?",
+    "correct": "Integração Lavoura-Pecuária-Floresta",
+    "distractors": [
+      "Irrigação Localizada para Produção Frutícola",
+      "Índice de Lucratividade da Produção Familiar",
+      "Inoculação de Leguminosas em Pastagens Formadas"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual micronutriente é essencial para a enzima nitrogenase na fixação biológica de nitrogênio?",
+    "correct": "Molibdênio",
+    "distractors": [
+      "Cloro",
+      "Silício",
+      "Sódio"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "O que indica um solo com saturação por bases (V%) baixa, comum no Cerrado brasileiro natural?",
+    "correct": "Solo distrófico (baixa fertilidade natural e alta acidez)",
+    "distractors": [
+      "Solo eutrófico de alta alcalinidade",
+      "Solo salino-sódico",
+      "Solo organicamente saturado"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual é o agente biológico amplamente utilizado no controle de lagartas que produz toxinas Cry?",
+    "correct": "Bacillus thuringiensis (Bt)",
+    "distractors": [
+      "Trichoderma harzianum",
+      "Beauveria bassiana",
+      "Metarhizium anisopliae"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Como se chama o teor de água no solo abaixo do qual a planta não consegue recuperar a turgescência, mesmo em atmosfera saturada?",
+    "correct": "Ponto de Murcha Permanente (PMP)",
+    "distractors": [
+      "Capacidade de Campo",
+      "Gutação foliar",
+      "Fotoperiodismo"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual hormônio vegetal promove o amadurecimento de frutos climatéricos como banana e tomate?",
+    "correct": "Etileno",
+    "distractors": [
+      "Auxina",
+      "Citocinina",
+      "Ácido abscísico"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "O que é o 'vazio sanitário' adotado na cultura da soja no Brasil?",
+    "correct": "Período sem plantas vivas de soja no campo para reduzir o inóculo da ferrugem-asiática",
+    "distractors": [
+      "Intervalo entre aplicações de herbicidas",
+      "Época de colheita mecanizada noturna",
+      "Armazenamento de sementes em câmara fria"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual ferramenta da Agricultura de Precisão utiliza imagens de satélite ou drones para avaliar o vigor vegetativo das lavouras?",
+    "correct": "Índice de Vegetação por Diferença Normalizada (NDVI)",
+    "distractors": [
+      "Análise granulométrica por pipeta",
+      "Penetrômetro de impacto",
+      "Tensiômetro de mercúrio"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual praga do cafeeiro perfura os frutos e deposita seus ovos no interior dos grãos?",
+    "correct": "Broca-do-café (Hypothenemus hampei)",
+    "distractors": [
+      "Bicho-mineiro",
+      "Cigarrinha-das-raízes",
+      "Ácaro-vermelho"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual é a principal função da matéria orgânica no solo agrícola?",
+    "correct": "Melhorar a agregação, retenção de água, CTC e atividade biológica",
+    "distractors": [
+      "Aumentar a densidade e compactação",
+      "Zerar a necessidade de qualquer nutriente",
+      "Tornar o solo impermeável à água"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "O que são plantas de cobertura (adubação verde)?",
+    "correct": "Espécies cultivadas para proteger o solo, reciclar nutrientes e aportar biomassa",
+    "distractors": [
+      "Plantas invasoras resistentes a glifosato",
+      "Culturas destinadas exclusivamente à exportação",
+      "Árvores usadas apenas como quebra-vento"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual elemento químico é o átomo central da molécula de clorofila nas plantas?",
+    "correct": "Magnésio",
+    "distractors": [
+      "Ferro",
+      "Cálcio",
+      "Manganês"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Em sementes agrícolas, o que avalia o teste de tetrazólio?",
+    "correct": "A viabilidade e o vigor das sementes por meio da atividade respiratória dos tecidos",
+    "distractors": [
+      "O teor de umidade em estufa",
+      "A pureza física contra sementes de daninhas",
+      "O peso de mil sementes"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual fator ambiental, relacionado à duração do dia e da noite, influencia a classificação de plantas em dias curtos, dias longos ou neutras?",
+    "correct": "Fotoperíodo",
+    "distractors": [
+      "Umidade relativa do ar",
+      "Pressão atmosférica",
+      "Velocidade do vento"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual é o principal objetivo da subsolagem em áreas agrícolas?",
+    "correct": "Romper camadas compactadas subsuperficiais (pé-de-grade) para melhorar a infiltração e o enraizamento",
+    "distractors": [
+      "Incorporar sementes pequenas na superfície",
+      "Nivelar terrenos para irrigação por inundação",
+      "Aplicar defensivos foliares"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Quem é o autor da obra 'Pedagogia do Oprimido', referência mundial na educação crítica?",
+    "correct": "Paulo Freire",
+    "distractors": [
+      "Anísio Teixeira",
+      "Dermeval Saviani",
+      "Darcy Ribeiro"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Na teoria sociointeracionista de Lev Vygotsky, o que é a Zona de Desenvolvimento Proximal (ZDP)?",
+    "correct": "A distância entre o que a criança faz sozinha e o que consegue fazer com ajuda",
+    "distractors": [
+      "O estágio final do pensamento lógico-matemático",
+      "A capacidade inata de memorização mecânica",
+      "O período de maturação biológica antes da alfabetização"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Quais são os quatro estágios do desenvolvimento cognitivo propostos por Jean Piaget?",
+    "correct": "Sensório-motor, pré-operatório, operatório concreto e operatório formal",
+    "distractors": [
+      "Oral, anal, fálico e genital",
+      "Impulsivo, emocional, personalista e categorial",
+      "Básico, intermediário, avançado e abstrato"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual lei estabelece as diretrizes e bases da educação nacional no Brasil (Lei nº 9.394/1996)?",
+    "correct": "LDB (Lei de Diretrizes e Bases da Educação Nacional)",
+    "distractors": [
+      "BNCC",
+      "ECA",
+      "PNE"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "O que significa a sigla BNCC na educação brasileira?",
+    "correct": "Base Nacional Comum Curricular",
+    "distractors": [
+      "Boletim Nacional de Controle Escolar",
+      "Banco Nacional de Conteúdos Curriculares",
+      "Base Normativa de Competências Cognitivas"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual educadora italiana criou um método baseado na autonomia da criança, materiais sensoriais e ambiente preparado?",
+    "correct": "Maria Montessori",
+    "distractors": [
+      "Emilia Ferreiro",
+      "Celestin Freinet",
+      "Ovide Decroly"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Na teoria de Jean Piaget, como se chama o processo de incorporar novas informações a esquemas cognitivos já existentes?",
+    "correct": "Assimilação",
+    "distractors": [
+      "Acomodação",
+      "Equilibração",
+      "Internalização"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "O que Paulo Freire criticava ao utilizar a metáfora da 'educação bancária'?",
+    "correct": "Um modelo em que o professor apenas deposita conteúdos no aluno passivo",
+    "distractors": [
+      "O financiamento privado das universidades públicas",
+      "O ensino de matemática financeira nas escolas",
+      "A gestão administrativa das secretarias de educação"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual pesquisadora argentina revolucionou a compreensão da alfabetização com a obra 'Psicogênese da Língua Escrita'?",
+    "correct": "Emilia Ferreiro",
+    "distractors": [
+      "Magda Soares",
+      "Telma Weisz",
+      "Fanny Abramovich"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Na psicogênese da língua escrita, quais são os níveis sucessivos pelos quais a criança passa ao compreender a escrita?",
+    "correct": "Pré-silábico, silábico, silábico-alfabético e alfabético",
+    "distractors": [
+      "Sensorial, simbólico, concreto e formal",
+      "Fonético, ortográfico, gramatical e textual",
+      "Pictórico, ideográfico, fonético e sintático"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual tipo de avaliação ocorre durante o processo de ensino-aprendizagem para acompanhar e ajustar a prática pedagógica?",
+    "correct": "Avaliação formativa",
+    "distractors": [
+      "Avaliação somativa",
+      "Avaliação classificatória",
+      "Avaliação padronizada externa"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Quem formulou a Pedagogia Histórico-Crítica no Brasil?",
+    "correct": "Dermeval Saviani",
+    "distractors": [
+      "José Carlos Libâneo",
+      "Cipriano Luckesi",
+      "Mário Sergio Cortella"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Na teoria psicogenética de Henri Wallon, qual dimensão ocupa papel central junto à cognição e motricidade?",
+    "correct": "Afetividade",
+    "distractors": [
+      "Condicionamento operante",
+      "Hereditariedade genética",
+      "Inconsciente coletivo"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual é a diferença entre alfabetização e letramento segundo Magda Soares?",
+    "correct": "Alfabetização é o domínio do sistema de escrita; letramento é o uso social competente da leitura e da escrita",
+    "distractors": [
+      "Alfabetização ocorre apenas na juventude e letramento na infância",
+      "Letramento significa decorar regras gramaticais e alfabetização é ler em voz alta",
+      "São sinônimos exatos sem distinção conceitual"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual filósofo e pedagogo norte-americano defendeu o 'aprender fazendo' (learning by doing) e a escola democrática?",
+    "correct": "John Dewey",
+    "distractors": [
+      "Burrhus Skinner",
+      "Johann Herbart",
+      "Comenius"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "O que é o Projeto Político-Pedagógico (PPP) de uma escola?",
+    "correct": "Documento que define a identidade, os objetivos educacionais e o plano de ação da escola",
+    "distractors": [
+      "O regimento disciplinar exclusivo para punir alunos",
+      "O calendário anual de feriados municipais",
+      "A folha de pagamento dos docentes"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Segundo a LDB, quais etapas compõem a Educação Básica no Brasil?",
+    "correct": "Educação Infantil, Ensino Fundamental e Ensino Médio",
+    "distractors": [
+      "Creche, Ensino Fundamental e Ensino Superior",
+      "Ensino Fundamental, Ensino Técnico e Pós-graduação",
+      "Alfabetização, Ensino Médio e EJA"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "O que caracteriza as Metodologias Ativas de aprendizagem?",
+    "correct": "Colocam o estudante no centro do processo, promovendo autonomia, investigação e participação",
+    "distractors": [
+      "Baseiam-se exclusivamente em aulas expositivas longas e cópia",
+      "Eliminam completamente a mediação do professor",
+      "Utilizam apenas provas de múltipla escolha semanais"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual conceito de Pierre Bourdieu explica como a escola pode legitimar desigualdades sociais por meio da cultura dominante?",
+    "correct": "Capital cultural",
+    "distractors": [
+      "Zona proximal",
+      "Andaimagem cognitiva",
+      "Acomodação estrutural"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Na Educação Inclusiva, o que significa a sigla AEE?",
+    "correct": "Atendimento Educacional Especializado",
+    "distractors": [
+      "Avaliação Escolar Estadual",
+      "Apoio Extracurricular Estudantil",
+      "Adaptação de Ensino Especial"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Quem escreveu 'Didática Magna' no século XVII, defendendo 'ensinar tudo a todos'?",
+    "correct": "Comenius (Jan Amos Komenský)",
+    "distractors": [
+      "Jean-Jacques Rousseau",
+      "Johann Pestalozzi",
+      "Friedrich Fröbel"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual pedagogo alemão criou os Jardins de Infância (Kindergarten) valorizando o brincar na primeira infância?",
+    "correct": "Friedrich Fröbel",
+    "distractors": [
+      "Johann Herbart",
+      "Alexander Neill",
+      "Anton Makarenko"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "O que é 'currículo oculto' na teoria educacional?",
+    "correct": "Normas, valores e atitudes transmitidos implicitamente no ambiente escolar fora do currículo formal",
+    "distractors": [
+      "Disciplinas optativas oferecidas no contraturno",
+      "Conteúdos secretos restritos à direção escolar",
+      "O plano de aula que o professor não consegue concluir"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual movimento brasileiro de 1932 defendeu a escola pública, laica, gratuita e obrigatória?",
+    "correct": "Manifesto dos Pioneiros da Educação Nova",
+    "distractors": [
+      "Movimento Brasileiro de Alfabetização (MOBRAL)",
+      "Reforma Capanema",
+      "Semana de Arte Moderna"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Na Taxonomia de Bloom revisada, qual nível cognitivo representa a capacidade de produzir algo original ou formular novas soluções?",
+    "correct": "Criar",
+    "distractors": [
+      "Lembrar",
+      "Entender",
+      "Aplicar"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "O que significa 'transposição didática', conceito trabalhado por Yves Chevallard?",
+    "correct": "Transformação do saber científico em saber ensinável no contexto escolar",
+    "distractors": [
+      "Transferência de alunos entre escolas da rede pública",
+      "Substituição de livros físicos por tablets",
+      "Avaliação diagnóstica no início do ano letivo"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual é a função da avaliação diagnóstica no início de uma unidade didática?",
+    "correct": "Identificar conhecimentos prévios, dificuldades e necessidades dos estudantes",
+    "distractors": [
+      "Atribuir a nota final de aprovação ou reprovação",
+      "Ranquear as melhores turmas da escola",
+      "Substituir o planejamento anual do docente"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Na Educação Infantil segundo a BNCC, quais são os dois eixos estruturantes das práticas pedagógicas?",
+    "correct": "Interações e brincadeira",
+    "distractors": [
+      "Leitura e cálculo",
+      "Disciplina e memorização",
+      "Provas e tarefas de casa"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual conceito de Jerome Bruner refere-se ao suporte temporário dado pelo educador até que o aluno conquiste autonomia?",
+    "correct": "Andaimagem (Scaffolding)",
+    "distractors": [
+      "Condicionamento clássico",
+      "Epistemologia genética",
+      "Catarse pedagógica"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "O que é interdisciplinaridade no planejamento escolar?",
+    "correct": "Integração e diálogo entre diferentes disciplinas para compreender um tema de forma articulada",
+    "distractors": [
+      "Isolamento completo de cada matéria em horários rígidos",
+      "Eliminação das áreas de conhecimento da grade curricular",
+      "Repetição idêntica da mesma aula por professores diferentes"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual organela celular é responsável pela respiração celular aeróbica e pela maior parte da produção de ATP?",
+    "correct": "Mitocôndria",
+    "distractors": [
+      "Ribossomo",
+      "Complexo de Golgi",
+      "Lisossomo"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Quais são as quatro bases nitrogenadas encontradas na molécula de DNA?",
+    "correct": "Adenina, Timina, Citosina e Guanina",
+    "distractors": [
+      "Adenina, Uracila, Citosina e Guanina",
+      "Adenina, Timina, Uracila e Ribose",
+      "Citosina, Guanina, Leucina e Valina"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual processo biológico converte energia luminosa em energia química na forma de glicose nas plantas?",
+    "correct": "Fotossíntese",
+    "distractors": [
+      "Quimiossíntese",
+      "Fermentação lática",
+      "Respiração anaeróbica"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual tipo de divisão celular reduz pela metade o número de cromossomos e, em geral, origina quatro células haploides geneticamente distintas?",
+    "correct": "Meiose",
+    "distractors": [
+      "Mitose",
+      "Bipartição",
+      "Brotamento"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Quem formulou a teoria da evolução das espécies por meio da seleção natural junto com Alfred Russel Wallace?",
+    "correct": "Charles Darwin",
+    "distractors": [
+      "Jean-Baptiste Lamarck",
+      "Gregor Mendel",
+      "Louis Pasteur"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual é a função principal dos ribossomos nas células?",
+    "correct": "Síntese de proteínas",
+    "distractors": [
+      "Digestão intracelular",
+      "Armazenamento de lipídios",
+      "Produção de ATP"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Na genética mendeliana, como é chamado o alelo que se expressa mesmo na presença de um alelo diferente (heterozigose)?",
+    "correct": "Alelo dominante",
+    "distractors": [
+      "Alelo recessivo",
+      "Alelo letal",
+      "Alelo epistático"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual tecido vegetal é responsável pelo transporte de seiva bruta (água e sais minerais) das raízes até as folhas?",
+    "correct": "Xilema",
+    "distractors": [
+      "Floema",
+      "Parênquima",
+      "Colênquima"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "O que diferencia fundamentalmente uma célula procariótica de uma célula eucariótica?",
+    "correct": "A ausência de carioteca (envelope nuclear) delimitando o material genético na procariótica",
+    "distractors": [
+      "A presença de membrana plasmática apenas na eucariótica",
+      "A ausência de DNA na célula procariótica",
+      "A presença de ribossomos apenas na procariótica"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual molécula transporta os aminoácidos até o ribossomo durante a tradução do RNA mensageiro?",
+    "correct": "RNA transportador (RNAt)",
+    "distractors": [
+      "RNA ribossômico (RNAr)",
+      "DNA polimerase",
+      "Helicase"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Na ecologia, qual relação interespecífica ocorre quando ambas as espécies se beneficiam e possuem dependência obrigatória?",
+    "correct": "Mutualismo",
+    "distractors": [
+      "Comensalismo",
+      "Parasitismo",
+      "Amensalismo"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual hormônio pancreático reduz os níveis de glicose no sangue ao facilitar sua entrada nas células?",
+    "correct": "Insulina",
+    "distractors": [
+      "Glucagon",
+      "Adrenalina",
+      "Cortisol"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual é o nome da enzima responsável por abrir a dupla hélice do DNA durante a replicação?",
+    "correct": "DNA helicase",
+    "distractors": [
+      "DNA ligase",
+      "RNA polimerase",
+      "Amilase"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Em qual fase da mitose os cromossomos atingem seu grau máximo de condensação e se alinham na placa equatorial da célula?",
+    "correct": "Metáfase",
+    "distractors": [
+      "Prófase",
+      "Anáfase",
+      "Telófase"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual grupo de plantas apresenta flores e frutos protegendo as sementes?",
+    "correct": "Angiospermas",
+    "distractors": [
+      "Gimnospermas",
+      "Pteridófitas",
+      "Briófitas"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual é a unidade funcional básica dos rins responsável pela filtração do sangue e formação da urina?",
+    "correct": "Néfron",
+    "distractors": [
+      "Alvéolo",
+      "Neurônio",
+      "Hepatócito"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "O que é o 'crossing-over' (permutação) que ocorre na prófase I da meiose?",
+    "correct": "Troca de segmentos entre cromátides homólogas, aumentando a variabilidade genética",
+    "distractors": [
+      "Duplicação completa de todos os cromossomos",
+      "Separação das cromátides-irmãs para os polos",
+      "Morte celular programada por apoptose"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual bioma brasileiro é caracterizado por savana tropical, árvores tortuosas de casca grossa e alta biodiversidade?",
+    "correct": "Cerrado",
+    "distractors": [
+      "Caatinga",
+      "Pampa",
+      "Pantanal"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual classe de imunoglobulinas (anticorpos) é a mais abundante no soro sanguíneo humano e atravessa a placenta?",
+    "correct": "IgG",
+    "distractors": [
+      "IgE",
+      "IgM",
+      "IgA"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual é o nome do processo de formação de novas espécies a partir do isolamento reprodutivo de populações?",
+    "correct": "Especiação",
+    "distractors": [
+      "Sucessão ecológica",
+      "Deriva continental",
+      "Homeostase"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual gás é liberado como subproduto da fase fotoquímica (fase clara) da fotossíntese a partir da fotólise da água?",
+    "correct": "Oxigênio (O₂)",
+    "distractors": [
+      "Dióxido de carbono (CO₂)",
+      "Metano (CH₄)",
+      "Nitrogênio (N₂)"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual doença humana é causada pelo protozoário Trypanosoma cruzi e pode ser transmitida pela contaminação com fezes do inseto barbeiro?",
+    "correct": "Doença de Chagas",
+    "distractors": [
+      "Malária",
+      "Leishmaniose",
+      "Esquistossomose"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "O que define o nicho ecológico de uma espécie?",
+    "correct": "O papel funcional e o conjunto de condições e recursos que a espécie utiliza no ecossistema",
+    "distractors": [
+      "Apenas o endereço físico onde o organismo vive",
+      "O número total de predadores de uma floresta",
+      "A quantidade de chuva anual de um bioma"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual organela celular contém enzimas hidrolíticas responsáveis pela digestão intracelular?",
+    "correct": "Lisossomo",
+    "distractors": [
+      "Peroxissomo",
+      "Centríolo",
+      "Retículo endoplasmático liso"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "No sistema ABO sanguíneo humano, qual tipo sanguíneo é considerado doador universal de hemácias?",
+    "correct": "O negativo (O⁻)",
+    "distractors": [
+      "AB positivo (AB⁺)",
+      "A positivo (A⁺)",
+      "B negativo (B⁻)"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual é o nome da proteína presente nas hemácias responsável pelo transporte de oxigênio no sangue?",
+    "correct": "Hemoglobina",
+    "distractors": [
+      "Mioglobina",
+      "Queratina",
+      "Albumina"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "O que é eutrofização em ecossistemas aquáticos?",
+    "correct": "Enriquecimento excessivo de nutrientes (como nitrogênio e fósforo) que causa proliferação de algas e queda de oxigênio",
+    "distractors": [
+      "Congelamento superficial de lagos em regiões polares",
+      "Aumento natural da salinidade dos oceanos",
+      "Purificação biológica da água por plantas aquáticas"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Em quais estruturas de artrópodes e fungos está presente o polissacarídeo quitina?",
+    "correct": "No exoesqueleto dos artrópodes e na parede celular dos fungos",
+    "distractors": [
+      "Parede celular das plantas e cartilagem humana",
+      "Membrana plasmática das bactérias",
+      "Escamas dos peixes ósseos"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual é a principal função do complexo de Golgi na célula eucariótica?",
+    "correct": "Modificação, empacotamento e endereçamento de proteínas e lipídios",
+    "distractors": [
+      "Replicação do DNA nuclear",
+      "Realização da fotossíntese",
+      "Contração muscular"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual fenômeno evolutivo ocorre quando alterações aleatórias nas frequências alélicas acontecem em populações pequenas por acaso?",
+    "correct": "Deriva genética",
+    "distractors": [
+      "Seleção sexual",
+      "Irradiação adaptativa",
+      "Convergência evolutiva"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em GTA VI, qual é o nome da protagonista feminina apresentada no primeiro trailer?",
+    "correct": "Lucia",
+    "distractors": [
+      "Catalina",
+      "Mercedes",
+      "Ashley"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em qual estado fictício dos Estados Unidos se passa GTA VI?",
+    "correct": "Leonida",
+    "distractors": [
+      "San Andreas",
+      "Liberty",
+      "Blaine"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual é o nome do protagonista masculino associado a Lucia em GTA VI?",
+    "correct": "Jason",
+    "distractors": [
+      "Michael",
+      "Franklin",
+      "Trevor"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual estúdio desenvolve a franquia Grand Theft Auto?",
+    "correct": "Rockstar Games",
+    "distractors": [
+      "Naughty Dog",
+      "Bethesda",
+      "CD Projekt Red"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Cyberpunk 2077, qual personagem digital é interpretado por Keanu Reeves?",
+    "correct": "Johnny Silverhand",
+    "distractors": [
+      "Adam Smasher",
+      "Jackie Welles",
+      "Viktor Vektor"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual expansão de Cyberpunk 2077 adiciona a região de Dogtown?",
+    "correct": "Phantom Liberty",
+    "distractors": [
+      "Blood and Wine",
+      "Hearts of Stone",
+      "The Frozen Wilds"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Baldur's Gate 3, qual sistema de RPG de mesa serve de base para as regras?",
+    "correct": "Dungeons & Dragons 5ª edição",
+    "distractors": [
+      "Pathfinder 2ª edição",
+      "GURPS",
+      "Call of Cthulhu"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual estúdio criou Baldur's Gate 3?",
+    "correct": "Larian Studios",
+    "distractors": [
+      "Obsidian Entertainment",
+      "BioWare",
+      "inXile Entertainment"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Elden Ring, como é chamado o mundo explorado pelo Maculado?",
+    "correct": "Terras Intermédias",
+    "distractors": [
+      "Lordran",
+      "Drangleic",
+      "Yharnam"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual expansão de Elden Ring foi lançada em 2024?",
+    "correct": "Shadow of the Erdtree",
+    "distractors": [
+      "The Old Hunters",
+      "The Ringed City",
+      "Crown of the Sunken King"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual personagem é a protagonista jogável de Hollow Knight: Silksong?",
+    "correct": "Hornet",
+    "distractors": [
+      "The Knight",
+      "Quirrel",
+      "The Hollow Knight"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Helldivers 2, qual é o nome do planeta-ideologia defendido pelos jogadores?",
+    "correct": "Super Terra",
+    "distractors": [
+      "Nova Alexandria",
+      "Reach",
+      "Mars"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual empresa desenvolveu Helldivers 2?",
+    "correct": "Arrowhead Game Studios",
+    "distractors": [
+      "Embark Studios",
+      "Digital Extremes",
+      "Respawn Entertainment"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Fortnite, qual é o nome do modo principal em que jogadores tentam ser o último sobrevivente?",
+    "correct": "Battle Royale",
+    "distractors": [
+      "Salve o Mundo",
+      "LEGO Fortnite",
+      "Rocket Racing"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual jogo da Nintendo apresenta a região de Paldea?",
+    "correct": "Pokémon Scarlet e Violet",
+    "distractors": [
+      "Pokémon Sword e Shield",
+      "Pokémon Legends: Arceus",
+      "Pokémon Sun e Moon"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em Minecraft, qual dimensão abriga o Ender Dragon?",
+    "correct": "The End",
+    "distractors": [
+      "Nether",
+      "Overworld",
+      "Aether"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual é o nome da empresa responsável por League of Legends?",
+    "correct": "Riot Games",
+    "distractors": [
+      "Valve",
+      "Blizzard",
+      "Epic Games"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Jogos",
+    "prompt": "No Counter-Strike 2, qual tecnologia substituiu o sistema de servidores de tick tradicional?",
+    "correct": "Sub-tick",
+    "distractors": [
+      "Rollback Netcode",
+      "Source Filmmaker",
+      "Battleye"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Qual equipe brasileira venceu o Major de CS:GO em 2016, em Columbus?",
+    "correct": "Luminosity Gaming",
+    "distractors": [
+      "SK Gaming",
+      "FURIA",
+      "MIBR"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Jogos",
+    "prompt": "Em The Legend of Zelda: Tears of the Kingdom, qual habilidade permite combinar objetos?",
+    "correct": "Ultrahand",
+    "distractors": [
+      "Recall",
+      "Ascend",
+      "Fuse"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual filme de 2023 acompanha a criação da bomba atômica pelo diretor Christopher Nolan?",
+    "correct": "Oppenheimer",
+    "distractors": [
+      "Tenet",
+      "Dunkirk",
+      "A Origem"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual atriz interpreta Barbie no filme lançado em 2023?",
+    "correct": "Margot Robbie",
+    "distractors": [
+      "Emma Stone",
+      "Florence Pugh",
+      "Anya Taylor-Joy"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Quem interpreta Ken no filme Barbie (2023)?",
+    "correct": "Ryan Gosling",
+    "distractors": [
+      "Ryan Reynolds",
+      "Chris Evans",
+      "Channing Tatum"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual filme venceu o Oscar de Melhor Filme na cerimônia de 2024?",
+    "correct": "Oppenheimer",
+    "distractors": [
+      "Barbie",
+      "Pobres Criaturas",
+      "Os Rejeitados"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Duna: Parte Dois, quem interpreta Feyd-Rautha?",
+    "correct": "Austin Butler",
+    "distractors": [
+      "Timothée Chalamet",
+      "Javier Bardem",
+      "Josh Brolin"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual é o nome do diretor de Tudo em Todo o Lugar ao Mesmo Tempo?",
+    "correct": "Daniel Kwan e Daniel Scheinert",
+    "distractors": [
+      "Anthony e Joe Russo",
+      "Phil Lord e Christopher Miller",
+      "Lana e Lilly Wachowski"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual estúdio produziu a animação Divertida Mente 2?",
+    "correct": "Pixar",
+    "distractors": [
+      "DreamWorks",
+      "Illumination",
+      "Sony Pictures Animation"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Deadpool & Wolverine, qual ator retorna como Wolverine?",
+    "correct": "Hugh Jackman",
+    "distractors": [
+      "Taron Egerton",
+      "Tom Hardy",
+      "Ryan Reynolds"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual filme brasileiro foi indicado ao Oscar de Melhor Filme Internacional em 2025?",
+    "correct": "Ainda Estou Aqui",
+    "distractors": [
+      "Bacurau",
+      "Marighella",
+      "Que Horas Ela Volta?"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Quem dirigiu Ainda Estou Aqui?",
+    "correct": "Walter Salles",
+    "distractors": [
+      "Fernando Meirelles",
+      "Kleber Mendonça Filho",
+      "José Padilha"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual atriz interpreta a personagem principal em A Substância?",
+    "correct": "Demi Moore",
+    "distractors": [
+      "Nicole Kidman",
+      "Julianne Moore",
+      "Cate Blanchett"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual cineasta dirigiu Parasita?",
+    "correct": "Bong Joon-ho",
+    "distractors": [
+      "Park Chan-wook",
+      "Lee Chang-dong",
+      "Kim Jee-woon"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Godzilla Minus One, em qual país se passa a história?",
+    "correct": "Japão",
+    "distractors": [
+      "Coreia do Sul",
+      "China",
+      "Estados Unidos"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual é o nome do reino fictício governado por Elsa e Anna em Frozen?",
+    "correct": "Arendelle",
+    "distractors": [
+      "Corona",
+      "Atlântica",
+      "Kumandra"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual diretor comandou Top Gun: Maverick?",
+    "correct": "Joseph Kosinski",
+    "distractors": [
+      "Tony Scott",
+      "Michael Bay",
+      "Ridley Scott"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em Blade Runner 2049, quem interpreta o personagem K?",
+    "correct": "Ryan Gosling",
+    "distractors": [
+      "Harrison Ford",
+      "Jake Gyllenhaal",
+      "Oscar Isaac"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual filme de 2024 acompanha uma jornada pelo mundo pós-apocalíptico de Mad Max?",
+    "correct": "Furiosa: Uma Saga Mad Max",
+    "distractors": [
+      "O Livro de Eli",
+      "Planeta dos Macacos: O Reinado",
+      "Estrada da Fúria"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual compositor criou a trilha sonora de O Senhor dos Anéis, de Peter Jackson?",
+    "correct": "Howard Shore",
+    "distractors": [
+      "John Williams",
+      "Hans Zimmer",
+      "James Horner"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Em O Grande Hotel Budapeste, quem interpreta Gustave H.?",
+    "correct": "Ralph Fiennes",
+    "distractors": [
+      "Adrien Brody",
+      "Willem Dafoe",
+      "Jude Law"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Filmes",
+    "prompt": "Qual filme de animação japonês de 2023 foi dirigido por Hayao Miyazaki?",
+    "correct": "O Menino e a Garça",
+    "distractors": [
+      "Suzume",
+      "Your Name",
+      "O Tempo com Você"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual série acompanha o advogado Saul Goodman antes dos acontecimentos de Breaking Bad?",
+    "correct": "Better Call Saul",
+    "distractors": [
+      "El Camino",
+      "Ozark",
+      "Fargo"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em The Last of Us, qual é o nome da atriz que interpreta Ellie na série da HBO?",
+    "correct": "Bella Ramsey",
+    "distractors": [
+      "Daisy Ridley",
+      "Maisie Williams",
+      "Kaitlyn Dever"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual série da HBO acompanha a disputa pelo controle da empresa Waystar Royco?",
+    "correct": "Succession",
+    "distractors": [
+      "Billions",
+      "Mad Men",
+      "Industry"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em The Bear, qual é a profissão de Carmy Berzatto?",
+    "correct": "Chef de cozinha",
+    "distractors": [
+      "Advogado",
+      "Médico",
+      "Jornalista"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome da cidade onde se passa a série Stranger Things?",
+    "correct": "Hawkins",
+    "distractors": [
+      "Riverdale",
+      "Sunnydale",
+      "Derry"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Na série Fallout, qual empresa construiu os abrigos subterrâneos conhecidos como Vaults?",
+    "correct": "Vault-Tec",
+    "distractors": [
+      "RobCo",
+      "Nuka-Cola",
+      "Brotherhood Industries"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome da protagonista da série Wandinha?",
+    "correct": "Wednesday Addams",
+    "distractors": [
+      "Enid Sinclair",
+      "Morticia Addams",
+      "Bianca Barclay"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em Ruptura (Severance), qual empresa emprega os protagonistas?",
+    "correct": "Lumon Industries",
+    "distractors": [
+      "Vought International",
+      "Waystar Royco",
+      "Tyrell Corporation"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual série sul-coreana da Netflix apresenta competições mortais por dinheiro?",
+    "correct": "Round 6",
+    "distractors": [
+      "Alice in Borderland",
+      "Kingdom",
+      "Sweet Home"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Quem interpreta Joel na primeira temporada de The Last of Us?",
+    "correct": "Pedro Pascal",
+    "distractors": [
+      "Oscar Isaac",
+      "Diego Luna",
+      "Javier Bardem"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual é o nome do continente onde se passa grande parte de The Witcher?",
+    "correct": "O Continente",
+    "distractors": [
+      "Westeros",
+      "Essos",
+      "Tamriel"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em The Boys, qual é o nome verdadeiro do Capitão Pátria?",
+    "correct": "John",
+    "distractors": [
+      "Billy",
+      "Homelander",
+      "Ryan"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual série tem como protagonista o professor de química Walter White?",
+    "correct": "Breaking Bad",
+    "distractors": [
+      "Ozark",
+      "Narcos",
+      "Weeds"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em Arcane, quais cidades fictícias estão no centro do conflito?",
+    "correct": "Piltover e Zaun",
+    "distractors": [
+      "Demacia e Noxus",
+      "Ionia e Shurima",
+      "Targon e Freljord"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual série derivada de Game of Thrones retrata a guerra civil dos Targaryen?",
+    "correct": "A Casa do Dragão",
+    "distractors": [
+      "O Cavaleiro dos Sete Reinos",
+      "Game of Thrones: Conquista",
+      "A Dança dos Dragões"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em The Office (EUA), quem é o gerente regional da filial de Scranton durante a maior parte da série?",
+    "correct": "Michael Scott",
+    "distractors": [
+      "Jim Halpert",
+      "Dwight Schrute",
+      "Andy Bernard"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual série de ficção científica apresenta o parque temático Westworld?",
+    "correct": "Westworld",
+    "distractors": [
+      "Black Mirror",
+      "The Expanse",
+      "Silo"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Quem criou a série Dark, produção alemã da Netflix?",
+    "correct": "Baran bo Odar e Jantje Friese",
+    "distractors": [
+      "David Benioff e D. B. Weiss",
+      "The Duffer Brothers",
+      "Vince Gilligan"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Séries",
+    "prompt": "Em The Sopranos, qual é o nome do protagonista mafioso?",
+    "correct": "Tony Soprano",
+    "distractors": [
+      "Paulie Gualtieri",
+      "Christopher Moltisanti",
+      "Silvio Dante"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Séries",
+    "prompt": "Qual série acompanha um grupo de sobreviventes em um mundo dominado por zumbis e começa com Rick Grimes?",
+    "correct": "The Walking Dead",
+    "distractors": [
+      "The Last of Us",
+      "Z Nation",
+      "Fear the Walking Dead"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual anime acompanha Denji, um jovem que se funde a um demônio motosserra?",
+    "correct": "Chainsaw Man",
+    "distractors": [
+      "Dorohedoro",
+      "Jujutsu Kaisen",
+      "Fire Force"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Spy x Family, qual é o nome da filha adotiva de Loid Forger?",
+    "correct": "Anya",
+    "distractors": [
+      "Yor",
+      "Becky",
+      "Fiona"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual estúdio produziu a primeira temporada de Jujutsu Kaisen?",
+    "correct": "MAPPA",
+    "distractors": [
+      "Ufotable",
+      "Madhouse",
+      "Bones"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Frieren e a Jornada para o Além, qual é a raça da protagonista?",
+    "correct": "Elfa",
+    "distractors": [
+      "Humana",
+      "Anã",
+      "Demônio"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do protagonista de Solo Leveling?",
+    "correct": "Sung Jinwoo",
+    "distractors": [
+      "Cha Hae-In",
+      "Yoo Jinho",
+      "Go Gunhee"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em One Piece, qual é o nome do poder que permite transformar o corpo em borracha?",
+    "correct": "Gomu Gomu no Mi",
+    "distractors": [
+      "Mera Mera no Mi",
+      "Ope Ope no Mi",
+      "Hie Hie no Mi"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual personagem de Naruto é conhecido como o Ninja Copiador?",
+    "correct": "Kakashi Hatake",
+    "distractors": [
+      "Jiraiya",
+      "Orochimaru",
+      "Might Guy"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Dragon Ball Super, qual é o nome do Deus da Destruição do Universo 7?",
+    "correct": "Bills",
+    "distractors": [
+      "Whis",
+      "Champa",
+      "Zeno"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do protagonista de Mob Psycho 100?",
+    "correct": "Shigeo Kageyama",
+    "distractors": [
+      "Arataka Reigen",
+      "Ritsu Kageyama",
+      "Teruki Hanazawa"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Hunter x Hunter, quem é o pai de Gon Freecss?",
+    "correct": "Ging Freecss",
+    "distractors": [
+      "Silva Zoldyck",
+      "Isaac Netero",
+      "Kite"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual anime tem como protagonista um estudante chamado Senku Ishigami, que busca reconstruir a civilização?",
+    "correct": "Dr. Stone",
+    "distractors": [
+      "Steins;Gate",
+      "Erased",
+      "Pluto"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Demon Slayer, qual é a respiração principal utilizada por Zenitsu?",
+    "correct": "Respiração do Trovão",
+    "distractors": [
+      "Respiração da Água",
+      "Respiração da Chama",
+      "Respiração da Névoa"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do titã fundador da família real em Attack on Titan?",
+    "correct": "Titã Fundador",
+    "distractors": [
+      "Titã de Ataque",
+      "Titã Colossal",
+      "Titã Mandíbula"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Neon Genesis Evangelion, quem é o comandante da NERV?",
+    "correct": "Gendo Ikari",
+    "distractors": [
+      "Kozo Fuyutsuki",
+      "Ryoji Kaji",
+      "Shinji Ikari"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual mangaká criou Vagabond?",
+    "correct": "Takehiko Inoue",
+    "distractors": [
+      "Kentaro Miura",
+      "Naoki Urasawa",
+      "Takeshi Obata"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em JoJo's Bizarre Adventure: Stardust Crusaders, qual é o Stand de Jotaro Kujo?",
+    "correct": "Star Platinum",
+    "distractors": [
+      "The World",
+      "Hermit Purple",
+      "Magician's Red"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual anime de 2024 acompanha o aventureiro Laios em uma masmorra, cozinhando monstros?",
+    "correct": "Delicious in Dungeon",
+    "distractors": [
+      "Made in Abyss",
+      "Magi",
+      "Ranking of Kings"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em My Hero Academia, qual é o nome do herói número um no início da história?",
+    "correct": "All Might",
+    "distractors": [
+      "Endeavor",
+      "Hawks",
+      "Best Jeanist"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Anime",
+    "prompt": "Qual é o nome do autor de One Piece?",
+    "correct": "Eiichiro Oda",
+    "distractors": [
+      "Tite Kubo",
+      "Masashi Kishimoto",
+      "Hajime Isayama"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Anime",
+    "prompt": "Em Code Geass, qual poder permite a Lelouch dar ordens absolutas a uma pessoa?",
+    "correct": "Geass",
+    "distractors": [
+      "Nen",
+      "Alchemy",
+      "Quirk"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual empresa desenvolve o modelo de inteligência artificial ChatGPT?",
+    "correct": "OpenAI",
+    "distractors": [
+      "Google",
+      "Meta",
+      "Anthropic"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual é o nome da família de modelos de IA generativa desenvolvida pelo Google?",
+    "correct": "Gemini",
+    "distractors": [
+      "Claude",
+      "Llama",
+      "DeepSeek"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "O que significa a sigla LLM em inteligência artificial?",
+    "correct": "Large Language Model",
+    "distractors": [
+      "Logical Learning Machine",
+      "Language Logic Module",
+      "Large Linear Memory"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual padrão de conexão é amplamente utilizado para transferir dados e energia entre dispositivos por cabo?",
+    "correct": "USB",
+    "distractors": [
+      "HDMI",
+      "VGA",
+      "DisplayPort"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual tecnologia permite executar aplicações em ambientes isolados chamados contêineres?",
+    "correct": "Docker",
+    "distractors": [
+      "Git",
+      "Linux",
+      "Jenkins"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Em redes, qual protocolo traduz nomes de domínio em endereços IP?",
+    "correct": "DNS",
+    "distractors": [
+      "DHCP",
+      "FTP",
+      "SSH"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual linguagem é usada principalmente para estilizar páginas web?",
+    "correct": "CSS",
+    "distractors": [
+      "SQL",
+      "Python",
+      "Bash"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual é a função principal do Git?",
+    "correct": "Controle de versão",
+    "distractors": [
+      "Gerenciamento de banco de dados",
+      "Criptografia de disco",
+      "Hospedagem de sites"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual ataque tenta enganar usuários para obter senhas por mensagens ou páginas falsas?",
+    "correct": "Phishing",
+    "distractors": [
+      "DDoS",
+      "Ransomware",
+      "Spoofing de DNS"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual é o nome do padrão de comunicação sem fio de curto alcance usado em fones e periféricos?",
+    "correct": "Bluetooth",
+    "distractors": [
+      "Ethernet",
+      "NFC",
+      "HDMI"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual empresa desenvolve o sistema operacional Android em seu núcleo principal?",
+    "correct": "Google",
+    "distractors": [
+      "Apple",
+      "Microsoft",
+      "Samsung"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual componente de um computador executa instruções e realiza operações gerais de processamento?",
+    "correct": "CPU",
+    "distractors": [
+      "SSD",
+      "Fonte",
+      "Placa de rede"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Em bancos relacionais, qual comando SQL é usado para consultar dados?",
+    "correct": "SELECT",
+    "distractors": [
+      "INSERT",
+      "UPDATE",
+      "DELETE"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual algoritmo de hash é amplamente utilizado na família SHA-2?",
+    "correct": "SHA-256",
+    "distractors": [
+      "MD5",
+      "CRC32",
+      "DES"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual é a principal finalidade da autenticação multifator (MFA)?",
+    "correct": "Exigir mais de uma evidência de identidade",
+    "distractors": [
+      "Aumentar a velocidade da conexão",
+      "Substituir backups",
+      "Eliminar a necessidade de senhas em todos os sistemas"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual tecnologia permite criar uma rede privada criptografada sobre uma rede pública?",
+    "correct": "VPN",
+    "distractors": [
+      "VLAN",
+      "NAT",
+      "DNS"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual tipo de memória perde seu conteúdo quando o computador é desligado?",
+    "correct": "RAM",
+    "distractors": [
+      "SSD",
+      "ROM",
+      "Memória flash"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual arquitetura de processadores é conhecida por conjunto reduzido de instruções?",
+    "correct": "RISC",
+    "distractors": [
+      "CISC",
+      "BIOS",
+      "RAID"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "Qual protocolo seguro é utilizado para acessar servidores remotamente por terminal?",
+    "correct": "SSH",
+    "distractors": [
+      "Telnet",
+      "HTTP",
+      "POP3"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Tecnologia",
+    "prompt": "O que caracteriza uma vulnerabilidade de dia zero?",
+    "correct": "Falha ainda desconhecida ou sem correção disponível pelo fornecedor",
+    "distractors": [
+      "Ataque que ocorre sempre à meia-noite",
+      "Senha expirada há zero dias",
+      "Falha causada exclusivamente por hardware antigo"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual é a lei brasileira conhecida como Constituição Cidadã?",
+    "correct": "Constituição Federal de 1988",
+    "distractors": [
+      "Constituição de 1824",
+      "Constituição de 1937",
+      "Constituição de 1967"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual princípio determina que a Administração Pública só pode agir conforme a lei autoriza?",
+    "correct": "Legalidade",
+    "distractors": [
+      "Publicidade",
+      "Eficiência",
+      "Moralidade"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "No Brasil, qual órgão exerce a função jurisdicional em âmbito federal comum, em primeira instância?",
+    "correct": "Justiça Federal",
+    "distractors": [
+      "Câmara dos Deputados",
+      "Ministério Público Federal",
+      "Tribunal de Contas da União"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual é a idade mínima geral para adquirir capacidade civil plena no Brasil?",
+    "correct": "18 anos",
+    "distractors": [
+      "16 anos",
+      "21 anos",
+      "14 anos"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual ramo do Direito regula relações entre particulares, como contratos e propriedade?",
+    "correct": "Direito Civil",
+    "distractors": [
+      "Direito Penal",
+      "Direito Tributário",
+      "Direito Eleitoral"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual princípio do Direito Penal impede a punição sem lei anterior que defina o crime?",
+    "correct": "Legalidade penal",
+    "distractors": [
+      "Insignificância",
+      "Individualização da pena",
+      "Presunção de inocência"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual instituição é responsável pela defesa dos direitos individuais e coletivos e pela orientação jurídica gratuita aos necessitados?",
+    "correct": "Defensoria Pública",
+    "distractors": [
+      "Polícia Federal",
+      "Receita Federal",
+      "Advocacia-Geral da União"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual lei estabelece normas de proteção e defesa do consumidor no Brasil?",
+    "correct": "Código de Defesa do Consumidor",
+    "distractors": [
+      "Código Civil",
+      "Estatuto da Cidade",
+      "Lei de Execução Penal"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "A Lei Geral de Proteção de Dados Pessoais é conhecida pela sigla:",
+    "correct": "LGPD",
+    "distractors": [
+      "LAI",
+      "LDB",
+      "CLT"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual é o prazo geral de prescrição para cobrança de dívida líquida constante de instrumento público ou particular, conforme o Código Civil?",
+    "correct": "5 anos",
+    "distractors": [
+      "1 ano",
+      "3 anos",
+      "10 anos"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual poder da República tem a função típica de elaborar leis?",
+    "correct": "Legislativo",
+    "distractors": [
+      "Executivo",
+      "Judiciário",
+      "Moderador"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "Quem pode propor ação direta de inconstitucionalidade no STF, entre outros legitimados?",
+    "correct": "Procurador-Geral da República",
+    "distractors": [
+      "Prefeito de qualquer município",
+      "Delegado de polícia",
+      "Juiz de primeira instância"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual é o nome do conjunto de normas que regula as relações de trabalho no Brasil?",
+    "correct": "CLT",
+    "distractors": [
+      "Código Penal",
+      "Código Tributário Nacional",
+      "ECA"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "No processo penal, qual princípio assegura que ninguém será considerado culpado até o trânsito em julgado de sentença penal condenatória?",
+    "correct": "Presunção de inocência",
+    "distractors": [
+      "Duplo grau obrigatório",
+      "Publicidade irrestrita",
+      "Livre convencimento absoluto"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual estatuto estabelece direitos e garantias de crianças e adolescentes no Brasil?",
+    "correct": "ECA",
+    "distractors": [
+      "Estatuto do Idoso",
+      "Código de Defesa do Consumidor",
+      "Lei Maria da Penha"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual lei é conhecida como Lei Maria da Penha?",
+    "correct": "Lei nº 11.340/2006",
+    "distractors": [
+      "Lei nº 8.069/1990",
+      "Lei nº 9.605/1998",
+      "Lei nº 13.709/2018"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Em regra, qual é o prazo de validade máximo de um concurso público, incluindo prorrogação, previsto na Constituição?",
+    "correct": "Até quatro anos",
+    "distractors": [
+      "Até dois anos",
+      "Até três anos",
+      "Até cinco anos"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual tribunal é responsável por uniformizar a interpretação da legislação federal infraconstitucional?",
+    "correct": "Superior Tribunal de Justiça",
+    "distractors": [
+      "Supremo Tribunal Federal",
+      "Tribunal Superior Eleitoral",
+      "Tribunal de Contas da União"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual é a principal função do habeas corpus?",
+    "correct": "Proteger a liberdade de locomoção",
+    "distractors": [
+      "Garantir acesso a dados pessoais",
+      "Anular tributos",
+      "Proteger direito de propriedade intelectual"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Direito",
+    "prompt": "Qual ramo do Direito trata dos crimes e das penas?",
+    "correct": "Direito Penal",
+    "distractors": [
+      "Direito Civil",
+      "Direito Empresarial",
+      "Direito Administrativo"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual abordagem psicológica é associada a Carl Rogers?",
+    "correct": "Abordagem centrada na pessoa",
+    "distractors": [
+      "Psicanálise clássica",
+      "Behaviorismo radical",
+      "Psicologia analítica"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Quem é conhecido pela teoria do desenvolvimento psicossocial em oito estágios?",
+    "correct": "Erik Erikson",
+    "distractors": [
+      "Jean Piaget",
+      "B. F. Skinner",
+      "Ivan Pavlov"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual conceito descreve a aprendizagem por observação de outras pessoas?",
+    "correct": "Aprendizagem vicária",
+    "distractors": [
+      "Condicionamento clássico",
+      "Extinção operante",
+      "Reforço negativo"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual neurotransmissor está associado, entre outras funções, à motivação e recompensa?",
+    "correct": "Dopamina",
+    "distractors": [
+      "Melatonina",
+      "Acetilcolina",
+      "Histamina"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Na teoria de Piaget, qual estágio sucede o pré-operatório?",
+    "correct": "Operações concretas",
+    "distractors": [
+      "Sensório-motor",
+      "Operações formais",
+      "Estágio oral"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual é o nome da técnica terapêutica que busca identificar e modificar pensamentos disfuncionais?",
+    "correct": "Reestruturação cognitiva",
+    "distractors": [
+      "Livre associação",
+      "Dessensibilização farmacológica",
+      "Interpretação de sonhos"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual pesquisador conduziu os experimentos clássicos sobre condicionamento operante com a caixa de Skinner?",
+    "correct": "B. F. Skinner",
+    "distractors": [
+      "John B. Watson",
+      "Albert Bandura",
+      "Carl Rogers"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "O que caracteriza o efeito placebo em pesquisas e tratamentos?",
+    "correct": "Resposta associada à expectativa ou ao contexto do tratamento",
+    "distractors": [
+      "Reação causada apenas por dose elevada",
+      "Ausência comprovada de qualquer mudança",
+      "Efeito exclusivo de medicamentos controlados"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual estrutura cerebral tem papel importante na formação de novas memórias declarativas?",
+    "correct": "Hipocampo",
+    "distractors": [
+      "Cerebelo",
+      "Medula espinhal",
+      "Hipotálamo"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual conceito de Freud representa a instância psíquica guiada pelo princípio do prazer?",
+    "correct": "Id",
+    "distractors": [
+      "Ego",
+      "Superego",
+      "Self"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Em psicometria, o que a validade de um teste procura avaliar?",
+    "correct": "Se o instrumento mede o construto que pretende medir",
+    "distractors": [
+      "Se todos obtêm a mesma pontuação",
+      "Se o teste é sempre curto",
+      "Se o resultado nunca varia"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual viés leva alguém a superestimar a própria capacidade após pouco conhecimento sobre um tema?",
+    "correct": "Efeito Dunning-Kruger",
+    "distractors": [
+      "Viés de confirmação",
+      "Efeito halo",
+      "Viés de retrospectiva"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual conceito de Viktor Frankl destaca a busca por sentido como motivação humana?",
+    "correct": "Vontade de sentido",
+    "distractors": [
+      "Inconsciente coletivo",
+      "Condicionamento operante",
+      "Hierarquia de necessidades"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Na terapia comportamental, o reforço negativo ocorre quando:",
+    "correct": "A retirada de um estímulo aversivo aumenta um comportamento",
+    "distractors": [
+      "Um estímulo agradável é apresentado para aumentar um comportamento",
+      "Uma resposta é punida com estímulo aversivo",
+      "Um comportamento deixa de receber atenção e sempre aumenta"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual é a principal diferença entre emoção e humor na psicologia?",
+    "correct": "Emoções tendem a ser mais breves e ligadas a estímulos; humores são mais duradouros e difusos",
+    "distractors": [
+      "Humores são sempre conscientes e emoções nunca são",
+      "Emoções duram dias e humores segundos",
+      "Não existe distinção conceitual entre eles"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual pesquisadora é associada aos estudos sobre apego infantil em colaboração com John Bowlby?",
+    "correct": "Mary Ainsworth",
+    "distractors": [
+      "Anna Freud",
+      "Melanie Klein",
+      "Elizabeth Loftus"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual fenômeno descreve a dificuldade de lembrar informações devido à interferência de novas aprendizagens?",
+    "correct": "Interferência retroativa",
+    "distractors": [
+      "Efeito de primazia",
+      "Memória eidética",
+      "Condicionamento de ordem superior"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual abordagem terapêutica utiliza aceitação, mindfulness e ação orientada por valores?",
+    "correct": "Terapia de Aceitação e Compromisso (ACT)",
+    "distractors": [
+      "Psicanálise lacaniana",
+      "Terapia aversiva",
+      "Hipnose clássica"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual é o nome do processo pelo qual uma resposta aprendida diminui quando o reforço deixa de ocorrer?",
+    "correct": "Extinção",
+    "distractors": [
+      "Generalização",
+      "Modelagem",
+      "Discriminação"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Psicologia",
+    "prompt": "Qual área da psicologia estuda como pessoas pensam, sentem e se comportam em grupos?",
+    "correct": "Psicologia Social",
+    "distractors": [
+      "Neuropsicologia",
+      "Psicologia do Esporte",
+      "Psicologia Clínica"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual cultura agrícola brasileira tem grande importância na produção de óleo e farelo proteico?",
+    "correct": "Soja",
+    "distractors": [
+      "Café",
+      "Cana-de-açúcar",
+      "Algodão"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual é a principal finalidade da análise de solo antes da adubação?",
+    "correct": "Diagnosticar fertilidade e orientar correções e adubação",
+    "distractors": [
+      "Medir apenas a umidade do ar",
+      "Identificar exclusivamente insetos",
+      "Determinar a produtividade sem avaliar nutrientes"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual nutriente é representado pelo símbolo químico K nos fertilizantes NPK?",
+    "correct": "Potássio",
+    "distractors": [
+      "Cálcio",
+      "Fósforo",
+      "Nitrogênio"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "O que significa plantio direto?",
+    "correct": "Sistema com mínimo revolvimento do solo e manutenção de cobertura vegetal",
+    "distractors": [
+      "Plantio realizado somente em áreas irrigadas",
+      "Cultivo sem uso de sementes",
+      "Plantio feito exclusivamente em estufas"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual praga é conhecida por atacar a parte aérea e as estruturas reprodutivas do milho?",
+    "correct": "Lagarta-do-cartucho",
+    "distractors": [
+      "Bicho-mineiro",
+      "Broca-do-café",
+      "Mosca-branca do citros"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual organismo causa a ferrugem-asiática da soja?",
+    "correct": "Phakopsora pachyrhizi",
+    "distractors": [
+      "Fusarium oxysporum",
+      "Colletotrichum gloeosporioides",
+      "Xanthomonas citri"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual sistema integra lavoura, pecuária e, em alguns modelos, floresta na mesma área?",
+    "correct": "ILPF",
+    "distractors": [
+      "Hidroponia",
+      "Monocultivo contínuo",
+      "Cultivo mínimo isolado"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual é a função dos estômatos nas plantas?",
+    "correct": "Regular trocas gasosas e transpiração",
+    "distractors": [
+      "Absorver nutrientes diretamente do solo",
+      "Produzir sementes",
+      "Transportar seiva elaborada pelas raízes"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual prática ajuda a reduzir a deriva de gotas durante a aplicação de defensivos?",
+    "correct": "Adequar tamanho de gotas e condições de vento",
+    "distractors": [
+      "Aplicar com vento forte",
+      "Aumentar a pressão sem critério",
+      "Pulverizar nas horas mais quentes"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "O que é fixação biológica de nitrogênio?",
+    "correct": "Conversão do nitrogênio atmosférico em formas assimiláveis por microrganismos",
+    "distractors": [
+      "Transformação de fósforo em potássio",
+      "Liberação de oxigênio pelas raízes",
+      "Absorção direta de nitrogênio gasoso pelas folhas"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual bactéria forma associação simbiótica com raízes de leguminosas e pode fixar nitrogênio?",
+    "correct": "Bradyrhizobium",
+    "distractors": [
+      "Escherichia coli",
+      "Rhizopus",
+      "Bacillus anthracis"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual indicador expressa a acidez ou alcalinidade do solo?",
+    "correct": "pH",
+    "distractors": [
+      "CTC",
+      "V%",
+      "Índice de área foliar"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual é o objetivo do vazio sanitário em culturas como a soja?",
+    "correct": "Reduzir a sobrevivência e a multiplicação de patógenos entre safras",
+    "distractors": [
+      "Aumentar o teor de matéria orgânica em poucos dias",
+      "Eliminar a necessidade de rotação de culturas",
+      "Acelerar a colheita"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual método de irrigação distribui água em gotas diretamente próximo às raízes?",
+    "correct": "Gotejamento",
+    "distractors": [
+      "Pivô central",
+      "Aspersão convencional",
+      "Inundação"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "O que representa a capacidade de campo do solo?",
+    "correct": "Teor de água retido após a drenagem do excesso gravitacional",
+    "distractors": [
+      "Volume total de poros preenchidos por ar",
+      "Quantidade máxima de sais solúveis",
+      "Velocidade do vento na lavoura"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual é o nome da prática de cultivar plantas de cobertura para proteger e melhorar o solo?",
+    "correct": "Adubação verde",
+    "distractors": [
+      "Desbrota",
+      "Raleio",
+      "Estaquia"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual doença do cafeeiro é causada pelo fungo Hemileia vastatrix?",
+    "correct": "Ferrugem do cafeeiro",
+    "distractors": [
+      "Cercosporiose",
+      "Antracnose",
+      "Mancha bacteriana"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual equipamento agrícola é utilizado para distribuir sementes em linhas com espaçamento controlado?",
+    "correct": "Semeadora",
+    "distractors": [
+      "Colheitadeira",
+      "Pulverizador",
+      "Ensiladeira"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Em agricultura de precisão, para que servem mapas de produtividade?",
+    "correct": "Identificar a variabilidade espacial do rendimento na lavoura",
+    "distractors": [
+      "Substituir todas as análises de solo",
+      "Prever com certeza o preço futuro da safra",
+      "Medir somente a velocidade do trator"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Agronomia",
+    "prompt": "Qual prática é recomendada para reduzir a erosão em áreas agrícolas com declive?",
+    "correct": "Plantio em nível e manutenção de cobertura do solo",
+    "distractors": [
+      "Retirada total da palhada",
+      "Preparo morro abaixo",
+      "Queima dos restos culturais"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual educador brasileiro é autor de Pedagogia do Oprimido?",
+    "correct": "Paulo Freire",
+    "distractors": [
+      "Anísio Teixeira",
+      "Darcy Ribeiro",
+      "Lourenço Filho"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual documento define diretrizes e bases da educação nacional no Brasil?",
+    "correct": "Lei nº 9.394/1996 (LDB)",
+    "distractors": [
+      "Código Civil",
+      "Estatuto da Cidade",
+      "Lei de Responsabilidade Fiscal"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "O que significa BNCC na educação brasileira?",
+    "correct": "Base Nacional Comum Curricular",
+    "distractors": [
+      "Banco Nacional de Conteúdos Científicos",
+      "Base Normativa de Cursos e Carreiras",
+      "Boletim Nacional de Competências Curriculares"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual teoria da aprendizagem está associada à zona de desenvolvimento proximal?",
+    "correct": "Teoria histórico-cultural de Vygotsky",
+    "distractors": [
+      "Behaviorismo de Skinner",
+      "Epistemologia genética de Piaget",
+      "Aprendizagem significativa de Ausubel"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual é a função principal da avaliação formativa?",
+    "correct": "Acompanhar a aprendizagem e orientar intervenções durante o processo",
+    "distractors": [
+      "Classificar estudantes apenas ao final do ano",
+      "Substituir o planejamento docente",
+      "Selecionar exclusivamente os melhores alunos"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual autor desenvolveu a teoria da aprendizagem significativa?",
+    "correct": "David Ausubel",
+    "distractors": [
+      "Jerome Bruner",
+      "John Dewey",
+      "Célestin Freinet"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "O que caracteriza a educação inclusiva?",
+    "correct": "Garantir participação e aprendizagem de todos, considerando diferentes necessidades",
+    "distractors": [
+      "Separar estudantes por desempenho permanentemente",
+      "Aplicar uma metodologia idêntica sem adaptações",
+      "Restringir o acesso de alunos com deficiência"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual é o nome do documento que organiza objetivos, conteúdos, metodologias e avaliação de uma instituição escolar?",
+    "correct": "Projeto Político-Pedagógico",
+    "distractors": [
+      "Regimento comercial",
+      "Plano de carreira",
+      "Calendário fiscal"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual método de alfabetização enfatiza a relação entre fonemas e grafemas?",
+    "correct": "Método fônico",
+    "distractors": [
+      "Método global exclusivamente visual",
+      "Método de projetos",
+      "Método montessoriano de vida prática"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Quem é associado à criação do método Montessori?",
+    "correct": "Maria Montessori",
+    "distractors": [
+      "Emilia Ferreiro",
+      "Magda Soares",
+      "Henri Wallon"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Na teoria de Piaget, a assimilação ocorre quando o indivíduo:",
+    "correct": "Integra novas informações a esquemas já existentes",
+    "distractors": [
+      "Abandona todos os esquemas anteriores",
+      "Aprende apenas por imitação",
+      "Memoriza sem relacionar conhecimentos"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual conceito de Henri Wallon destaca a integração entre afetividade, movimento e cognição?",
+    "correct": "Desenvolvimento integral da pessoa",
+    "distractors": [
+      "Condicionamento operante",
+      "Aprendizagem por descoberta",
+      "Inteligências múltiplas"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual é a finalidade do Atendimento Educacional Especializado (AEE)?",
+    "correct": "Identificar e organizar recursos pedagógicos e de acessibilidade para eliminar barreiras",
+    "distractors": [
+      "Substituir a escolarização comum",
+      "Aplicar reforço escolar obrigatório a todos",
+      "Realizar diagnóstico médico dos estudantes"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual lei brasileira tornou obrigatório o ensino de história e cultura afro-brasileira nas escolas?",
+    "correct": "Lei nº 10.639/2003",
+    "distractors": [
+      "Lei nº 8.069/1990",
+      "Lei nº 9.394/1996, em sua redação original",
+      "Lei nº 13.005/2014"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "O que é interdisciplinaridade no contexto escolar?",
+    "correct": "Articulação entre diferentes áreas do conhecimento",
+    "distractors": [
+      "Separação rígida dos conteúdos por disciplina",
+      "Eliminação dos componentes curriculares",
+      "Uso exclusivo de atividades extracurriculares"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual é o foco central da pedagogia de projetos?",
+    "correct": "Aprendizagem organizada em torno de questões ou problemas significativos",
+    "distractors": [
+      "Memorização isolada de listas de conteúdo",
+      "Aulas exclusivamente expositivas",
+      "Avaliação apenas por provas padronizadas"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual documento orienta as metas e estratégias da educação brasileira para um período de dez anos?",
+    "correct": "Plano Nacional de Educação",
+    "distractors": [
+      "Projeto Político-Pedagógico",
+      "Plano de Desenvolvimento Individual",
+      "Conselho Nacional de Educação"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual pesquisadora brasileira é referência nos estudos sobre alfabetização e letramento?",
+    "correct": "Magda Soares",
+    "distractors": [
+      "Nísia Floresta",
+      "Bertha Lutz",
+      "Zilda Arns"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Na educação, o desenho universal para a aprendizagem propõe:",
+    "correct": "Múltiplas formas de engajamento, representação e ação/expressão",
+    "distractors": [
+      "Um único formato de aula e avaliação",
+      "Currículos separados por diagnóstico",
+      "Retirar objetivos de aprendizagem para alguns estudantes"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Pedagogia",
+    "prompt": "Qual é a principal característica da gestão democrática na escola pública?",
+    "correct": "Participação da comunidade escolar nos processos decisórios",
+    "distractors": [
+      "Decisões exclusivas da direção",
+      "Ausência de conselhos escolares",
+      "Centralização permanente das decisões na secretaria"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual organela celular é responsável pela maior parte da produção de ATP na respiração aeróbica?",
+    "correct": "Mitocôndria",
+    "distractors": [
+      "Ribossomo",
+      "Lisossomo",
+      "Complexo de Golgi"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual molécula armazena a informação genética na maioria dos seres vivos?",
+    "correct": "DNA",
+    "distractors": [
+      "ATP",
+      "Glicose",
+      "Hemoglobina"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual processo permite que plantas convertam energia luminosa em energia química?",
+    "correct": "Fotossíntese",
+    "distractors": [
+      "Fermentação",
+      "Quimiossíntese animal",
+      "Respiração anaeróbica"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Quantos pares de cromossomos existem normalmente em células somáticas humanas?",
+    "correct": "23 pares",
+    "distractors": [
+      "22 pares",
+      "46 pares",
+      "24 pares"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual é o nome do processo de divisão celular que produz gametas?",
+    "correct": "Meiose",
+    "distractors": [
+      "Mitose",
+      "Bipartição",
+      "Brotamento"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual grupo de organismos inclui leveduras e cogumelos?",
+    "correct": "Fungos",
+    "distractors": [
+      "Protozoários",
+      "Arqueias",
+      "Plantas avasculares"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual estrutura celular controla a entrada e saída de substâncias?",
+    "correct": "Membrana plasmática",
+    "distractors": [
+      "Parede celular",
+      "Nucléolo",
+      "Centríolo"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual é o nome da relação ecológica em que ambas as espécies se beneficiam?",
+    "correct": "Mutualismo",
+    "distractors": [
+      "Parasitismo",
+      "Predação",
+      "Amensalismo"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual bioma brasileiro é conhecido por árvores de casca grossa e adaptações ao fogo?",
+    "correct": "Cerrado",
+    "distractors": [
+      "Pampa",
+      "Pantanal",
+      "Mata de Araucárias"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual é o principal pigmento responsável pela absorção de luz na fotossíntese?",
+    "correct": "Clorofila",
+    "distractors": [
+      "Melanina",
+      "Hemoglobina",
+      "Queratina"
+    ],
+    "difficulty": "facil",
+    "weight": 1
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual cientista propôs a teoria da seleção natural em conjunto com Alfred Russel Wallace?",
+    "correct": "Charles Darwin",
+    "distractors": [
+      "Gregor Mendel",
+      "Louis Pasteur",
+      "Carl Linnaeus"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual organela realiza a síntese de proteínas?",
+    "correct": "Ribossomo",
+    "distractors": [
+      "Lisossomo",
+      "Peroxissomo",
+      "Vacúolo"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Em genética, qual é o nome da constituição genética de um indivíduo?",
+    "correct": "Genótipo",
+    "distractors": [
+      "Fenótipo",
+      "Cariótipo",
+      "Ecótipo"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual processo evolutivo altera a frequência dos alelos por acaso, especialmente em populações pequenas?",
+    "correct": "Deriva genética",
+    "distractors": [
+      "Seleção artificial",
+      "Fluxo gênico direcionado",
+      "Mutação induzida"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual é o nome da enzima que sintetiza uma molécula de RNA a partir de DNA?",
+    "correct": "RNA polimerase",
+    "distractors": [
+      "DNA ligase",
+      "Helicase",
+      "Amilase"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual domínio reúne organismos procariontes frequentemente encontrados em ambientes extremos, embora não exclusivamente?",
+    "correct": "Archaea",
+    "distractors": [
+      "Eukarya",
+      "Animalia",
+      "Fungi"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual estrutura das plantas conduz água e sais minerais das raízes para as partes aéreas?",
+    "correct": "Xilema",
+    "distractors": [
+      "Floema",
+      "Epiderme",
+      "Meristema lateral"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual é o nome da relação em que um organismo se beneficia e o outro não é significativamente afetado?",
+    "correct": "Comensalismo",
+    "distractors": [
+      "Competição",
+      "Parasitismo",
+      "Amensalismo"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual fase do ciclo celular é marcada pela duplicação do DNA?",
+    "correct": "Fase S da intérfase",
+    "distractors": [
+      "Prófase",
+      "Metáfase",
+      "Citocinese"
+    ],
+    "difficulty": "medio",
+    "weight": 2
+  },
+  {
+    "category": "Biologia",
+    "prompt": "Qual tipo de RNA transporta aminoácidos até o ribossomo durante a tradução?",
+    "correct": "RNA transportador (tRNA)",
+    "distractors": [
+      "RNA mensageiro (mRNA)",
+      "RNA ribossômico (rRNA)",
+      "microRNA"
+    ],
+    "difficulty": "dificil",
+    "weight": 3
+  }
+]
