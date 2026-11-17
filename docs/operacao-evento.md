@@ -101,6 +101,8 @@ Realize estes passos antes de ir para o local da apresentação:
    ```
    A resposta esperada indica `status: "ok"` e `database: true`.
 
+   > **Importante:** mantenha **uma única instância** do serviço. O estado das partidas vive em memória do processo; rodar com múltiplos workers (`uvicorn --workers N`) ou réplicas atrás de proxy faz jogadores serem roteados para um processo que não conhece a sala (conexão WebSocket recusada).
+
 3. **Abrir a interface do apresentador (Host):**
    No notebook, abra o navegador em:
    ```
@@ -246,6 +248,14 @@ Observações:
   1. O participante deve simplesmente reabrir o navegador e recarregar a página (F5/refresh).
   2. A URL mantém `?room=CODIGO` e o token de sessão salvo localmente no aparelho restabelece a conexão via WebSocket (`rejoin`) e recupera o estado da rodada com o tempo restante.
   3. Caso um time tenha outros membros ativos, os demais continuam podendo responder normalmente pela equipe.
+
+### Falha 4: Muitas salas criadas ao mesmo tempo
+- **Sintoma:** `POST /api/rooms` começa a responder `503` ("Limite de salas simultâneas atingido").
+- **Contexto:** O servidor roda em **uma única instância/processo** (todo o estado das partidas vive em memória; não use `--workers` nem réplicas). Uma instância suporta dezenas de salas simultâneas com folga.
+- **Solução:**
+  1. Salas terminadas ou abandonadas no lobby são liberadas automaticamente após `ROOM_TTL_MINUTES` (padrão 30 min) por um janitor em background.
+  2. Se o limite `MAX_ACTIVE_ROOMS` (padrão 100) for atingido, peça aos hosts de salas antigas que encerrarão a partida; ou aumente a variável no `.env` e reinicie entre blocos do evento.
+  3. **Atenção:** reiniciar o serviço derruba as partidas em andamento — prefira ajustar limites antes do evento começar.
 
 ---
 
