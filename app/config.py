@@ -26,6 +26,15 @@ class Settings(BaseSettings):
     speed_bonus: int = 5
     max_team_size: int = 3
 
+    # Limite de salas vivas em memória contra abuso do código de sala.
+    max_active_rooms: int = 100
+    # Salas terminadas ou abandonadas no lobby são removidas após este tempo.
+    room_ttl_minutes: int = 30
+    # Tempo máximo aguardado por envio a um socket antes de considerá-lo lento.
+    ws_send_timeout: float = 2.0
+    # Intervalo da varredura de limpeza de salas.
+    janitor_interval_seconds: int = 60
+
     llm_provider: str = "offline"
     gemini_api_key: str = ""
     gemini_model: str = "gemini-3.8-flash"

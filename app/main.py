@@ -1,7 +1,8 @@
 """Aplicação FastAPI: rotas, arquivos estáticos e ciclo de vida."""
 
+import asyncio
 from collections.abc import Awaitable, Callable
-from contextlib import asynccontextmanager
+from contextlib import asynccontextmanager, suppress
 from pathlib import Path
 
 from fastapi import FastAPI, Request, Response
@@ -19,7 +20,13 @@ STATIC_DIR = Path(__file__).resolve().parent / "static"
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     init_db(settings.db_path)
-    yield
+    janitor = asyncio.create_task(ws.hub.run_janitor())
+    try:
+        yield
+    finally:
+        janitor.cancel()
+        with suppress(asyncio.CancelledError):
+            await janitor
 
 
 app = FastAPI(title="Quiz UEMG de Portas Abertas", lifespan=lifespan)

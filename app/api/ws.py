@@ -5,6 +5,7 @@ import json
 import secrets
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 
+from ..config import settings as app_settings
 from ..domain.models import Phase, Player
 from ..game.engine import EngineError
 from ..game.manager import manager
@@ -33,6 +34,48 @@ class WebSocketHub:
         self.player_connections: dict[str, dict[str, WebSocket]] = {}
         self.question_timers: dict[str, asyncio.Task[None]] = {}
         self._lock = asyncio.Lock()
+
+    async def _send_all(self, sockets: list[WebSocket], message: str) -> None:
+        """Envia a mensagem a todos os sockets em paralelo, com timeout.
+
+        Um cliente lento ou travado não atrasa o restante da sala: se o
+        envio não completar em `ws_send_timeout`, o socket é descartado.
+        """
+        if not sockets:
+            return
+        timeout = app_settings.ws_send_timeout
+        await asyncio.gather(
+            *(asyncio.wait_for(ws.send_text(message), timeout) for ws in sockets),
+            return_exceptions=True,
+        )
+
+    async def purge_room(self, room_code: str) -> None:
+        """Fecha conexões e cancela timers de uma sala removida do manager."""
+        code = room_code.upper()
+        self.cancel_timer(code)
+        async with self._lock:
+            hosts = self.host_connections.pop(code, set())
+            players = self.player_connections.pop(code, {})
+        sockets = list(hosts) + list(players.values())
+        for ws in sockets:
+            try:
+                await asyncio.wait_for(ws.close(code=1001), app_settings.ws_send_timeout)
+            except Exception:
+                pass
+
+    async def run_janitor(self) -> None:
+        """Loop de fundo: remove salas expiradas e purga suas conexões."""
+        interval = app_settings.janitor_interval_seconds
+        while True:
+            try:
+                await asyncio.sleep(interval)
+                expired = await manager.sweep_expired()
+                for code in expired:
+                    await self.purge_room(code)
+            except asyncio.CancelledError:
+                raise
+            except Exception:
+                pass
 
     async def register_host(self, room_code: str, websocket: WebSocket) -> None:
         async with self._lock:
@@ -112,11 +155,7 @@ class WebSocketHub:
             return
         snapshot_data = manager.state(code)
         message = HostStateMessage.from_snapshot(snapshot_data).model_dump_json()
-        for ws in sockets:
-            try:
-                await ws.send_text(message)
-            except Exception:
-                pass
+        await self._send_all(sockets, message)
 
     async def broadcast_players_question(self, room_code: str) -> None:
         code = room_code.upper()
@@ -138,11 +177,7 @@ class WebSocketHub:
             difficulty=question.difficulty.value,
             weight=question.weight,
         ).model_dump_json()
-        for ws in list(player_map.values()):
-            try:
-                await ws.send_text(message)
-            except Exception:
-                pass
+        await self._send_all(list(player_map.values()), message)
 
     async def broadcast_players_reveal(self, room_code: str) -> None:
         code = room_code.upper()
@@ -169,11 +204,7 @@ class WebSocketHub:
             answers=answers_data,
             teams=teams_data,
         ).model_dump_json()
-        for ws in list(player_map.values()):
-            try:
-                await ws.send_text(message)
-            except Exception:
-                pass
+        await self._send_all(list(player_map.values()), message)
 
     async def broadcast_players_finished(self, room_code: str) -> None:
         code = room_code.upper()
@@ -191,11 +222,7 @@ class WebSocketHub:
             winners=winners,
             teams=teams_data,
         ).model_dump_json()
-        for ws in list(player_map.values()):
-            try:
-                await ws.send_text(message)
-            except Exception:
-                pass
+        await self._send_all(list(player_map.values()), message)
 
     async def broadcast_team_locked(self, room_code: str, team_id: str) -> None:
         code = room_code.upper()
@@ -203,11 +230,7 @@ class WebSocketHub:
         if not player_map:
             return
         message = PlayerTeamLockedMessage(team_id=team_id).model_dump_json()
-        for ws in list(player_map.values()):
-            try:
-                await ws.send_text(message)
-            except Exception:
-                pass
+        await self._send_all(list(player_map.values()), message)
 
     async def handle_host_start(self, room_code: str, websocket: WebSocket) -> None:
         code = room_code.upper()

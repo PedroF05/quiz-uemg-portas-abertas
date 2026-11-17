@@ -1,6 +1,7 @@
 """Gerenciamento das salas em memória."""
 
 import asyncio
+from datetime import datetime, timedelta
 import random
 import secrets
 import uuid
@@ -94,6 +95,11 @@ class RoomManager:
         host_token = secrets.token_urlsafe(24)
 
         async with self._lock:
+            if len(self._engines) >= self.settings.max_active_rooms:
+                raise EngineError(
+                    "Limite de salas simultâneas atingido. Tente novamente em instantes.",
+                    503,
+                )
             code = _new_code()
             while code in self._engines:
                 code = _new_code()
@@ -190,6 +196,35 @@ class RoomManager:
             return engine.room.players_by_token.get(token)
         except EngineError:
             return None
+
+    async def sweep_expired(self) -> list[str]:
+        """Remove salas terminadas ou abandonadas no lobby após o TTL.
+
+        Salas em jogo (QUESTION/REVEAL) nunca são removidas. Retorna os
+        códigos removidos para que o hub feche conexões e cancele timers.
+        """
+        now = datetime.now()
+        ttl = timedelta(minutes=self.settings.room_ttl_minutes)
+        removed: list[str] = []
+        async with self._lock:
+            for code, engine in list(self._engines.items()):
+                room = engine.room
+                if room.phase is Phase.FINISHED:
+                    reference = room.finished_at
+                elif room.phase is Phase.LOBBY:
+                    reference = room.created_at
+                else:
+                    continue
+                if reference is None or now - reference < ttl:
+                    continue
+                lock = self._room_locks.get(code)
+                if lock is not None and lock.locked():
+                    continue
+                self._persist_if_finished(engine)
+                del self._engines[code]
+                self._room_locks.pop(code, None)
+                removed.append(code)
+        return removed
 
     def persist_if_finished(self, engine: GameEngine) -> None:
         self._persist_if_finished(engine)
