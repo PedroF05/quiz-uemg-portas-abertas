@@ -9,6 +9,7 @@ from pathlib import Path
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_huggingface import ChatHuggingFace
+from langchain_ollama import ChatOllama
 from pydantic import BaseModel, Field
 
 from ..config import Settings, settings
@@ -98,7 +99,15 @@ def invoke_model_structured(
     runnable = model.with_structured_output(schema)
     system_msg = SystemMessage(content=SYSTEM_PROMPT)
     user_msg = HumanMessage(content=build_user_prompt(theme, n, retry_error))
-    output = runnable.invoke([system_msg, user_msg])
+    if isinstance(model, ChatOllama):
+        # Streaming mantém bytes trafegando durante a geração. Proxies e túneis
+        # (ex.: Cloudflare) cortam em ~100 s uma resposta sem tráfego (HTTP 524);
+        # uma geração de vários minutos via túnel só sobrevive em streaming.
+        output = None
+        for chunk in runnable.stream([system_msg, user_msg]):
+            output = chunk
+    else:
+        output = runnable.invoke([system_msg, user_msg])
     if isinstance(output, QuestionBatch):
         return output
     if isinstance(output, dict):

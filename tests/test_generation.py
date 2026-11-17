@@ -7,9 +7,10 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 from langchain_core.language_models.chat_models import BaseChatModel
-from langchain_core.messages import BaseMessage
-from langchain_core.outputs import ChatResult
+from langchain_core.messages import AIMessageChunk, BaseMessage
+from langchain_core.outputs import ChatGenerationChunk, ChatResult
 from langchain_core.runnables import RunnableLambda
+from langchain_ollama import ChatOllama
 
 from app.config import settings
 from app.db.repository import (
@@ -18,7 +19,7 @@ from app.db.repository import (
     normalize_theme_key,
     save_cached_questions,
 )
-from app.llm.chain import generate_questions_async
+from app.llm.chain import generate_questions_async, invoke_model_structured
 from app.llm.factory import clear_model_overrides, set_model_override, set_provider_override
 from app.llm.jobs import JobManager, JobStatus, job_manager
 from app.llm.validation import GeneratedQuestion, QuestionBatch, RawQuestion
@@ -393,3 +394,34 @@ def test_generate_endpoint_invalid_tema(client: TestClient) -> None:
 def test_generate_endpoint_not_found(client: TestClient) -> None:
     response = client.get("/api/generate/job-inexistente-12345")
     assert response.status_code == 404
+
+
+def test_local_provider_uses_streaming(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Ollama deve responder em streaming: uma requisição bloqueante de vários
+    minutos é cortada em ~100 s por proxies/túneis (Cloudflare, erro 524)."""
+    batch = QuestionBatch(
+        questions=[
+            RawQuestion(
+                category="Geografia",
+                prompt="Qual é a capital de Minas Gerais?",
+                correct="Belo Horizonte",
+                distractors=["Ouro Preto", "Uberlândia", "Juiz de Fora"],
+            )
+        ]
+    )
+    payload = batch.model_dump_json()
+
+    def fake_stream(self, messages, stop=None, run_manager=None, **kwargs):
+        yield ChatGenerationChunk(message=AIMessageChunk(content=payload))
+
+    def fail_generate(self, *args, **kwargs):
+        raise AssertionError("O provedor local não deve usar invoke bloqueante.")
+
+    monkeypatch.setattr(ChatOllama, "_stream", fake_stream)
+    monkeypatch.setattr(ChatOllama, "_generate", fail_generate)
+
+    model = ChatOllama(model="modelo-falso", base_url="http://127.0.0.1:1")
+    result = invoke_model_structured(model, "Geografia de Minas", 1)
+
+    assert isinstance(result, QuestionBatch)
+    assert result.questions[0].correct == "Belo Horizonte"
